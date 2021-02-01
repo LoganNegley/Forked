@@ -1,8 +1,10 @@
 const express = require('express');
+const UserRouter = require('../Users/users-router')
 
 const server = express();
 
 server.use(express.json());
+server.use('/user', UserRouter)
 
 // Routes
 
