@@ -1,6 +1,6 @@
 // Users table build
 exports.up = function(knex) {
-  return( 
+  return(
     knex.schema
     .createTable('users', tbl =>{
       tbl.increments('user_id');
@@ -46,7 +46,7 @@ exports.up = function(knex) {
         .notNullable();
       tbl.integer('user-id')
         .notNullable()
-        .unsighed()
+        .unsigned()
         .references('user_id')
         .inTable('users')
         .onUpdate('CASCADE')
@@ -68,14 +68,14 @@ exports.up = function(knex) {
       tbl.increments('cartItem_id');
       tbl.integer('ingredient-id')
         .notNullable()
-        .unsighed()
+        .unsigned()
         .references('ingredient_id')
         .inTable('ingredients')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
       tbl.integer('cart-id')
         .notNullable()
-        .unsighed()
+        .unsigned()
         .references('cart_id')
         .inTable('cart')
         .onUpdate('CASCADE')
@@ -98,16 +98,19 @@ exports.up = function(knex) {
         .inTable('ingredients')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      tbl.primaray(['recipe-id', 'ingredient-id']);
+      tbl.primary(['recipe-id', 'ingredient-id']);
     })
 
+
+
+/////////////////////////////////////////////////Brake point on migration:latest
 // Recipes steps table
     .createTable('steps', tbl =>{
-      tbl.increments('id')
+      tbl.increments('id');
       tbl.string('instruction', [500])
         .notNullable();
       tbl.iteger('step-number')
-        .notNullable()
+        .notNullable();
       tbl.integer('recipe-id')
         .notNullable()
         .unsigned()
@@ -129,7 +132,7 @@ exports.up = function(knex) {
         .onDelete('CASCADE');
       tbl.integer('recipe-id')
         .notNullable()
-        .unsighed()
+        .unsigned()
         .references('recipe_id')
         .inTable('recipes')
         .onUpdate('CASCADE')
@@ -149,7 +152,7 @@ exports.up = function(knex) {
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
       tbl.date('dateAdded')
-        .notNullable()
+        .notNullable();
       tbl.integer('recipe-id')
         .notNullable()
         .unsigned()
@@ -160,13 +163,15 @@ exports.up = function(knex) {
     })
 )};
 
-
-
-
-
-
-
-
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('users')
+  return knex.schema
+  .dropTableIfExists('favoriteRecipes')
+  .dropTableIfExists('publicRecipes')
+  .dropTableIfExists('steps')
+  .dropTableIfExists('recipe_ingredient')
+  .dropTableIfExists('cartItems')
+  .dropTableIfExists('ingredients')
+  .dropTableIfExists('recipes')
+  .dropTableIfExists('cart')
+  .dropTableIfExists('users')
 };
