@@ -102,14 +102,12 @@ exports.up = function(knex) {
     })
 
 
-
-/////////////////////////////////////////////////Brake point on migration:latest
 // Recipes steps table
     .createTable('steps', tbl =>{
       tbl.increments('id');
       tbl.string('instruction', [500])
         .notNullable();
-      tbl.iteger('step-number')
+      tbl.integer('step-number')
         .notNullable();
       tbl.integer('recipe-id')
         .notNullable()
@@ -123,7 +121,7 @@ exports.up = function(knex) {
 // public recipes
     .createTable('publicRecipes', tbl =>{
       tbl.increments('id');
-      tbl.ingteger('user-id')
+      tbl.integer('user-id')
         .notNullable()
         .unsigned()
         .references('user_id')
@@ -156,7 +154,7 @@ exports.up = function(knex) {
       tbl.integer('recipe-id')
         .notNullable()
         .unsigned()
-        .reference('recipe_id')
+        .references('recipe_id')
         .inTable('recipes')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
