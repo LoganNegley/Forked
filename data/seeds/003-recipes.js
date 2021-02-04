@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
           image:'',
           prep_time:15,
           cook_time: 10,
-          isPublic: false,
+          isPublic: true,
           userId: 1},
 
         {
@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
           image:'',
           prep_time:25,
           cook_time: 30,
-          isPublic: false,
+          isPublic: true,
           userId: 2},
 
         {
@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
           image:'',
           prep_time:10,
           cook_time: 45,
-          isPublic: false,
+          isPublic: true,
           userId: 1},
 
         {
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
           image:'',
           prep_time:15,
           cook_time: 30,
-          isPublic: false,
+          isPublic: true,
           userId: 2},
 
         {
@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
           image:'',
           prep_time:10,
           cook_time: 30,
-          isPublic: false,
+          isPublic: true,
           userId: 3},
 
         {
@@ -70,7 +70,7 @@ exports.seed = function(knex, Promise) {
           image:'',
           prep_time:15,
           cook_time: 20,
-          isPublic: false,
+          isPublic: true,
           userId: 4},
 
         {
@@ -86,7 +86,7 @@ exports.seed = function(knex, Promise) {
           image:'',
           prep_time:2,
           cook_time: 5,
-          isPublic: false,
+          isPublic: true,
           userId: 4},
 
         {
