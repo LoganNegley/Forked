@@ -21,7 +21,7 @@ exports.up = function(knex) {
 // user cart table
     .createTable('cart', tbl =>{
       tbl.increments('cart_id');
-      tbl.integer('user-id')
+      tbl.integer('userId')  ///add unique constraint
         .notNullable()
         .unsigned()
         .references('user_id')
@@ -33,18 +33,18 @@ exports.up = function(knex) {
 // Recipes table
     .createTable('recipes', tbl =>{
       tbl.increments('recipe_id');
-      tbl.string('recipe-name')
-        .unique()
+      tbl.string('recipeName')
+        .unique() /////take this off
         .notNullable();
       tbl.string('image');
-      tbl.integer('prep-time')
+      tbl.integer('prep_time')
         .notNullable();
-      tbl.integer('cook-time')
+      tbl.integer('cook_ime') //change this typo
         .notNullable();
       tbl.boolean('isPublic')
         .defaultTo('false')
         .notNullable();
-      tbl.integer('user-id')
+      tbl.integer('userId')
         .notNullable()
         .unsigned()
         .references('user_id')
@@ -56,7 +56,7 @@ exports.up = function(knex) {
 // Ingredients table
     .createTable('ingredients', tbl =>{
       tbl.increments('ingredient_id');
-      tbl.string('ingredient-name')
+      tbl.string('ingredient_name')
         .notNullable()
         .unique();
       tbl.string('quantity')
@@ -66,14 +66,14 @@ exports.up = function(knex) {
 // usercart item table
     .createTable('cartItems', tbl =>{
       tbl.increments('cartItem_id');
-      tbl.integer('ingredient-id')
+      tbl.integer('ingredientId')
         .notNullable()
         .unsigned()
         .references('ingredient_id')
         .inTable('ingredients')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      tbl.integer('cart-id')
+      tbl.integer('cartId')
         .notNullable()
         .unsigned()
         .references('cart_id')
@@ -84,32 +84,32 @@ exports.up = function(knex) {
 
 // Recipe_ingredient table
     .createTable('recipe_ingredient', tbl =>{
-      tbl.integer('recipe-id')
+      tbl.integer('recipeId')
         .notNullable()
         .unsigned()
         .references('recipe_id')
         .inTable('recipes')
         .onUpdate('CASCADE')
         .onUpdate('CASCADE');
-      tbl.integer('ingredient-id')
+      tbl.integer('ingredientId')
         .notNullable()
         .unsigned()
         .references('ingredient_id')
         .inTable('ingredients')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      tbl.primary(['recipe-id', 'ingredient-id']);
+      tbl.primary(['recipeId', 'ingredientId']);
     })
 
 
 // Recipes steps table
     .createTable('steps', tbl =>{
-      tbl.increments('id');
+      tbl.increments('stepId');
       tbl.string('instruction', [500])
         .notNullable();
-      tbl.integer('step-number')
+      tbl.integer('step_number')
         .notNullable();
-      tbl.integer('recipe-id')
+      tbl.integer('recipeId')
         .notNullable()
         .unsigned()
         .references('recipe_id')
@@ -121,14 +121,14 @@ exports.up = function(knex) {
 // public recipes
     .createTable('publicRecipes', tbl =>{
       tbl.increments('id');
-      tbl.integer('user-id')
+      tbl.integer('userId')
         .notNullable()
         .unsigned()
         .references('user_id')
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      tbl.integer('recipe-id')
+      tbl.integer('recipeId')
         .notNullable()
         .unsigned()
         .references('recipe_id')
@@ -141,8 +141,8 @@ exports.up = function(knex) {
 
 // favorite recipes
     .createTable('favoriteRecipes', tbl =>{
-      tbl.increments('favorite-id');
-      tbl.integer('user-id')
+      tbl.increments('favorite_id');
+      tbl.integer('userId')
         .notNullable()
         .unsigned()
         .references('user_id')
@@ -151,7 +151,7 @@ exports.up = function(knex) {
         .onDelete('CASCADE');
       tbl.date('dateAdded')
         .notNullable();
-      tbl.integer('recipe-id')
+      tbl.integer('recipeId')
         .notNullable()
         .unsigned()
         .references('recipe_id')
