@@ -55,7 +55,7 @@ exports.seed = function(knex, Promise) {
 
         {instruction: 'mix cheees and frozen potatoes together',
         step_number: 1,
-        recipeId: 7}
+        recipeId: 7},
         
         {instruction: 'add to pan',
         step_number: 2,

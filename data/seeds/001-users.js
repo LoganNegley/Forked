@@ -5,7 +5,8 @@ exports.seed = function(knex, Promise) {
       {
         first_name: 'Logan', 
         last_name:'Negley',
-        email:'logannegley@gmail.com', username:'ElemenPhoenix', 
+        email:'logannegley@gmail.com', 
+        username:'ElemenPhoenix', 
         password:'myPassword'},
 
       {
@@ -19,12 +20,14 @@ exports.seed = function(knex, Promise) {
         first_name:'Michelle',
         last_name: 'Anderston',
         email:'MD.Anderson@verizon.com',
-        password:'123password' }
+        username:'andersonMichelle',
+        password:'123password' },
 
         {
           first_name:'Katie',
           last_name:'Anderson',
           email:'katieIsGreat@gmail.com',
+          username:'kt_anderson',
           password:'helloPassword'
         }
     ]);

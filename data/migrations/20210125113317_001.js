@@ -21,7 +21,8 @@ exports.up = function(knex) {
 // user cart table
     .createTable('cart', tbl =>{
       tbl.increments('cart_id');
-      tbl.integer('userId')  ///add unique constraint
+      tbl.integer('userId')
+        .unique()
         .notNullable()
         .unsigned()
         .references('user_id')
@@ -34,12 +35,11 @@ exports.up = function(knex) {
     .createTable('recipes', tbl =>{
       tbl.increments('recipe_id');
       tbl.string('recipeName')
-        .unique() /////take this off
         .notNullable();
       tbl.string('image');
       tbl.integer('prep_time')
         .notNullable();
-      tbl.integer('cook_ime') //change this typo
+      tbl.integer('cook_time')
         .notNullable();
       tbl.boolean('isPublic')
         .defaultTo('false')
@@ -58,7 +58,6 @@ exports.up = function(knex) {
       tbl.increments('ingredient_id');
       tbl.string('ingredient_name')
         .notNullable()
-        .unique();
       tbl.string('quantity')
         .notNullable();
     })
