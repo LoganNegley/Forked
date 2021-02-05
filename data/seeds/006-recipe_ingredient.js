@@ -9,13 +9,13 @@ exports.seed = function(knex, Promise) {
           ingredientId:2},
         {
           recipeId: 2,
-          ingredientId:2},
-        {
-          recipeId: 2,
           ingredientId:3},
         {
           recipeId: 2,
-          ingredientId:1},
+          ingredientId:4},
+        {
+          recipeId: 2,
+          ingredientId:5},
         {
           recipeId: 3,
           ingredientId:6},
@@ -26,22 +26,22 @@ exports.seed = function(knex, Promise) {
           recipeId: 3,
           ingredientId:8},
         {
-          recipeId: 3,
+          recipeId: 4,
           ingredientId:9},
         {
           recipeId: 4,
           ingredientId:10},
         {
-          recipeId: 4,
+          recipeId: 6,
           ingredientId:11},
         {
-          recipeId: 5,
+          recipeId: 6,
           ingredientId:12},
         {
-          recipeId: 5,
+          recipeId: 7,
           ingredientId:13},
         {
-          recipeId: 6,
+          recipeId: 7,
           ingredientId:14},
       ]);
 };

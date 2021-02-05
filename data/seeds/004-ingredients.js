@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
           ingredient_name: 'garlic',
           quantity:'2tbs'},
 
-        {
+        { 
           ingredient_name: 'pepper',
           quantity:'1 tsp'},
 
