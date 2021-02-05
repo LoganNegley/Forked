@@ -26,7 +26,7 @@ exports.seed = function(knex, Promise) {
           userId: 1},
 
         {
-          recipeName: 'Salmon',
+          recipeName: 'Salmon', 
           image:'',
           prep_time:5,
           cook_time: 20,
