@@ -4,7 +4,7 @@ const UserRouter = require('../Users/user-router')
 const server = express();
 
 server.use(express.json());
-server.use('/user', UserRouter)
+server.use('/users', UserRouter)
 
 
 // Routes
