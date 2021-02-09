@@ -1,10 +1,12 @@
 const express = require('express');
-const UserRouter = require('../Users/user-router')
+const UserRouter = require('../Users/user-router');
+const RecipeRouter = require('../Recipes/recipes_router');
 
 const server = express();
 
 server.use(express.json());
-server.use('/users', UserRouter)
+server.use('/users', UserRouter);
+server.use('/recipes', RecipeRouter);
 
 
 // Routes
