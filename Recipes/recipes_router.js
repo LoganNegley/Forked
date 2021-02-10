@@ -31,4 +31,22 @@ router.get('/:id', (req,res) =>{
     })
 });
 
+// get users recipes
+router.get('/user/:id', (req,res) =>{
+    const {id} = req.params;
+
+    db.getRecipesByUserId(id)   //////Fix this issue with no recipes for user but user exists
+    .then(recipes =>{
+        if(recipes.length > 0){
+            res.status(200).json(recipes)
+        }else{
+            res.status(404).json(({message:'No user with that ID'}))
+        }
+    })
+    .catch(err =>{
+        res.status(500).json({errorMessage:'Unable to get recipes for that user'})
+    })
+});
+
+
 module.exports = router;
