@@ -17,9 +17,17 @@ function getRecipesByUserId(id){
     .where('userId', id)
 };
 
+function addRecipeByUserId(id, recipe){
+    return db('recipes')
+    .from('recipes')
+    .where('userId', id)
+    .insert(recipe)
+};
+
 
 module.exports ={
     getAllRecipes,
     findRecipeById, 
     getRecipesByUserId,
+    addRecipeByUserId,
 }

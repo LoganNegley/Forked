@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const validateUserId = require('../middleware/validateUserId');
 
 const db = require('./recipes_model');
 
@@ -35,7 +36,7 @@ router.get('/:id', (req,res) =>{
 router.get('/user/:id', (req,res) =>{
     const {id} = req.params;
 
-    db.getRecipesByUserId(id)   //////Fix this issue with no recipes for user but user exists
+    db.getRecipesByUserId(id)
     .then(recipes =>{
         if(recipes.length > 0){
             res.status(200).json(recipes)
@@ -46,6 +47,30 @@ router.get('/user/:id', (req,res) =>{
     .catch(err =>{
         res.status(500).json({errorMessage:'Unable to get recipes for that user'})
     })
+});
+
+//Add recipe to user records
+router.post('/user/:id', validateUserId, (req, res) =>{
+    const {id} = req.params;
+    const recipe = req.body;
+    const newRecipe ={...recipe, userId:id}
+
+
+    if(!newRecipe.recipeName || !newRecipe.prep_time || !newRecipe.cook_time){
+        res.status(404).json({message:"Make sure all fields are filled out"})
+    }else{
+        db.addRecipeByUserId(id, newRecipe)
+        .then(recipe =>{
+            res.status(201).json(recipe)
+        })
+        .catch(error =>{
+            console.log(error)
+            res.status(500).json({errorMessage:"Unable to add new recipe"})
+        })
+    }
+
+
+
 });
 
 
