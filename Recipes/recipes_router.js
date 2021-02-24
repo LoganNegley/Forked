@@ -68,10 +68,62 @@ router.post('/user/:id', validateUserId, (req, res) =>{
             res.status(500).json({errorMessage:"Unable to add new recipe"})
         })
     }
-
-
-
 });
+
+// Update recipe by ID
+router.put('/:id', (req, res) =>{
+    const {id} = req.params;
+    const change = req.body;
+
+    db.findRecipeById(id)
+    .then(recipe =>{
+        console.log(recipe.length)
+        if(recipe.length > 0){
+            db.updateRecipeById(id, change)
+            .then(updatedRecipe =>{
+                res.status(200).json(updatedRecipe)
+            })
+            .catch(error =>{
+                console.log(error)
+                res.status(500).json({errorMessage:"Unable to update recipe"})
+            })
+        }else{
+            res.status(404).json({message:"Could not find recipe with that ID"})
+        }
+    })
+    .catch(error =>{
+        console.log(error)
+        res.status(500).json({errorMessage:"Unable to update recipe"})
+    })
+});
+
+router.delete('/:id', (req,res) =>{
+    const {id} = req.params;
+
+    db.findRecipeById(id)
+        .then(recipe =>{
+            if(recipe.length > 0){
+                db.deleteRecipeById(id)
+                .then(removed =>{
+                    console.log(removed)
+                    res.status(200).json({removed: removed})
+                })
+                .catch(error =>{
+                    console.log(error)
+                    res.status(500).json({errorMessage:'Failed to delete recipe'})
+                })
+
+            }else{
+                res.status(404).json({message:'Could not find recipe with that ID'})
+            }
+        })
+        .catch(error =>{
+            console.log(error)
+            res.status(500).json({errorMessage:'Failed to find recipe'})
+        })
+});
+
+
 
 
 module.exports = router;

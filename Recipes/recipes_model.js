@@ -24,10 +24,24 @@ function addRecipeByUserId(id, recipe){
     .insert(recipe)
 };
 
+function updateRecipeById(id, changes){
+    return db('recipes')
+    .where('recipe_id', id)
+    .update(changes)
+};
+
+function deleteRecipeById(id){
+    return db('recipes')
+    .where('recipe_id', id)
+    .del()
+};
+
 
 module.exports ={
     getAllRecipes,
     findRecipeById, 
     getRecipesByUserId,
     addRecipeByUserId,
+    updateRecipeById,
+    deleteRecipeById,
 }
