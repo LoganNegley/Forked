@@ -12,6 +12,7 @@ function findUserById(userId){
     return db.select('*')
     .from('users')
     .where('user_id', userId)
+
 };
 
 // UPDATE user by ID
