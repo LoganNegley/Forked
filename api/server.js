@@ -13,7 +13,7 @@ server.use(express.json());
 // Routers
 server.use('/users', UserRouter);
 server.use('/recipes', RecipeRouter);
-server.use('/cart', CartRouter);
+server.use('/carts', CartRouter);
 server.use('/public/recipes', PublicRecipes);
 
 

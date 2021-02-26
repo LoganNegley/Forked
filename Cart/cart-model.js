@@ -8,10 +8,15 @@ function findCartByUserId(id){
 function addCartToUser(id){
     return db('cart')
     .insert({userId: id})
+};
 
+function getAllCarts(){
+    return db('cart')
+    .from('cart')
 };
 
 module.exports = {
     findCartByUserId,
     addCartToUser,
+    getAllCarts,
 }

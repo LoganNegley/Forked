@@ -19,4 +19,15 @@ router.get('/user/:id', validateUser, (req,res) =>{
 
 });
 
+router.get('/', (req, res) =>{
+    db.getAllCarts()
+    .then(carts =>{
+        res.status(200).json(carts)
+    })
+    .catch(error =>{
+        console.log(error)
+        res.status(500).json({errorMessage:'Failed to get carts data'})
+    })
+});
+
 module.exports = router;
