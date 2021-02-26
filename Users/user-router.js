@@ -1,6 +1,6 @@
 const express = require('express');
 const validateUserId = require('../middleware/validateUserId');
-
+const addCart = require('../Cart/cart-model');
 
 const router = express.Router();
 
@@ -68,6 +68,31 @@ router.post('/', (req,res) =>{
         res.status(500).json({errorMessage:'Unable to create new user'})
     })
 }
+});
+
+// Delete user
+router.delete('/:id', validateUserId, (req, res)=>{
+    const {id} = req.params;
+
+    db.findUserById(id)
+    .then(user =>{
+        if(user){
+            db.deleteUserById(id)
+            .then(user =>{
+                res.status(200).json(user)
+            })
+            .catch(error =>{
+                console.log(error)
+                res.status(500).json({errorMessage:'Failed to delete user'})
+            })
+        }else{
+            res.status(404).json({message:'Unable to find user with that ID'})
+        }
+    })
+    .catch(error =>{
+        console.log(error)
+        res.status(500).json({errorMessage:'Failed to find user with ID'})
+    })
 });
 
 

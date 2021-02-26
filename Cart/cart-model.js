@@ -5,6 +5,13 @@ function findCartByUserId(id){
     .where('userId', id)
 };
 
+function addCartToUser(userId){
+    return db('cart')
+    .insert(userId)
+
+};
+
 module.exports = {
     findCartByUserId,
+    addCartToUser,
 }

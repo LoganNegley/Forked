@@ -29,6 +29,13 @@ function addUser(user){
     .insert(user)
 };
 
+// DELETE user
+function deleteUserById(id){
+    return db('users')
+    .where('user_id', id)
+    .del()
+};
+
 
 
 // exporting functions for model
@@ -36,5 +43,6 @@ function addUser(user){
      getAllUsers,
      findUserById,
      updateUserById,
-     addUser
+     addUser,
+     deleteUserById,
  }
