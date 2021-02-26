@@ -5,9 +5,9 @@ function findCartByUserId(id){
     .where('userId', id)
 };
 
-function addCartToUser(userId){
+function addCartToUser(id){
     return db('cart')
-    .insert(userId)
+    .insert({userId: id})
 
 };
 
