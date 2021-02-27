@@ -1,6 +1,6 @@
 const express = require('express');
 const validateUserId = require('../middleware/validateUserId');
-
+const addCart = require('../Cart/cart-model');
 
 const router = express.Router();
 
@@ -60,14 +60,50 @@ router.post('/', (req,res) =>{
     } else{
 
     db.addUser(newUser)
-    .then(user =>{
-        res.status(201).json(user)
+    .then(userData =>{      //adding new user 
+        const userId = userData[0]      //getting new user Id
+
+        if(userData){
+            addCart.addCartToUser(userId)       //adding new cart for user if new user data created
+            .then(user =>{
+                res.status(200).json(userId)
+            })
+            .catch(error =>{
+                res.status(500).json({errorMessage:'Unable to create cart for user'})
+            })
+        }else{
+                res.status(404).json({message:'Unable to add cart for user'})
+        }
     })
     .catch(error =>{
-        console.log(error)
         res.status(500).json({errorMessage:'Unable to create new user'})
     })
 }
+});
+
+// Delete user
+router.delete('/:id', validateUserId, (req, res)=>{
+    const {id} = req.params;
+
+    db.findUserById(id)
+    .then(user =>{
+        if(user){
+            db.deleteUserById(id)
+            .then(user =>{
+                res.status(200).json({removed: user})
+            })
+            .catch(error =>{
+                console.log(error)
+                res.status(500).json({errorMessage:'Failed to delete user'})
+            })
+        }else{
+            res.status(404).json({message:'Unable to find user with that ID'})
+        }
+    })
+    .catch(error =>{
+        console.log(error)
+        res.status(500).json({errorMessage:'Failed to find user with ID'})
+    })
 });
 
 
