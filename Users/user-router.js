@@ -1,6 +1,6 @@
 const express = require('express');
 const validateUserId = require('../middleware/validateUserId');
-const addCart = require('../Cart/cart-model');
+const cartModel = require('../Cart/cart-model');
 
 const router = express.Router();
 
@@ -64,7 +64,7 @@ router.post('/', (req,res) =>{
         const userId = userData[0]      //getting new user Id
 
         if(userData){
-            addCart.addCartToUser(userId)       //adding new cart for user if new user data created
+            cartModel.addCartToUser(userId)       //adding new cart for user if new user data created
             .then(user =>{
                 res.status(200).json(userId)
             })
