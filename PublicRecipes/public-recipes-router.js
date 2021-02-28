@@ -16,4 +16,17 @@ router.get('/', (req,res) =>{
     })
 });
 
+router.get('/user/:id', validateUser, (req,res) =>{
+    const {id} = req.params;
+
+    db.getPublicRecipeByUserId(id)
+    .then(recipes =>{
+        res.status(200).json(recipes)
+    })
+    .catch(err =>{
+        console.log(err)
+        res.status(500).json({errorMessage:'Failed to get users public recipes'})
+    })
+});
+
 module.exports = router;
