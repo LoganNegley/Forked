@@ -9,16 +9,24 @@ function getAllPublicRecipes(){
 function getPublicRecipeByUserId(id){
     return db('publicRecipes as pr')
     .join('recipes as r', 'pr.recipeId', '=', 'r.recipe_id')
-    .select('r.recipe_id', 'r.recipeName', 'r.image', 'r.prep_time', 'r.cook_time', 'r.userId', 'pr.dateAdded')
+    .select('r.recipe_id', 'r.recipeName', 'r.image', 'r.prep_time', 'r.cook_time', 'r.userId', 'r.isPublic', 'pr.dateAdded')
     .where('r.userId', id)
 };
 
-function addPublicRecipe(id){
+function updateIsPublicRecipe(id){
+    return db('recipes')
+    .where('recipe_id', '=', id)
+    .update({isPublic:true})
+};
 
+function addToPublicRecipe(recipeInfo){
+    return db('publicRecipes')
+    .insert({userId:recipeInfo.userId,recipeId:recipeInfo.recipe_id})
 };
 
 module.exports ={
     getAllPublicRecipes,
     getPublicRecipeByUserId,
-    addPublicRecipe,
+    updateIsPublicRecipe,
+    addToPublicRecipe
 }

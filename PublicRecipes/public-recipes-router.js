@@ -1,5 +1,6 @@
 const express = require('express');
 const validateUser = require('../middleware/validateUserId');
+const recipeModel = require('../Recipes/recipes_model');
 
 const router = express.Router();
 const db = require('./public-recipes-model');
@@ -16,6 +17,7 @@ router.get('/', (req,res) =>{
     })
 });
 
+// GET public recipe by user ID
 router.get('/user/:id', validateUser, (req,res) =>{
     const {id} = req.params;
 
@@ -27,6 +29,37 @@ router.get('/user/:id', validateUser, (req,res) =>{
         console.log(err)
         res.status(500).json({errorMessage:'Failed to get users public recipes'})
     })
+});
+
+// ADD recipe to public recipes by ID
+router.put('/:id', (req,res) =>{
+    const {id} = req.params;
+
+    recipeModel.findRecipeById(id) //find recipe with Id
+    .then(item =>{
+        if(item.length > 0){
+            const recipe = item[0]
+
+            if(recipe.isPublic === 0){ //if recipe is not public run update func
+                db.updateIsPublicRecipe(recipe.recipe_id)
+                .then(update =>{ //Run func to add recipe to public table
+                    console.log(recipe)
+                    db.addToPublicRecipe()
+                })
+                .catch(error =>{
+                    res.status(500).json({errorMessge:'Failed to update recipe as public'})
+                })
+            }else{ //response if recipe is public
+                res.status(400).json({message:'Recipe with that ID is currently public'})
+            }
+        }else{ //if no recipe found with ID
+            res.status(404).json({message:'Unable to find recipe with that ID'})
+        }
+    })
+    .catch(error =>{
+        res.status(500).json({errorMessage:'Failed to get recipe by ID'})
+    })
+
 });
 
 module.exports = router;
