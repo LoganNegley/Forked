@@ -23,8 +23,8 @@ router.get('/user/:id', validateUser, (req,res) =>{
     .then(recipes =>{
         res.status(200).json(recipes)
     })
-    .catch(error =>{
-        console.log(error)
+    .catch(err =>{
+        console.log(err)
         res.status(500).json({errorMessage:'Failed to get users public recipes'})
     })
 });
