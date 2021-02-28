@@ -13,7 +13,7 @@ function getPublicRecipeByUserId(id){
     .where('r.userId', id)
 };
 
-function addPublicRecipe(){
+function addPublicRecipe(id){
 
 };
 
