@@ -16,7 +16,7 @@ server.use('/users', UserRouter);
 server.use('/recipes', RecipeRouter);
 server.use('/carts', CartRouter);
 server.use('/public/recipes', PublicRecipes);
-server.use('/ingredients', IngredientRouter);
+server.use('/ingredient', IngredientRouter);
 
 // Routes
 server.get('/', (req, res) =>{

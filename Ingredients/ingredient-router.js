@@ -32,6 +32,35 @@ router.get('/recipe/:id', (req,res) =>{
 
 });
 
+// Get ingredient by Id
+router.get('/:id', (req,res) =>{
+    const {id} = req.params;
 
+    db.findIngredientById(id)
+    .then(ingredient =>{
+        if(ingredient.length > 0){
+            console.log(ingredient)
+            res.status(200).json(ingredient)
+        }else{
+            res.status(404).json({message:'Unable to find ingredient with that Id'})
+        }
+    })
+    .catch(error =>{
+        res.status(500).json({errorMessage:'Failed to get ingredient by ID'})
+    })
+});
+
+// add ingredient to recipe by Id
+// router.post('/recipe/:id', (req,res) =>{
+//     const {id} = id;
+
+//     recipeModel.findRecipeById(id)
+//     .then(recipe =>{
+
+//     })
+//     .catch(error =>{
+//         res.status(500).json({errorMessage:'Failed to find recipe with that Id'})
+//     })
+// });
 
 module.exports = router;
