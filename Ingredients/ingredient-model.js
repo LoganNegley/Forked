@@ -12,11 +12,20 @@ function findIngredientById(id){
     .where('ingredient_id', id)
 };
 
-function addIngredientToRecipe(id){
+function addIngredient(ingredient){
+    return db('ingredients')
+    .returning('ingredient_id')
+    .insert(ingredient)
+};
 
+function addIngredientToRecipe(ingredientId, recipeId){
+    return db('recipe_ingredient')
+    .insert({recipeId:recipeId, ingredientId:ingredientId})
 };
 
 module.exports ={
     getIngredientsByRecipeId,
-    findIngredientById
+    findIngredientById,
+    addIngredient,
+    addIngredientToRecipe
 }

@@ -1,30 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const recipeModel = require('../Recipes/recipes_model');
+const validateRecipe = require('../middleware/validateRecipeId');
 
 const db = require('./ingredient-model');
 
 // Get ingredients by recipe Id
-router.get('/recipe/:id', (req,res) =>{
+router.get('/recipe/:id', validateRecipe, (req,res) =>{
     const {id} = req.params;
 
     recipeModel.findRecipeById(id)
     .then(recipe =>{
-        if(recipe.length > 0){
-            db.getIngredientsByRecipeId(id)
-                .then(ingredients =>{
-                    if(ingredients.length > 0){
-                        res.status(200).json(ingredients)
-                    }else{
-                        res.status(404).json({message:'No ingredients listed for that recipe'})
-                    }
-                })
-                .catch(error =>{
-                    res.status(500).json({errorMessage:'Failed to get ingredients for recipe'})
-                })
-        }else{
-            res.status(404).json({message:'Unable to find recipe with that ID'})
-        }
+
+        db.getIngredientsByRecipeId(id)
+            .then(ingredients =>{
+                if(ingredients.length > 0){
+                    res.status(200).json(ingredients)
+                }else{
+                    res.status(404).json({message:'No ingredients listed for that recipe'})
+                }
+            })
+            .catch(error =>{
+                res.status(500).json({errorMessage:'Failed to get ingredients for recipe'})
+            })
     })
     .catch(error =>{
         res.status(500).json({errorMessage:'Failed to get recipe with Id'})
@@ -51,16 +49,32 @@ router.get('/:id', (req,res) =>{
 });
 
 // add ingredient to recipe by Id
-// router.post('/recipe/:id', (req,res) =>{
-//     const {id} = id;
+router.post('/recipe/:id',(req,res) =>{
+    const {id} = req.params;
+    const newIng = req.body;
+    console.log(newIng, 'from req.body')
 
-//     recipeModel.findRecipeById(id)
-//     .then(recipe =>{
+    if(!newIng.ingredient_name || !newIng.quantity){
+        res.status(404).json({message:'Must fill out all fields'})
+    } else{
+        db.addIngredient(newIng)
+        .then(ing =>{
+            db.addIngredientToRecipe(ing, id)
+            .then(item =>{
+                res.status(201).json({created:item})
+            })
+            .catch(error =>{
+                console.log(error)
+                res.status(500).json({errorMessage:'Failed to add ingredient to recipe'})
+            })
+        })
+        .catch(error =>{
+            console.log(error)
+            res.status(500).json({errorMessage:'Failed to add ingredient'})
+        })
 
-//     })
-//     .catch(error =>{
-//         res.status(500).json({errorMessage:'Failed to find recipe with that Id'})
-//     })
-// });
+    }
+
+});
 
 module.exports = router;
