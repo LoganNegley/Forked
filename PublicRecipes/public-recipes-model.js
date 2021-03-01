@@ -13,16 +13,22 @@ function getPublicRecipeByUserId(id){
     .where('r.userId', id)
 };
 
-function updateIsPublicRecipe(id){
-    return db('recipes')
-    .where('recipe_id', '=', id)
-    .update({isPublic:true})
-};
-
 function addToPublicRecipe(recipeInfo){
     return db('publicRecipes')
-    .insert({userId:recipeInfo.userId,recipeId:recipeInfo.recipe_id})
+    .insert({
+        userId:recipeInfo.userId,
+        recipeId:recipeInfo.recipe_id,
+        dateAdded:Date.now()
+        })
 };
+
+function updateIsPublicRecipe(id, isPublic){
+    return db('recipes')
+    .where('recipe_id', '=', id)
+    .update({isPublic:isPublic})
+};
+
+// function delete
 
 module.exports ={
     getAllPublicRecipes,

@@ -41,10 +41,15 @@ router.put('/:id', (req,res) =>{
             const recipe = item[0]
 
             if(recipe.isPublic === 0){ //if recipe is not public run update func
-                db.updateIsPublicRecipe(recipe.recipe_id)
+                db.updateIsPublicRecipe(recipe.recipe_id, true)
                 .then(update =>{ //Run func to add recipe to public table
-                    console.log(recipe)
-                    db.addToPublicRecipe()
+                    db.addToPublicRecipe(recipe)
+                    .then(record =>{
+                        res.status(200).json(record)
+                    })
+                    .catch(error =>{
+                        res.status(500).json({errorMessage:'Failed to add info to public recipe '})
+                    })
                 })
                 .catch(error =>{
                     res.status(500).json({errorMessge:'Failed to update recipe as public'})
