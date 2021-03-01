@@ -128,6 +128,7 @@ exports.up = function(knex) {
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
       tbl.integer('recipeId')
+        .unique()
         .notNullable()
         .unsigned()
         .references('recipe_id')
