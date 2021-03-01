@@ -31,7 +31,7 @@ router.get('/user/:id', validateUser, (req,res) =>{
     })
 });
 
-// ADD recipe to public recipes by ID
+// ADD recipe to public recipes by ID--Update recipe isPublic 
 router.put('/:id', (req,res) =>{
     const {id} = req.params;
 
@@ -65,6 +65,35 @@ router.put('/:id', (req,res) =>{
         res.status(500).json({errorMessage:'Failed to get recipe by ID'})
     })
 
+});
+
+router.delete('/:id', (req,res) =>{
+    const {id} = req.params;
+
+    recipeModel.findRecipeById(id)
+    .then(recipe =>{
+        if(recipe.length > 0){
+            db.updateIsPublicRecipe(id, false)
+            .then(item =>{
+                db.deletePublicRecipeById(id)
+                .then(deleted =>{ //breaking here
+                    res.status(200).json(deleted)
+                })
+                .catch(error =>{
+                    console.log(error)
+                    res.status(500).json({errorMessage:'Failed to delete public recipe'})
+                })
+            })
+            .catch(error =>{
+                res.status(500).json({errorMessage:'Failed to update recipe' })
+            })
+        }else{
+            res.status(404).json({message:'Unable to find recipe with that Id'})
+        }
+    })
+    .catch(error =>{
+        res.status(500).json({errorMessage:'Failed to get recipe by ID'})
+    })
 });
 
 module.exports = router;

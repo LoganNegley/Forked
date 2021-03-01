@@ -28,11 +28,16 @@ function updateIsPublicRecipe(id, isPublic){
     .update({isPublic:isPublic})
 };
 
-// function delete
+function deletePublicRecipeById(id){
+    return db('publicRecipes')
+    .where('recipeId', id)
+    .del()
+};
 
 module.exports ={
     getAllPublicRecipes,
     getPublicRecipeByUserId,
     updateIsPublicRecipe,
-    addToPublicRecipe
+    addToPublicRecipe,
+    deletePublicRecipeById
 }
