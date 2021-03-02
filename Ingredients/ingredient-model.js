@@ -29,10 +29,17 @@ function deleteIngredientById(id){
     .del()
 };
 
+function updateIngredient(id, changes){
+    return db('ingredients')
+    .where('ingredient_id', id)
+    .update(changes)
+};
+
 module.exports ={
     getIngredientsByRecipeId,
     findIngredientById,
     addIngredient,
     addIngredientToRecipe,
-    deleteIngredientById
+    deleteIngredientById,
+    updateIngredient
 }

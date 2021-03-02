@@ -86,6 +86,7 @@ router.post('/recipe/:id', (req,res) =>{
     })
 });
 
+//Delete ingredient by ID
 router.delete('/:id', (req,res) =>{
     const {id} = req.params;
 
@@ -95,6 +96,26 @@ router.delete('/:id', (req,res) =>{
     })
     .catch(error =>{
         res.status(500).json({errorMessage:'Failed to delete ingredient'})
+    })
+});
+
+//Update ingredient by ID
+router.put('/:id', (req,res) =>{
+    const {id} = req.params;
+    const changes = req.body;
+
+    db.findIngredientById(id)
+    .then(item =>{
+        db.updateIngredient(id, changes)
+        .then(change =>{
+            res.status(200).json({Update:change})
+        })
+        .catch(error =>{
+            res.status(500).json({errorMessage:'Failed to update ingredient'})
+        })
+    })
+    .catch(error =>{
+        res.status(500).json({errorMessage:'Failed to get ingredient by Id'})
     })
 });
 
