@@ -23,9 +23,16 @@ function addIngredientToRecipe(ingredientId, recipeId){
     .insert({recipeId:recipeId, ingredientId:ingredientId})
 };
 
+function deleteIngredientById(id){
+    return db('ingredients')
+    .where('ingredient_id', id)
+    .del()
+};
+
 module.exports ={
     getIngredientsByRecipeId,
     findIngredientById,
     addIngredient,
-    addIngredientToRecipe
+    addIngredientToRecipe,
+    deleteIngredientById
 }
