@@ -4,6 +4,7 @@ const db = require('../data/db-config');
 function getAllSteps(){
     return db('steps')
     .from('steps')
+    .orderBy('recipeId')
 };
 
 //Get by step id
@@ -17,10 +18,22 @@ function getStepsByRecipeId(id){
     return db('steps')
     .from('steps')
     .where('recipeId', id)
+    .orderBy('step_number')
 };
+
+// Add step to recipe by Id
+function addStepToRecipeById(step){
+    return db('steps')
+    .insert(step)
+};
+
+// Delete step by Id
+
+// Update step by id
 
 module.exports = {
 getAllSteps,
 getStepById,
-getStepsByRecipeId
+getStepsByRecipeId,
+addStepToRecipeById
 };
