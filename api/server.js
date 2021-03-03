@@ -21,8 +21,8 @@ server.use('/carts', CartRouter);
 server.use('/public/recipes', PublicRecipes);
 server.use('/ingredient', IngredientRouter);
 server.use('/cart/item', CartItemsRouter);
-server.use('/favorites', FavoriteRouter);
-server.use('steps', StepsRouter);
+server.use('/favorites', FavoritesRouter);
+server.use('/steps', StepsRouter);
 
 // Routes
 server.get('/', (req, res) =>{
