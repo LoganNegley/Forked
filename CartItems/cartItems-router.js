@@ -50,12 +50,11 @@ router.get('/user/:id', validateUser, (req,res) =>{
 router.post('/user/:id/ingredient/:ingredientId', validateUser, (req,res) =>{
     const userId = req.params.id;
     const ingredId = req.params.ingredientId;
-    console.log(req.params)
     
     findCart.findCartByUserId(userId)
     .then(userCartInfo =>{
         const userCartId = userCartInfo[0].cart_id;
-        console.log(userCartId)
+
         db.addItemToUserCart( userCartId, ingredId)
         .then(added =>{
             res.status(200).json(added)
@@ -71,26 +70,30 @@ router.post('/user/:id/ingredient/:ingredientId', validateUser, (req,res) =>{
     })
 });
 
-router.delete('user/:userId/ingredient/:id', (req,res) =>{
+router.delete('/user/:userId/ingredient/:id', (req,res) =>{
     const {id} = req.params;
     const {userId} =req.params
 
     db.getCartItemsByUserId(userId)
     .then(userCart =>{
-        console.log(userCart, "in cart")
-        // if(found.length > 0){
-        //     db.deleteItemFromUserCart(id)
-        //     .then(item =>{
-        //         res.status(200).json({deleted:item})
-        //     })
-        //     .catch(error =>{
-        //         res.status(500).json({errorMessage:'Failed to delete ingredient from cart'})
-        //     })
-        // }else{
-        //     res.status(404).json({message:'Unable to find ingredient with that ID in cart'})
-        // }
+        if(userCart.length > 0){
+            db.deleteItemFromUserCart(id)
+            .then(item =>{
+                if(item === 0){
+                    res.status(404).json({message:'Ingredient with that ID does not exists'})
+                }else{
+                    res.status(200).json({deleted:item})
+                }
+            })
+            .catch(error =>{
+                res.status(500).json({errorMessage:'Failed to delete ingredient from cart'})
+            })
+        }else{
+            res.status(404).json({message:'There are no ingredients in users cart'})
+        }
     })
     .catch(error =>{
+        console.log(error)
         res.status(500).json({errorMessage:'Failed to find ingredient with that ID'})
     })
 });
