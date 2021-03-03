@@ -29,8 +29,10 @@ function addItemToUserCart(cart_id, ingredId){
 
 // Delete cart item by item ID
 function deleteItemFromUserCart(id){
-    
-}
+    return db('cartItems')
+    .where('ingredientId', id)
+    .del()
+};
 
 
 
@@ -38,5 +40,6 @@ module.exports ={
     getAllCartItems,
     getCartItemById,
     getCartItemsByUserId,
-    addItemToUserCart
+    addItemToUserCart,
+    deleteItemFromUserCart
 }
