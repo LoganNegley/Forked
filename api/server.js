@@ -4,6 +4,9 @@ const RecipeRouter = require('../Recipes/recipes_router');
 const CartRouter = require('../Cart/cart-router');
 const PublicRecipes = require('../PublicRecipes/public-recipes-router');
 const IngredientRouter = require('../Ingredients/ingredient-router');
+const CartItemsRouter = require('../CartItems/cartItems-router');
+const FavoritesRouter = require('../Favorites/favorites-router');
+const StepsRouter = require('../Steps/steps-router');
 
 const server = express();
 
@@ -17,6 +20,9 @@ server.use('/recipes', RecipeRouter);
 server.use('/carts', CartRouter);
 server.use('/public/recipes', PublicRecipes);
 server.use('/ingredient', IngredientRouter);
+server.use('/cart/item', CartItemsRouter);
+server.use('/favorites', FavoriteRouter);
+server.use('steps', StepsRouter);
 
 // Routes
 server.get('/', (req, res) =>{
