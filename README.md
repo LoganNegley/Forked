@@ -3,12 +3,12 @@ An application to store recipes
 
 # Back-end endpoints
 ************************************
-**Users**
-  -Get all users - HTTP request GET----('/users/')
-  -Find a user by user Id - HTTP request GET----('/users/:id')
-  -Update user by user Id - HTTP request PUT-----('/users/:id')
-  -Add user - HTTP request POST ---('/users/')
-  -Delete user by user ID -HTTP request DELETE----('/user/:id')
+-**Users**
+    -Get all users - HTTP request GET----('/users/')
+    -Find a user by user Id - HTTP request GET----('/users/:id')
+    -Update user by user Id - HTTP request PUT-----('/users/:id')
+    -Add user - HTTP request POST ---('/users/')
+    -Delete user by user ID -HTTP request DELETE----('/user/:id')
  ************************************
 **Recipes**
   -Get all recipes - HTTP request GET----('/recipes/')
