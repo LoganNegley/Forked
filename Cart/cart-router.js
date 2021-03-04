@@ -19,6 +19,7 @@ router.get('/user/:id', validateUser, (req,res) =>{
 
 });
 
+// Get all carts for users
 router.get('/', (req, res) =>{
     db.getAllCarts()
     .then(carts =>{

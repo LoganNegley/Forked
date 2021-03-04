@@ -33,7 +33,7 @@ router.get('/:id', (req,res) =>{
     })
 });
 
-// Get items in cart by cart id
+// Get items in cart by user id
 router.get('/user/:id', validateUser, (req,res) =>{
     const {id} = req.params;
 
