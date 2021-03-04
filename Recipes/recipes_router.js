@@ -17,10 +17,10 @@ router.get('/', (req,res) =>{
 });
 
 // find recipe by ID
-router.get('/:id', validateRecipeId, (req,res) =>{
-    const {id} = req.params;
+router.get('/:recipeId', validateRecipeId, (req,res) =>{
+    const {recipeId} = req.params;
 
-    db.findRecipeById(id)
+    db.findRecipeById(recipeId)
     .then(recipe =>{
         res.status(200).json(recipe)
     })
@@ -90,8 +90,8 @@ router.put('/:id', (req, res) =>{
     })
 });
 
-router.delete('/:id', validateRecipeId, (req,res) =>{
-    const {id} = req.params;
+router.delete('/:recipeId', validateRecipeId, (req,res) =>{
+    const {recipeId} = req.params;
 
     db.findRecipeById(id)
         .then(recipe =>{
