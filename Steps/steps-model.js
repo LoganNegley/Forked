@@ -27,13 +27,25 @@ function addStepToRecipeById(step){
     .insert(step)
 };
 
-// Delete step by Id
+// Delete step by step Id
+function deleteStepById(id){
+    return db('steps')
+    .where('stepId', id)
+    .del()
+};
+
 
 // Update step by id
+function updateStepById(id, changes){
+    return db('steps')
+    .update(changes)
+    .where('stepId', id)
+};
 
 module.exports = {
 getAllSteps,
 getStepById,
 getStepsByRecipeId,
-addStepToRecipeById
+addStepToRecipeById,
+updateStepById
 };

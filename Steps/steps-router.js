@@ -84,5 +84,54 @@ router.post('/recipe/:id', (req,res) =>{
     }
 });
 
+// Delete step by step Id
+router.delete('/:id', (req,res) =>{
+    const {id} = req.params;
+
+    db.getStepById(id)
+    .then(step =>{
+            db.deleteStepById(id)
+            .then(item =>{
+                if(item === 1){
+                    res.status(200).json({deleted:item})
+                }else{
+                    res.status(404).json({message:'Unable to find step with that Id'})
+                }
+            })
+            .catch(error =>{
+                res.status(500).json({errorMessage:'Failed to delete step by Id'})
+            })
+    })
+    .catch(error =>{
+        console.log(error)
+        res.status(500).json({errorMessage:'Failed to get step by ID'})
+    })
+});
+
+// Update step by step Id
+router.put('/:id', (req,res) =>{
+    const {id} = req.params;
+    const changes = req.body;
+
+    db.getStepById(id)
+    .then(step =>{
+        if(step.length > 0){
+            db.updateStepById(id,changes)
+            .then(updatedStep =>{
+                res.status(200).json({updated:updatedStep})
+            })
+            .catch(error =>{
+                res.status(500).json({errorMessage:'Failed to update step by step ID'})
+            })
+        }else{
+            res.status(404).json({message:'Unable to find step with that ID'})
+        }
+    })
+    .catch(error =>{
+        console.log(error)
+        res.status(500).json({errorMessage:'Failed to get step by ID'})
+    })
+});
+
 
 module.exports = router;
