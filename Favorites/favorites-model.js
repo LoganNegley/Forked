@@ -12,7 +12,7 @@ function getFavoriteById(id){
     return db('favoriteRecipes as fr')
     .select('fr.favorite_id', 'fr.userId', 'fr.dateAdded', 'fr.recipeId', 'r.recipeName', 'r.image', 'r.prep_time', 'r.cook_time', 'r.isPublic')
     .join('recipes as r', 'fr.recipeId', 'r.recipe_id')
-    .where('fr.favorite_id', id)
+    .where('r.recipe_id', id)
 };
 
 // get users favorite by user Id
@@ -31,12 +31,18 @@ function addFavorite(recipe){
 
 // Update favorite by ID
 
-// delete favorite by ID
+// delete favorite by recipe ID
+function deleteFavoriteByRecipeId(id){
+    return db('favoriteRecipes')
+    .where('recipeId' , id)
+    .del()
+};
 
 module.exports ={
 getAllFavorites,
 getFavoritesByUserId,
 getFavoriteById,
-addFavorite
+addFavorite,
+deleteFavoriteByRecipeId
 };
 

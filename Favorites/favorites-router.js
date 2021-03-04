@@ -17,7 +17,7 @@ router.get('/', (req,res) =>{
     })
 });
 
-// Get favorite by Id
+// Get favorite by recipe Id
 router.get('/:id', (req,res) =>{
     const {id} = req.params;
 
@@ -65,6 +65,29 @@ router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,
     .catch(error =>{
         console.log(error)
         res.status(500).json({errorMessage:'Failed to add favorite recipe'})
+    })
+});
+
+// Delete favorite by Id
+router.delete('/:id', (req,res) =>{
+    const {id} = req.params;
+
+    db.getFavoriteById(id)
+    .then(recipe =>{
+        if(recipe.length > 0){
+        db.deleteFavoriteByRecipeId(id)
+        .then(deleted =>{
+            res.status(200).json({deleted:deleted})
+        })
+        .catch(error =>{
+            res.status(500).json({errorMessage:'Failed to delete favorite recipe'})
+        })
+        }else{
+            res.status(404).json({message:'Favorite recipe with that Id is not found'})
+        }
+    })
+    .catch(error =>{
+        res.status(500).json({errorMessage:'Failed to get favorite recipe with ID'})
     })
 });
 
