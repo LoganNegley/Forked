@@ -18,7 +18,7 @@ router.get('/', (req,res) =>{
 });
 
 // Get favorite by recipe Id
-router.get('/:id', (req,res) =>{
+router.get('/recipe/:id', (req,res) =>{
     const {id} = req.params;
 
     db.getFavoriteById(id)
@@ -68,8 +68,8 @@ router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,
     })
 });
 
-// Delete favorite by Id
-router.delete('/:id', (req,res) =>{
+// Delete favorite by recipe Id
+router.delete('/recipe/:id', (req,res) =>{
     const {id} = req.params;
 
     db.getFavoriteById(id)
