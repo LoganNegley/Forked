@@ -37,8 +37,8 @@ router.get('/:id', (req,res) =>{
 });
 
 // get steps for recipe by recipe ID
-router.get('/recipe/:id', validateRecipe, (req,res) =>{
-    const {id} = req.params;
+router.get('/recipe/:recipeId', validateRecipe, (req,res) =>{
+    const {recipeId} = req.params;
     const {recipe_id}  = req.body[0];
 
     db.getStepsByRecipeId(recipe_id)

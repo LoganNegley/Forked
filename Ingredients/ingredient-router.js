@@ -6,13 +6,13 @@ const validateRecipe = require('../middleware/validateRecipeId');
 const db = require('./ingredient-model');
 
 // Get ingredients by recipe Id
-router.get('/recipe/:id', validateRecipe, (req,res) =>{
-    const {id} = req.params;
+router.get('/recipe/:recipeId', validateRecipe, (req,res) =>{
+    const {recipeId} = req.params;
 
-    recipeModel.findRecipeById(id)
+    recipeModel.findRecipeById(recipeId)
     .then(recipe =>{
 
-        db.getIngredientsByRecipeId(id)
+        db.getIngredientsByRecipeId(recipeId)
             .then(ingredients =>{
                 if(ingredients.length > 0){
                     res.status(200).json(ingredients)

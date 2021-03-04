@@ -1,9 +1,9 @@
 const recipeModel = require('../Recipes/recipes_model');
 
 function validateRecipeId(req, res, next){
-    const {id} = req.params;
+    const {recipeId} = req.params;
 
-    recipeModel.findRecipeById(id)
+    recipeModel.findRecipeById(recipeId)
     .then(recipe =>{
         if(recipe.length > 0){
             req.body = recipe;
