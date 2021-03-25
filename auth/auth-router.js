@@ -1,18 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../data/db-config');
 const usersModel = require('../Users/user-model');
+const bcrypt = require('bcryptjs');
 
-router.post('/register', (req,res) =>{
+router.post('/', (req,res) =>{
     const newUser = req.body;
-    console.log(newUser)
-    db.addUser(newUser)
+    const hash = bcrypt.hashSync(newUser.password, 10);
+
+
+    usersModel.addUser(newUser)
     .then(user =>{
-        res.status(201).json(user)
+        res.status(201).json({userId: user})
     })
     .catch(error =>{
         console.log(error)
-        res.status(400).json({errorMessage:'Unable to register user'})
+        res.status(404).json({errorMessage:'Unable to register user'})
     })
 });
 
