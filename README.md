@@ -1,4 +1,4 @@
-# Not-Your-Grandmas-Recipe-Box
+# Forked
 An application to store recipes 
 
 # Back-end endpoints
