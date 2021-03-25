@@ -1,7 +1,7 @@
 {
-  "name": "Not-Your-Grandmas-Recipe-Box",
+  "name": "Forked",
   "version": "1.0.0",
-  "description": "An application to store recipes",
+  "description": "An application to store and share your favorite recipes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,15 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LoganNegley/Not-Your-Grandmas-Recipe-Box.git"
+    "url": "https://github.com/LoganNegley/Forked"
+    // "url": "git+https://github.com/LoganNegley/Not-Your-Grandmas-Recipe-Box.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LoganNegley/Not-Your-Grandmas-Recipe-Box/issues"
+    // "url": "https://github.com/LoganNegley/Not-Your-Grandmas-Recipe-Box/issues"
+    "url": "https://github.com/LoganNegley/Forked/issues"
   },
-  "homepage": "https://github.com/LoganNegley/Not-Your-Grandmas-Recipe-Box#readme",
+  // "homepage": "https://github.com/LoganNegley/Not-Your-Grandmas-Recipe-Box#readme",
+  "url": "https://github.com/LoganNegley/Forked#readmen",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
