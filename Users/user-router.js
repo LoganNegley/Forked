@@ -51,36 +51,6 @@ router.put('/:id', validateUserId, (req, res) =>{
     });
 });
 
-// ADD user
-router.post('/', (req,res) =>{
-    const newUser = req.body;
-
-    if(!newUser.first_name || !newUser.last_name || !newUser.email || !newUser.password || !newUser.username){
-        res.status(404).json({message:'Must fill out all fields'})
-    } else{
-
-    db.addUser(newUser)
-    .then(userData =>{      //adding new user 
-        const userId = userData[0]      //getting new user Id
-
-        if(userData){
-            cartModel.addCartToUser(userId)       //adding new cart for user if new user data created
-            .then(user =>{
-                res.status(200).json(userId)
-            })
-            .catch(error =>{
-                res.status(500).json({errorMessage:'Unable to create cart for user'})
-            })
-        }else{
-                res.status(404).json({message:'Unable to add cart for user'})
-        }
-    })
-    .catch(error =>{
-        res.status(500).json({errorMessage:'Unable to create new user'})
-    })
-}
-});
-
 // Delete user
 router.delete('/:id', validateUserId, (req, res)=>{
     const {id} = req.params;
@@ -105,9 +75,5 @@ router.delete('/:id', validateUserId, (req, res)=>{
         res.status(500).json({errorMessage:'Failed to find user with ID'})
     })
 });
-
-
-
-
 
 module.exports = router;
