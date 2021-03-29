@@ -12,7 +12,13 @@ function findUserById(userId){
     return db.select('*')
     .from('users')
     .where('user_id', userId)
+};
 
+//find user by username
+function findByUsername(username){
+    return db.select('*')
+    .from('users')
+    .where('username', username)
 };
 
 // UPDATE user by ID
@@ -42,6 +48,7 @@ function deleteUserById(id){
  module.exports = {
      getAllUsers,
      findUserById,
+     findByUsername,
      updateUserById,
      addUser,
      deleteUserById,
