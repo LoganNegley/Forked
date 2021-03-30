@@ -1,0 +1,12 @@
+/* global variables */
+:root{
+    /* colors */
+    --orange: #FF7E47;
+    --eerieBlack: #252525;
+    --offWhite:#FFF9F9;
+    --white:#FFFFFF;
+    --gray:#A6A6A6;
+    --darkGray: #707070;
+    --transBlack:#000000;
+    /* use trans black with rgba and opacity 46%  rgba(var(--transblack), .45)*/
+}
