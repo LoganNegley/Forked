@@ -15,6 +15,7 @@ router.post('/register', (req,res) =>{
         usersModel.addUser(newUser)
         .then(user =>{
             const userId = user[0] //get new users ID
+            
             if(user){
                 cartModel.addCartToUser(userId) //add a cart to new user 
                 .then(cartId =>{

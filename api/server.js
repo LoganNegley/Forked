@@ -1,4 +1,8 @@
 const express = require('express');
+const session = require('express-session');
+const cors = require('cors');
+
+//server endpoints
 const UserRouter = require('../Users/user-router');
 const RecipeRouter = require('../Recipes/recipes_router');
 const CartRouter = require('../Cart/cart-router');
@@ -11,8 +15,9 @@ const AuthRouter = require('../auth/auth-router');
 
 const server = express();
 
-// Middleware
+// Global Middleware
 server.use(express.json());
+server.use(cors());
 
 
 // Routers
