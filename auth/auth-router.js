@@ -53,4 +53,19 @@ router.post('/login', (req,res) =>{
     })
 });
 
+router.get('/logout', (req,res) =>{
+    if(req.session){ //check if there is a session object
+        req.session.destroy(err =>{ //takes session object out of memory
+            if(err){ //error logging out and destroying session
+                console.log(err);
+                res.send('You are unable to logout at this time');
+            }else{ //logout successful
+                res.send('You have successfully logged out');
+            }
+        })
+    }else{ //if no session object exists nothing to be done and end the process
+        res.end();
+    }
+});
+
 module.exports = router;

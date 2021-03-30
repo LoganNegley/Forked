@@ -6,4 +6,4 @@ module.exports = (req,res, next) =>{
     }
 };
 
-//method checking if req session objec exists and if user object is present--indicating a user has successfully logged in with creds
+//method checking if req session object exists and if user object is present--indicating a user has successfully logged in with creds
