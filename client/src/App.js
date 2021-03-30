@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import headingImage from './assets/images/traced_salad_pic-website';
 
 function App() {
   return (
     <div className="App">
-     <h1>My forked app</h1>
+      <img src={headingImage} alt='salad-heading-image'/>
     </div>
   );
 }
