@@ -17,11 +17,11 @@ const AuthRouter = require('../auth/auth-router');
 const server = express();
 
 const sessionConfig = {
-    name:'sessionInfo',
-    secret:'this is my secret'
+    name:'users-session',
+    secret:'this is my secret',
     cookie:{
         maxAge:1000 * 60 * 60,
-        secure:true,
+        secure:false,
         httpOnly:true,
     },
     resave:false,
