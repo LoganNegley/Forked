@@ -4,7 +4,7 @@
   font-family: 'Poppins', 'Roboto', sans-serif;
 }
 body{
-	background-color:var(--eerieBlack)
+	background-color:var(--eerieBlack);
 }
 
 html, body, div, span, applet, object, iframe,

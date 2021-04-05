@@ -2,7 +2,7 @@ import React from 'react';
 
 function GetStartedButton(){
     return(
-        <button>
+        <button className='started-button'>
             Get Started
         </button>
     )
