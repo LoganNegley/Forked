@@ -1,4 +1,5 @@
 import React from 'react';
+import StartedButton from './GetStartedButton';
 
 function HeroBanner(){
     return(
@@ -6,7 +7,7 @@ function HeroBanner(){
             <div className='hero-wrapper'>
                 <h4>Stick A Fork In It</h4>
                 <h2>The only place to store your recipes</h2>
-                <button>Get Started</button>
+                <StartedButton/>
             </div>
         </div>
     )
