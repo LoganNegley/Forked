@@ -1,0 +1,19 @@
+.navbar-container{
+    display:flex;
+    align-items: center;
+    margin:1rem 0 0 1rem;
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: bold;
+    color:white;
+    margin:0 auto;
+    align-self:baseline;
+}
+
+.burger-menu-icon{
+    width:1.75rem;
+    height:1.75rem;
+    align-self:baseline;
+}

@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import Navbar from '../src/components/common/navigation/Navbar';
+
+
 
 function App() {
   return (
     <div className="App">
-     <h1>My forked app</h1>
+      <Navbar/>
     </div>
   );
 }
