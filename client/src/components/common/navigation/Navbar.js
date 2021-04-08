@@ -8,13 +8,11 @@ function Navbar(){
     const [toggled, setToggled] = useState(false)
 
     const toggleMenu = ()=>{
-        console.log('button clicked')
         if(toggled === false){
             setToggled(true)
         }else{
             setToggled(false)
         }
-            
     };
 
 
