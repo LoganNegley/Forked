@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import './navbar.css';
+import {faBars} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 function Navbar(){
@@ -22,8 +24,7 @@ function Navbar(){
             <button 
             className='button' 
             onClick={toggleMenu}>
-                <img className='burger-menu-icon' src='images/menuIcon.png' alt='burger-menu-icon'
-                />
+            <FontAwesomeIcon icon={faBars}/>
             </button>
             <h1 className='logo'>FORKED</h1>
 
