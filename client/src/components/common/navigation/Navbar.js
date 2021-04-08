@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './navbar.css';
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import LoggedOutMenu from './home-menu/LoggedOutMenu';
 
 
 function Navbar(){
@@ -18,9 +19,13 @@ function Navbar(){
 
     return (
         <div className='navbar-container'>
+            {toggled
+                ? <LoggedOutMenu setToggled={setToggled}/>
+                :
             <button onClick={toggleMenu}>
             <FontAwesomeIcon className='burger-icon' icon={faBars}/>
             </button>
+            }
             <h1 className='logo'>FORKED</h1>
 
             <div className='nav-links'>
