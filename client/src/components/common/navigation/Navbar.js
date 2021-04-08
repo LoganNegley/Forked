@@ -16,15 +16,12 @@ function Navbar(){
         }
             
     };
-    console.log(toggled)
 
 
     return (
         <div className='navbar-container'>
-            <button 
-            className='button' 
-            onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars}/>
+            <button onClick={toggleMenu}>
+            <FontAwesomeIcon className='burger-icon' icon={faBars}/>
             </button>
             <h1 className='logo'>FORKED</h1>
 
