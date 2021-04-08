@@ -2,7 +2,7 @@ import React from 'react';
 
 function LoggedOutMenu(){
     return(
-        <div id='menu-container' display='visible'>
+        <div id='menu-container' display='none'>
             <div id='half-circle'>
                 <div className='link-items'>
                     <ul>

@@ -16,3 +16,11 @@ h1{
     height:2rem;
     margin-left:1.5rem;
 }
+.navbar-container button{
+    background:none;
+    border:none;
+}
+
+.nav-links{
+    display:none;
+}
