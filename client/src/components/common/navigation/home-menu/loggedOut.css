@@ -43,6 +43,7 @@
     font-size: 3rem;
     font-weight: bold;
     margin:2rem;
+    text-decoration: none;
 }
 .link-items .menu-link:hover{
 color:var(--darkGray);

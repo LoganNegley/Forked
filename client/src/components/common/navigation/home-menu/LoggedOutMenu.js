@@ -1,5 +1,6 @@
 import React from 'react';
 import './loggedOut.css';
+import {Link} from 'react-router-dom';
 
 function LoggedOutMenu(props){
 
@@ -15,9 +16,9 @@ console.log(props)
                 <div onClick= {closeMenu} className='close-out'>X</div>
                 <div className='link-items'>
                     <ul>
-                        <li className='menu-link'>Home</li>
+                        <Link to='/' className='menu-link'>Home</Link>
                         <li className='menu-link'>Recipes</li>
-                        <li className='menu-link'>Sign Up</li>
+                        <Link to='/sign-up' className='menu-link'>Sign Up</Link>
                         <li className='menu-link'>Login</li>
                     </ul>
                 </div>
