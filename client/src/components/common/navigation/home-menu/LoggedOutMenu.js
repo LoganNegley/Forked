@@ -16,9 +16,9 @@ console.log(props)
                 <div onClick= {closeMenu} className='close-out'>X</div>
                 <div className='link-items'>
                     <ul>
-                        <Link to='/' className='menu-link'>Home</Link>
+                        <Link to='/' onClick={closeMenu} className='menu-link'>Home</Link>
                         <li className='menu-link'>Recipes</li>
-                        <Link to='/sign-up' className='menu-link'>Sign Up</Link>
+                        <Link to='/sign-up' onClick={closeMenu} className='menu-link'>Sign Up</Link>
                         <li className='menu-link'>Login</li>
                     </ul>
                 </div>
