@@ -9,6 +9,8 @@
     --darkGray: #707070;
     --transBlack:#000000;
     /* use trans black with rgba and opacity 46%  rgba(var(--transblack), .45)*/
+    font-size: 62.5%;
 }
+
 
 
