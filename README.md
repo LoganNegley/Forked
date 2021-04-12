@@ -1,5 +1,7 @@
 # Forked
-An application to store recipes 
+An application to store recipes
+
+Use all endpoints after main route: https://<span>forked-recipes.herokuapp.com/</span>
 
 # Back-end endpoints
 ************************************
