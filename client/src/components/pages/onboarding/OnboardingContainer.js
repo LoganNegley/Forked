@@ -5,7 +5,7 @@ import OnboardingForm from './OnboardingForm';
 function OnboardingContainer(){
     return (
         <div className='onboarding-container'>
-            <div className='triangle heading'>
+            <div className='triangle form-heading'>
             <h1>Welcome</h1>
             </div>
             <OnboardingForm/>
