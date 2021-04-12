@@ -5,8 +5,8 @@ import './onboarding.css';
 
 function OnboardingForm(){
     const [newUser, setNewUser] = useState({
-        firstName:'',
-        lastName:'',
+        first_name:'',
+        last_name:'',
         email:'',
         username:'',
         password:''
@@ -14,7 +14,14 @@ function OnboardingForm(){
 
 
     const handleSubmit = (event) =>{
-        event.prefaultDefault();
+        event.preventDefault();
+        axios.post('https://forked-recipes.herokuapp.com/auth/register', newUser)
+        .then(res =>{
+            console.log(res)
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     };
 
     const handleInputChange =(event)=>{
@@ -26,13 +33,13 @@ function OnboardingForm(){
         <div className='form-container'>
             <div className='form-wrapper'>
                 <h3>Sign Up, It's <span>Free</span></h3>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>
                         First Name
                         <input
                             required
                             type='text'
-                            name='firstName'
+                            name='first_name'
                             value={newUser.firstName}
                             onChange={handleInputChange}
                         />
@@ -42,7 +49,7 @@ function OnboardingForm(){
                         <input
                             required
                             type='text'
-                            name='lastName'
+                            name='last_name'
                             value={newUser.lastName}
                             onChange={handleInputChange}
                         />
@@ -78,7 +85,7 @@ function OnboardingForm(){
                         />
                     </label>
                     <div className='onboarding-buttons'>
-                        <button>Create</button>
+                        <button type='submit'>Create</button>
                         <p>Have an Account? Login</p>
                     </div>
                 </form>
