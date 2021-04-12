@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "An application to store and share your favorite recipes",
   "main": "index.js",
-  "engines":{
-    "node":"12.10.0"
+  "engines": {
+    "node": "12.10.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
