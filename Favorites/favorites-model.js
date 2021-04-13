@@ -27,6 +27,7 @@ function getFavoritesByUserId(id){
 function addFavorite(recipe){
     return db('favoriteRecipes')
     .insert(recipe)
+    .returning('id')
 };
 
 // Update favorite by ID

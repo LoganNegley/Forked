@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "server": "nodemon index.js"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "server": "cross-env NODE_ENV=development nodemon -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
