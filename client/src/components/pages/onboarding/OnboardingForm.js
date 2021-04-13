@@ -15,7 +15,7 @@ function OnboardingForm(){
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.post('https://forked-recipes.herokuapp.com/auth/register', newUser)
+        axios.get('https://forked-recipes.herokuapp.com/users')
         .then(res =>{
             console.log(res)
         })
