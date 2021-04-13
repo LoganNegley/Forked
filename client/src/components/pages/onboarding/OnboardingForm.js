@@ -5,8 +5,8 @@ import './onboarding.css';
 
 function OnboardingForm(){
     const [newUser, setNewUser] = useState({
-        firstName:'',
-        lastName:'',
+        first_name:'',
+        last_name:'',
         email:'',
         username:'',
         password:''
@@ -32,7 +32,7 @@ function OnboardingForm(){
                         <input
                             required
                             type='text'
-                            name='firstName'
+                            name='first_name'
                             value={newUser.firstName}
                             onChange={handleInputChange}
                         />
@@ -42,7 +42,7 @@ function OnboardingForm(){
                         <input
                             required
                             type='text'
-                            name='lastName'
+                            name='last_name'
                             value={newUser.lastName}
                             onChange={handleInputChange}
                         />
