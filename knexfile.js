@@ -34,8 +34,6 @@ module.exports = {
       max:10
     }
 
-    useNullAsDefault: true,
-
     migrations:{
       directory:'./data/migrations'
     },
