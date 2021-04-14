@@ -135,8 +135,7 @@ exports.up = function(knex) {
         .inTable('recipes')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      tbl.date('dateAdded')
-        .notNullable();
+
     })
 
 // favorite recipes
