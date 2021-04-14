@@ -26,7 +26,7 @@ const sessionConfig = {
         httpOnly:true,
     },
     resave:false,
-    saveUninitalized:false,
+    saveUninitialized:false, 
     //using connect session knex to store session ID's in our database
     store:new KnexSessionStore({
         knex:require('../data/db-config'), //using knex config to point to our database
