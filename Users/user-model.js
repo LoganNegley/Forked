@@ -34,7 +34,7 @@ function updateUserById(changes, id){
 function addUser(user){
     return db('users')
     .insert(user)
-    .returning('id')
+    .returning('user_id')
 };
 
 // DELETE user
