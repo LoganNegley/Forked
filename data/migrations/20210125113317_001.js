@@ -148,8 +148,6 @@ exports.up = function(knex) {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      tbl.date('dateAdded')
-        .notNullable();
       tbl.integer('recipeId')
         .notNullable()
         .unsigned()
