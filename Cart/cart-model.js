@@ -8,7 +8,7 @@ function findCartByUserId(id){
 function addCartToUser(id){
     return db('cart')
     .insert({userId: id})
-    .returning('id')
+    .returning('cart_id')
 };
 
 function getAllCarts(){
