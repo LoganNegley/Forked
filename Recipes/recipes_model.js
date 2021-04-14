@@ -22,14 +22,14 @@ function addRecipeByUserId(id, recipe){
     .from('recipes')
     .where('userId', id)
     .insert(recipe)
-    .returning('id')
+    .returning('recipe_id')
 };
 
 function updateRecipeById(id, changes){
     return db('recipes')
     .where('recipe_id', id)
     .update(changes)
-    .returning('id')
+    .returning('recipe_id')
 };
 
 function deleteRecipeById(id){

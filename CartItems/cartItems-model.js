@@ -25,7 +25,6 @@ function getCartItemsByUserId(id){
 function addItemToUserCart(cart_id, ingredId){
     return db('cartItems')
     .insert({ingredientId:ingredId, cartId:cart_id} )
-    .returning('id')
 };
 
 // Delete cart item by item ID

@@ -25,8 +25,7 @@ function getStepsByRecipeId(id){
 function addStepToRecipeById(step){
     return db('steps')
     .insert(step)
-    .returning('id')
-    .returning('id')
+    .returning('stepId')
 };
 
 // Delete step by step Id
@@ -41,7 +40,7 @@ function deleteStepById(id){
 function updateStepById(id, changes){
     return db('steps')
     .update(changes)
-    .returning('id')
+    .returning('stepId')
     .where('stepId', id)
 };
 

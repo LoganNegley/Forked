@@ -14,15 +14,13 @@ function findIngredientById(id){
 
 function addIngredient(ingredient){
     return db('ingredients')
-    .returning('ingredient_id')
     .insert(ingredient)
-    .returning('id')
-};
+    .returning('ingredient_id')
+    };
 
 function addIngredientToRecipe(ingredientId, recipeId){
     return db('recipe_ingredient')
     .insert({recipeId:recipeId, ingredientId:ingredientId})
-    .returning('id')
 };
 
 function deleteIngredientById(id){
@@ -35,7 +33,7 @@ function updateIngredient(id, changes){
     return db('ingredients')
     .where('ingredient_id', id)
     .update(changes)
-    .returning('id')
+    .returning('ingredient_id')
 };
 
 module.exports ={
