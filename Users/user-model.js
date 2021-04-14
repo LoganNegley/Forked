@@ -26,6 +26,7 @@ function updateUserById(changes, id){
     return db('users')
     .where('user_id', id)
     .update(changes)
+    .returning('id')
 
 };
 
@@ -33,6 +34,7 @@ function updateUserById(changes, id){
 function addUser(user){
     return db('users')
     .insert(user)
+    .returning('id')
 };
 
 // DELETE user
