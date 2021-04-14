@@ -20,12 +20,14 @@ function addToPublicRecipe(recipeInfo){
         recipeId:recipeInfo.recipe_id,
         dateAdded:Date.now()
         })
+    .returning('id')
 };
 
 function updateIsPublicRecipe(id, isPublic){
     return db('recipes')
     .where('recipe_id', '=', id)
     .update({isPublic:isPublic})
+    .returning('id')
 };
 
 function deletePublicRecipeById(id){
