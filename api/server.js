@@ -56,7 +56,7 @@ server.use('/steps', StepsRouter);
 server.use('/auth', AuthRouter);
 
 // Routes
-server.get('/', (req, res) =>{
+server.get('/', (req, res) {
 res.status(200).json({message: 'Api up and running'})
 });
 
