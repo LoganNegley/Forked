@@ -14,7 +14,14 @@ function OnboardingForm(){
 
 
     const handleSubmit = (event) =>{
-        event.prefaultDefault();
+        event.preventDefault();
+        axios.post('https://forked-application.herokuapp.com/auth/register', newUser)
+        .then(res =>{
+            console.log(res)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
     };
 
     const handleInputChange =(event)=>{
@@ -26,7 +33,7 @@ function OnboardingForm(){
         <div className='form-container'>
             <div className='form-wrapper'>
                 <h3>Sign Up, It's <span>Free</span></h3>
-                <form>
+                <form  onSubmit={handleSubmit}>
                     <label>
                         First Name
                         <input
