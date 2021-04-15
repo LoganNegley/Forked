@@ -33,9 +33,11 @@ function LoginForm(){
 
     return(
         <div className='outer-form-container'>
-            <div id='triangle'>
-                <h1 id='login-heading'>Welcome <span className='back'>Back</span></h1>
-            </div>
+        <div className='triangle-container'>
+            <div id='triangle'></div>
+                <h1 id='login-heading'>Welcome <span>Back</span></h1>
+
+        </div>
             <div id='login-form-container' className='form-container'>
                 <div id='login-form-wrapper' className='form-wrapper'>
                     <h3>Sign In</h3>
