@@ -1,10 +1,10 @@
 /* Onboarding heading */
-.onboarding-container{
+.outer-form-container{
     width:85%;
     margin:0 auto;
 }
 
-.onboarding-container .triangle{
+.outer-form-container .triangle{
     width: 0;
     height: 0;
     border-top: 30px solid transparent;
@@ -13,7 +13,7 @@
     margin-top:5rem;
 
 }
-.onboarding-container h1{
+.outer-form-container h1{
     text-transform: uppercase;
     text-decoration: underline;
     text-decoration-color: var(--gray);
@@ -27,7 +27,7 @@
 }
 
 /* form */
-.onboarding-container{
+.outer-form-container{
     color:white;
 }
 .form-container{
@@ -37,41 +37,41 @@
     height:75vh;
     margin-bottom:6rem;
 }
-.onboarding-container .form-wrapper{
+.outer-form-container .form-wrapper{
     margin:0 auto;
     width:70%;
     position: relative;
     top:5rem;
 }
-.onboarding-container .form-wrapper h3{
+.outer-form-container .form-wrapper h3{
     color:var(--orange);
     font-size: 2.25rem;
     margin-top:3rem;
 }
-.onboarding-container .form-wrapper span{
+.outer-form-container .form-wrapper span{
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: underline;
 }
-.onboarding-container label{
+.outer-form-container label{
     color:var(--gray);
     font-size: 1.35rem;
     margin:1.25rem 0;
     display: block;
     font-weight: bold;
 }
-.onboarding-container input{
+.outer-form-container input{
     border-radius: 10px;
     width:100%;
     margin-top:.5rem;
     display:block;
 }
-.onboarding-container form{
+.outer-form-container form{
     margin-top:4rem;
 }
 
 /* button */
-.onboarding-container .form-wrapper button{
+.outer-form-container .form-wrapper button{
     border:solid 1px var(--orange);
     color:white;
     background-color: transparent;
@@ -81,20 +81,20 @@
     margin-bottom:1rem;
     margin-top:1.25rem;
 }
-.onboarding-container .form-wrapper button:hover{
+.outer-form-container .form-wrapper button:hover{
     background-color: var(--orange);
     color:black;
 }
-.onboarding-container .onboarding-buttons{
+.outer-form-container .onboarding-buttons{
     display:flex;
     align-items: flex-end;
     flex-flow:column;
 }
-.onboarding-container .onboarding-buttons a{
+.outer-form-container .onboarding-buttons a{
     color:var(--gray);
     font-size: 1.1rem;
     text-decoration: none;
 }
-.onboarding-container .onboarding-buttons a:hover{
+.outer-form-container .onboarding-buttons a:hover{
 font-size: 1.24rem;
 }

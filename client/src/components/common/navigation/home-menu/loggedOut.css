@@ -1,7 +1,7 @@
 #menu-container{
     position:absolute;
-    width:70%;
-    height:70%;
+    width:100%;
+    height:100%;
     left:0px;
     top:0px;
     z-index:100;
@@ -44,6 +44,7 @@
     font-weight: bold;
     margin:2rem;
     text-decoration: none;
+    display:block;
 }
 .link-items .menu-link:hover{
 color:var(--darkGray);
