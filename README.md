@@ -5,6 +5,11 @@ Use all endpoints after main route: https://<span>forked-application.herokuapp.c
 
 # Back-end endpoints
 ************************************
+**Login/Logout/Register Users**
+  - Register user - HTTP request POST----('/auth/register')
+  - Login a user - HTTP request POST----('/auth/login')
+  - Logout a user - HTTP request GET-----('/auth/logout')
+ ************************************
 **Users**
   - Get all users - HTTP request GET----('/users/')
   - Find a user by user Id - HTTP request GET----('/users/:id')
