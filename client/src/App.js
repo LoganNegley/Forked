@@ -3,7 +3,7 @@ import './App.css';
 import {Route, Switch} from 'react-router-dom';
 import Navbar from '../src/components/common/navigation/Navbar';
 import LandingPageContainer from '../src/components/pages/landing-page/LandingPageContainer';
-import OnboardingContainer from '../src/components/pages/onboarding/OnboardingContainer';
+import OnboardingForm from '../src/components/pages/onboarding/OnboardingForm';
 
 
 function App() {
@@ -17,7 +17,11 @@ function App() {
         </Route>
 
         <Route path='/sign-up'>
-          <OnboardingContainer/>
+          <OnboardingForm/>
+        </Route>
+
+        <Route path='/login'>
+
         </Route>
         
       </Switch>

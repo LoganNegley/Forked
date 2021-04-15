@@ -90,10 +90,11 @@
     align-items: flex-end;
     flex-flow:column;
 }
-.onboarding-container .onboarding-buttons p{
+.onboarding-container .onboarding-buttons a{
     color:var(--gray);
     font-size: 1.1rem;
+    text-decoration: none;
 }
-.onboarding-container .onboarding-buttons p:hover{
+.onboarding-container .onboarding-buttons a:hover{
 font-size: 1.24rem;
 }
