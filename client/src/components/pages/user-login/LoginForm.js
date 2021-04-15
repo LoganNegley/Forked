@@ -33,7 +33,7 @@ function LoginForm(){
 
     return(
         <div className='outer-form-container'>
-            <div className='triangle form-heading'>
+            <div id='triangle'>
                 <h1 id='login-heading'>Welcome <span className='back'>Back</span></h1>
             </div>
             <div id='login-form-container' className='form-container'>
