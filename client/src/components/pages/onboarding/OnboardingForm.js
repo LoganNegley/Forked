@@ -31,7 +31,7 @@ function OnboardingForm(){
     };
 
     return (
-       <div className='onboarding-container'>
+       <div className='outer-form-container'>
             <div className='triangle form-heading'>
                 <h1>Welcome</h1>
             </div>

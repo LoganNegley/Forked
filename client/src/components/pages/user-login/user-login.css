@@ -1,0 +1,21 @@
+.form-heading #login-heading span{
+    position: absolute;
+    left:5.75rem;
+}
+#login-form-container{
+    margin-top:7.5rem;
+    height:50vh;
+}
+#login-form-container h3{
+    text-align: center;
+    font-weight: bold;
+    text-transform:uppercase;
+}
+.login-buttons{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.form-wrapper .login-buttons .create-account{
+    width:10em;
+}

@@ -17,7 +17,7 @@ function LoggedOutMenu(props){
                         <Link to='/' onClick={closeMenu} className='menu-link'>Home</Link>
                         <li className='menu-link'>Recipes</li>
                         <Link to='/sign-up' onClick={closeMenu} className='menu-link'>Sign Up</Link>
-                        <li className='menu-link'>Login</li>
+                        <Link to='/login' onClick={closeMenu} className='menu-link'>Login</Link>
                     </ul>
                 </div>
             </div>
