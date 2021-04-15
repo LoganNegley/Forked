@@ -19,3 +19,12 @@
 .form-wrapper .login-buttons .create-account{
     width:10em;
 }
+
+#failed-login-attempt .false{
+    display:none;
+}
+
+#failed-login-attempt .true{
+    color:red;
+    font-size: 1.25rem;
+}

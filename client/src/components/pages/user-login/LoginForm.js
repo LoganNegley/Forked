@@ -4,24 +4,31 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 function LoginForm(){
-    const [user, setUser] =useState({
+    const [userCreds, setUserCreds] =useState({
         username:'',
         password:''
     });
+    const [loggedUser, setLoggedUser] = useState({});
+    const [failed, setFailed] = useState("false");
 
+    // Form functions
     const handleSubmit = (event)=>{
         event.preventDefault();
-        axios.post(' https://forked-application.herokuapp.com/auth/login', user)
+        axios.post('http://localhost:5000/auth/login', userCreds)
         .then(res =>{
-            console.log(res)
+            setLoggedUser(res.data.user)
+            console.log(loggedUser)
         })
         .catch(error =>{
             console.log(error)
+            setFailed('true')
         })
     };
 
+
     const handleChange = (event)=>{
-        setUser({...user, [event.target.name]:event.target.value})
+        setFailed('false')
+        setUserCreds({...userCreds, [event.target.name]:event.target.value})
     };
 
     return(
@@ -39,7 +46,7 @@ function LoginForm(){
                                 required
                                 type='text'
                                 name='username'
-                                value={user.username}
+                                value={userCreds.username}
                                 onChange={handleChange}
                             />
                         </label>
@@ -49,7 +56,7 @@ function LoginForm(){
                                 required
                                 type='text'
                                 name='password'
-                                value={user.password}
+                                value={userCreds.password}
                                 onChange={handleChange}
                             />
                         </label>
@@ -58,9 +65,11 @@ function LoginForm(){
                             <Link to='/sign-up'><button className='create-account'>Create Account</button></Link>
                         </div>
                     </form>
+                    <div id='failed-login-attempt'>
+                        <p className={failed}>Unable to login. Make sure Username and Password are correct</p>
+                    </div>
                 </div>
             </div>
-            
         </div>
     )
 };
