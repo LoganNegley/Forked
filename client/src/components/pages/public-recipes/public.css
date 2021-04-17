@@ -1,0 +1,73 @@
+/* Heading styles----some coming from onboarding form css */
+.public-recipes-container{
+    width:85%;
+    margin:0 auto;
+}
+.triangle-box h1{
+    position:relative;
+    bottom:5.75rem;
+    left:4.25rem;
+    font-size: 5.5rem;
+}
+.triangle-box span{
+    font-size:2.5rem;
+    text-decoration: underline;
+    text-decoration-color: var(--gray);
+    text-decoration-thickness: 3px;
+    position: relative;
+    right:.75rem;
+}
+
+
+/* cards */
+.public-card-container .public-card-wrapper .public-card{
+    background-color:rgba(0,0,0,.2);
+    box-shadow: 0px 0px 7px #ACACAC;
+    border-radius: 10px;
+    width:100%;
+    height:15vh;
+    margin-bottom:3rem;
+}
+
+.public-card-wrapper .public-card .recipe-info{
+    display:flex;
+    flex-flow: row wrap;
+    color:white;
+    align-items: center;
+    margin-left:1.5rem;
+}
+.public-card-wrapper .public-card img{
+    width:55px;
+    height:55px;
+}
+
+.public-card-wrapper .public-card .recipe-details{
+    margin:1.45rem;
+    flex-grow: 2;
+} 
+
+.public-card-wrapper .recipe-details h3{
+    font-size:1.25rem;
+    font-weight:bolder;
+    letter-spacing: .35rem;
+    text-decoration: underline;
+}
+.public-card-wrapper .recipe-details p{
+    letter-spacing: .25rem;
+    margin-top:1rem;
+}
+.public-card-wrapper button{
+    border:var(--orange) 1px solid;
+    border-radius: 15px;
+    background-color: transparent;
+    color:white;
+    font-weight: bold;
+    letter-spacing: .15rem;
+    margin-right:1rem;
+}
+.public-card-wrapper button:hover{
+    background-color: var(--orange);
+    color:black;
+    cursor:pointer;
+}
+

@@ -5,6 +5,8 @@ import Navbar from '../src/components/common/navigation/Navbar';
 import LandingPageContainer from '../src/components/pages/landing-page/LandingPageContainer';
 import OnboardingForm from '../src/components/pages/onboarding/OnboardingForm';
 import LoginForm from '../src/components/pages/user-login/LoginForm';
+import PublicRecipeContainer from '../src/components/pages/public-recipes/PublicRecipeContainer';
+
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
 
         <Route path='/login'>
           <LoginForm/>
+        </Route>
+
+        <Route path='/public-recipes'>
+          <PublicRecipeContainer/>
         </Route>
         
       </Switch>

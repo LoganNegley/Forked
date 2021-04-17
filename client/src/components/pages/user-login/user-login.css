@@ -1,9 +1,15 @@
-.form-heading #login-heading span{
-    position: absolute;
-    left:5.75rem;
+.triangle-container h1{
+    position: relative;
+    bottom:4.75rem;
+    left:2.5rem;
+    text-decoration: underline;
+    text-decoration-color:var(--gray);
+    text-decoration-thickness:3px;
+    font-size:3.25rem;
 }
+
 #login-form-container{
-    margin-top:7.5rem;
+    margin-top:2rem;
     height:50vh;
 }
 #login-form-container h3{
