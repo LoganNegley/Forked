@@ -1,5 +1,5 @@
 import React from 'react';
-import './users-recipes';
+import './users-recipes.css';
 
 function UsersRecipes(){
     return(
