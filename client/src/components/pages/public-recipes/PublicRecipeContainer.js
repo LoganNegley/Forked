@@ -2,19 +2,25 @@ import React,{useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import './public.css';
 import axios from 'axios';
+import PublicCard from './PublicCard';
 
 function PublicRecipeContainer(){
-    const [publicRecipes, setPublicRecipes] = useState([])
+    const [publicRecipes, setPublicRecipes] = useState()
 
     useEffect(()=>{
         axios.get('http://localhost:5000/public/recipes')
         .then(res =>{
-            console.log(res)
+            setPublicRecipes(res.data)
         })
         .catch(error =>{
             console.log(error)
         })
     },[]);
+    // console.log(publicRecipes)
+
+    if(!publicRecipes){
+        return <div>....Loading Recipe Information</div>
+    }
 
     return (
         <div className='public-recipes-container'>
@@ -23,7 +29,7 @@ function PublicRecipeContainer(){
             <h1>P<span>ublic Recipes</span></h1>
         </div>
         <div className='public-card-container'>
-
+            <PublicCard publicRecipes={publicRecipes}/>
         </div>
         </div>
     )

@@ -1,15 +1,21 @@
 import React from 'react';
-import './public';
+import './public.css';
 
 
-function PublicRecipeCard(props){
+function PublicCard(props){
+    const publicRecipesData = props.publicRecipes;
+
     return(
-        <div className='public-card'>
-            <img/>
-            <h3>Cookies</h3>
-            <p>Prep Time: 10 mins</p>
-            <p>Cook Time: 20 mins</p>
-            <button>View</button>
+        <div className='public-card-wrapper'>
+            {publicRecipesData.map((recipe)=>(
+                <div className='public-card' key={recipe.recipe_id}>
+                    {recipe.image === '' ? <img src='/images/utensils.png' alt='recipe'/> : <img src='/images/heart_icon_V3.png' alt='not available logo'/>}
+                    <h3>{recipe.recipeName}</h3>
+                    <p>Prep Time: {recipe.prep_time}</p>
+                    <p>Cook Time: {recipe.cook_time}</p>
+                    <button>View</button>
+                </div>
+            ))}
         </div>
 
     )

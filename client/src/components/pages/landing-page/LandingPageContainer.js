@@ -1,5 +1,4 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
 import HeroBanner from './HeroBanner';
 import InfoCards from './InfoCards';
 import GetStarted from './GetStarted';
