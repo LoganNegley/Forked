@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Route, Switch, useRouteMatch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+// Context Data
+import UserContext from '../src/state/UserContext';
+// Components
 import Navbar from '../src/components/common/navigation/Navbar';
 import LandingPageContainer from '../src/components/pages/landing-page/LandingPageContainer';
 import OnboardingForm from '../src/components/pages/onboarding/OnboardingForm';
@@ -10,10 +13,11 @@ import UsersRecipes from '../src/components/pages/users-recipes/UsersRecipes';
 
 function App() {
   const [user, setUser] = useState({});
-  const {path, url} = useRouteMatch();
 
   return (
     <div className="App">
+      <UserContext.Provider value={user}>
+
       <Navbar/>
 
       {/* Routes */}
@@ -24,6 +28,8 @@ function App() {
         <Route path='/public-recipes' component={PublicRecipeContainer}/>
         <Route path='/recipes' component={UsersRecipes}/>
       </Switch>
+
+      </UserContext.Provider>
     </div>
   );
 }

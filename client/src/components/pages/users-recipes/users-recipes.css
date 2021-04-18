@@ -1,0 +1,27 @@
+.users-recipe-container{
+    width:85%;
+    margin:0 auto;
+}
+.heading-triangle{
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-right: 60px solid var(--orange);
+    border-bottom: 30px solid transparent;
+    margin-top:5rem;
+}
+.heading-container h1{
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: var(--gray);
+    text-decoration-thickness: .3rem;
+    letter-spacing: .4rem;
+    font-size: 5rem;
+    font-weight:bold;
+    position: relative;
+    left:4rem;
+    bottom:  5.5rem;
+}
+.heading-container span{
+    font-size:3rem;
+}
