@@ -7,24 +7,28 @@ import UserContext from '../../../state/UserContext';
 function UsersRecipes(props){
     const user = useContext(UserContext)
 
-    
+
     return(
         <div className='users-recipe-container'>
             <div className='heading-container'>
                 <div className='heading-triangle'></div>
                 <h1>Y<span>our Recipes</span></h1>
             </div>
-            <form>
-                <label>
-                    Find A Recipes
+            <div className='search-wrapper'>
+                <form>
+                    <label for='search'>
+                        Find A Recipe
+                    </label>
                     <input type='text'
+                        id='search'
                         name='search'
                     />
-                </label>
-                <button>Search</button>
-            </form>
-            <button className='add-recipe-btn'>Add Recipe</button>
-            {/* {<UsersRecipeCard/>} */}
+                    <button><img src='/images/search-iconV2.png'/></button>
+                </form>
+                <button className='add-recipe-btn'>Add Recipe</button>
+            </div>
+
+            <UsersRecipeCard/>
         </div>
     )
 };

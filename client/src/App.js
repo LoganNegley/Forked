@@ -26,7 +26,7 @@ function App() {
         <Route path='/sign-up' component={OnboardingForm}/>
         <Route path='/login' component={LoginForm}/>
         <Route path='/public-recipes' component={PublicRecipeContainer}/>
-        <Route path='/recipes' component={UsersRecipes}/>
+        <Route path='/recipes/' component={UsersRecipes}/>
       </Switch>
 
       </UserContext.Provider>
