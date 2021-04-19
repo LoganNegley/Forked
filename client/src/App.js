@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch,Redirect, useParams} from 'react-router-dom';
 
 // Components
 import Navbar from '../src/components/common/navigation/Navbar';
@@ -13,7 +13,7 @@ import UserDashboard from '../src/components/pages/user-dashboard/UserDashboard'
 
 function App() {
   const [user, setUser] = useState('');
-
+  const {username} = useParams();
 
   return (
     <div className="App">
@@ -23,7 +23,8 @@ function App() {
       {/* Routes */}
       <Switch>
         <Route exact path='/'>
-          <LandingPageContainer/>
+          {user ? <Redirect to={`/dashboard/${user.user.username}`}/> : 
+          <LandingPageContainer/>}
         </Route>
 
         <Route path='/sign-up'>

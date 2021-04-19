@@ -25,7 +25,7 @@ function LoginForm({user, setUser}){
         .then(res =>{
             setUser(res.data.user)
             setLoggedUser(res.data.user.user.username);
-            history.push(`/dasboard/${loggedUser}`)
+            history.push('/');
         })
         .catch(error =>{
             console.log(error)
