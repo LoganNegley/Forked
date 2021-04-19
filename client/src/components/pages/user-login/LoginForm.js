@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './user-login.css';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import UserDashboard from '../user-dashboard/UserDashboard';
 
-function LoginForm(){
+
+function LoginForm(props){
     const [userCreds, setUserCreds] =useState({
         username:'',
         password:''
@@ -12,6 +13,7 @@ function LoginForm(){
     const [loggedUser, setLoggedUser] = useState();
     const [failed, setFailed] = useState("false");
 
+console.log(props)
     // Form functions
     const handleSubmit = (event)=>{
         event.preventDefault();

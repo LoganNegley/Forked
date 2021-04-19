@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
-// Context Data
-import UserContext from '../src/state/UserContext';
+
 // Components
 import Navbar from '../src/components/common/navigation/Navbar';
 import LandingPageContainer from '../src/components/pages/landing-page/LandingPageContainer';
@@ -16,20 +15,33 @@ function App() {
 
   return (
     <div className="App">
-      <UserContext.Provider value={user}>
 
       <Navbar/>
 
       {/* Routes */}
       <Switch>
-        <Route exact path='/' component={LandingPageContainer}/>
-        <Route path='/sign-up' component={OnboardingForm}/>
-        <Route path='/login' component={LoginForm}/>
-        <Route path='/public-recipes' component={PublicRecipeContainer}/>
-        <Route path='/recipes/' component={UsersRecipes}/>
+        <Route exact path='/'>
+          <LandingPageContainer/>
+        </Route>
+
+        <Route path='/sign-up'>
+          <OnboardingForm/>
+        </Route>
+
+        <Route path='/login'>
+          <LoginForm user={user} setUser={setUser}/>
+        </Route>
+
+        <Route path='/public-recipes'>
+          <PublicRecipeContainer/>
+        </Route>
+
+        <Route path='/recipes/'>
+          <UsersRecipes/>
+        </Route>
       </Switch>
 
-      </UserContext.Provider>
+
     </div>
   );
 }
