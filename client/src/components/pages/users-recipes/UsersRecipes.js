@@ -2,10 +2,8 @@ import React,{useContext} from 'react';
 import './users-recipes.css';
 import {Link} from 'react-router-dom';
 import UsersRecipeCard from './UsersRecipeCard';
-import UserContext from '../../../state/UserContext';
 
 function UsersRecipes(props){
-    const user = useContext(UserContext)
 
 
     return(
@@ -16,7 +14,7 @@ function UsersRecipes(props){
             </div>
             <div className='search-wrapper'>
                 <form>
-                    <label for='search'>
+                    <label htmlFor='search'>
                         Find A Recipe
                     </label>
                     <input type='text'
