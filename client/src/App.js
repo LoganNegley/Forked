@@ -11,7 +11,7 @@ import PublicRecipeContainer from '../src/components/pages/public-recipes/Public
 import UsersRecipes from '../src/components/pages/users-recipes/UsersRecipes';
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState('');
 
   return (
     <div className="App">

@@ -1,26 +1,25 @@
 import React, {useState, useContext} from 'react';
 import './user-login.css';
-import {Link} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import axios from 'axios';
 import UserDashboard from '../user-dashboard/UserDashboard';
 
 
-function LoginForm(props){
+function LoginForm({user, setUser}){
     const [userCreds, setUserCreds] =useState({
         username:'',
         password:''
     });
-    const [loggedUser, setLoggedUser] = useState();
+
     const [failed, setFailed] = useState("false");
 
-console.log(props)
+
     // Form functions
     const handleSubmit = (event)=>{
         event.preventDefault();
         axios.post('http://localhost:5000/auth/login', userCreds)
         .then(res =>{
-            setLoggedUser(res.data.user)
-            console.log(loggedUser)
+            setUser(res.data.user)
         })
         .catch(error =>{
             console.log(error)
@@ -34,8 +33,8 @@ console.log(props)
         setUserCreds({...userCreds, [event.target.name]:event.target.value})
     };
 
-    if(loggedUser){
-        return(<UserDashboard user={loggedUser}/>)
+    if(user){
+        return(<UserDashboard user={user}/>)
     }
 
     return(
