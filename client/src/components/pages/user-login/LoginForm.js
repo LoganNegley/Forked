@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import './user-login.css';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import UserDashboard from '../user-dashboard/UserDashboard';
 
 function LoginForm(){
     const [userCreds, setUserCreds] =useState({
         username:'',
         password:''
     });
-    const [loggedUser, setLoggedUser] = useState({});
+    const [loggedUser, setLoggedUser] = useState();
     const [failed, setFailed] = useState("false");
 
     // Form functions
@@ -30,6 +31,10 @@ function LoginForm(){
         setFailed('false')
         setUserCreds({...userCreds, [event.target.name]:event.target.value})
     };
+
+    if(loggedUser){
+        return(<UserDashboard user={loggedUser}/>)
+    }
 
     return(
         <div className='outer-form-container'>
