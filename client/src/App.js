@@ -9,9 +9,11 @@ import OnboardingForm from '../src/components/pages/onboarding/OnboardingForm';
 import LoginForm from '../src/components/pages/user-login/LoginForm';
 import PublicRecipeContainer from '../src/components/pages/public-recipes/PublicRecipeContainer';
 import UsersRecipes from '../src/components/pages/users-recipes/UsersRecipes';
+import UserDashboard from '../src/components/pages/user-dashboard/UserDashboard';
 
 function App() {
   const [user, setUser] = useState('');
+
 
   return (
     <div className="App">
@@ -38,6 +40,10 @@ function App() {
 
         <Route path='/recipes/'>
           <UsersRecipes/>
+        </Route>
+
+        <Route path='/dashboard/:username'>
+          <UserDashboard/>
         </Route>
       </Switch>
 

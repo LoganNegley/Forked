@@ -1,4 +1,5 @@
 import React from 'react';
+import './user-dashboard.css';
 
 function Carousel(){
     return (

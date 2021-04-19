@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import DashboardFaves from './DashboardFaves';
 import DashboardPublic from './DashboardPublic';
 import DashboardMyRecipes from './DashboardMyRecipes';
@@ -7,7 +7,6 @@ import './user-dashboard.css';
 
 function UserDashboard(props){
     console.log(props.user)
-
 
 
     return(
