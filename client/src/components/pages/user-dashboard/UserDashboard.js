@@ -20,10 +20,8 @@ function UserDashboard(props){
                 <button>Shopping Cart</button>
                 <button>Add A Recipe</button>
             </div>
-            <div className='sections'>
+            <div className='main-sections'>
                 <DashboardFaves/>
-                <DashboardPublic/>
-                <DashboardMyRecipes/>
             </div>
         </div>
     )

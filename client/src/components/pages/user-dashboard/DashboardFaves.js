@@ -4,8 +4,13 @@ import FavoriteCard from './FavoriteCard';
 
 function DashboardFaves(){
     return(
-        <div>
-            
+        <div className='dashboard-faves-container'>
+            <div className='circle-div'></div>
+            <h3>My Favorites</h3>
+            <div className='faves-wrapper'>
+                <p>Carousel Here</p>
+            </div>
+
         </div>
     )
 };
