@@ -28,10 +28,17 @@ function Carousel({userRecipeData}){
 
     return (
         <div className='carousel-container'>
-            <div className='carousel-wrapper'>
+            <div className='carousel-btns'>
                 <button onClick={handlePrev}>Prev</button>
-                    <FavoriteCard activeRecipe={activeRecipe} index={index}/>
                 <button onClick={handleNext}>Next</button>
+            </div>
+            <div className='card-slider'>
+                <div className='card-slider-wrapper'>
+                    {data.map(item =>(
+                        <FavoriteCard key={item.favorite_id} activeRecipe={activeRecipe} index={index}/>
+                    ))}
+
+                </div>
             </div>
         </div>
     )

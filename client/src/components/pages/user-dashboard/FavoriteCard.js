@@ -3,9 +3,6 @@ import React from 'react';
 function FavoriteCard({activeRecipe, index}){
     const {cook_time, favorite_id, image, prep_time, recipeId, recipeName} = activeRecipe;
 
-    console.log(activeRecipe)
-    console.log(index)
-
     return (
         <div id={`card-${index}`} className='favorite-card'>
             {image !== '' ? <img src='/images/utensils.png' alt='recipe holder'/> : <img src={image} alt='recipe'/> }
