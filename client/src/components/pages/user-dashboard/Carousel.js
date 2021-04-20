@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import './user-dashboard.css';
 
-function Carousel({userFavorite}){
-    const [data, setData] = useState(userFavorite);
+function Carousel({userRecipeData}){
+    const [data, setData] = useState(userRecipeData);
     const [index, setIndex] = useState(0);
     const [activeRecipe, setActiveRecipe] = useState('');
 
@@ -10,7 +10,6 @@ function Carousel({userFavorite}){
 
     useEffect(()=>{
         setActiveRecipe(data[index])
-        // console.log(activeRecipe)s
     },[index])
 
 

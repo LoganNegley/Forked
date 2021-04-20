@@ -1,8 +1,29 @@
-import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import React, {useEffect, useState} from 'react';
 import FavoriteCard from './FavoriteCard';
+import Carousel from './Carousel';
+import axios from 'axios';
 
-function DashboardFaves(){
+function DashboardFaves({loggedUser}){
+    const [userFavorite, setUserFavorite] = useState('')
+
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/favorites/user/${loggedUser.user_id}`)
+        .then(res =>{
+            setUserFavorite(res.data);
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    },[])
+
+console.log(userFavorite)
+    if(!userFavorite){
+        return (<h1>....Loading Favorite</h1>)
+    }else if(userFavorite.length === 0){
+        return (<img src='/images/utensils.png'/>)
+    }
+
+
     return(
         <div className='dashboard-faves-container'>
             <div className='dashboard-section-heading'>
@@ -10,7 +31,7 @@ function DashboardFaves(){
                 <h3>My Favorites</h3>
             </div>
             <div className='faves-wrapper'>
-                <p>Carousel Here</p>
+                <Carousel userRecipeData={userFavorite}/>
             </div>
         </div>
     )

@@ -9,18 +9,6 @@ import './user-dashboard.css';
 function UserDashboard(props){
     const loggedUser = props.user.user;
     console.log(loggedUser)
-    const [favorite, setFavorite] = useState('');
-
-    useEffect(()=>{
-        axios.get(`http://localhost:5000/favorites/user/${loggedUser.user_id}`)
-        .then(res =>{
-            setFavorite(res.data);
-        })
-        .catch(error =>{
-            console.log(error)
-        })
-    },[])
-
 
     return(
         <div className='dashboard-container'>
@@ -33,7 +21,7 @@ function UserDashboard(props){
                 <button>Add A Recipe</button>
             </div>
             <div className='main-sections'>
-                <DashboardFaves favorites={favorite}/>
+                <DashboardFaves loggedUser={loggedUser}/>
             </div>
         </div>
     )
