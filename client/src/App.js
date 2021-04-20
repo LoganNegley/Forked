@@ -44,7 +44,7 @@ function App() {
         </Route>
 
         <Route path='/dashboard/:username'>
-          <UserDashboard/>
+          <UserDashboard user={user}/>
         </Route>
       </Switch>
 
