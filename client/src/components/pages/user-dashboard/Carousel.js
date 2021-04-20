@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import './user-dashboard.css';
+import  FavoriteCard from './FavoriteCard';
 
 function Carousel({userRecipeData}){
     const [data, setData] = useState(userRecipeData);
@@ -29,7 +30,7 @@ function Carousel({userRecipeData}){
         <div className='carousel-container'>
             <div className='carousel-wrapper'>
                 <button onClick={handlePrev}>Prev</button>
-
+                    <FavoriteCard activeRecipe={activeRecipe} index={index}/>
                 <button onClick={handleNext}>Next</button>
             </div>
         </div>
