@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import './user-dashboard.css';
-import  FavoriteCard from './FavoriteCard';
+import  Card from './Card';
 
 function Carousel({recipeData}){
     const [data, setData] = useState(recipeData);
@@ -27,7 +27,7 @@ function Carousel({recipeData}){
         <div className='carousel-container'>
             <div className='card-slider'>
                 <div className='card-slider-wrapper' style={{'transform':`translateX(-${offset}px)`, 'transition': '1s linear'}}>
-                    <FavoriteCard data={data} />
+                    <Card data={data} />
                 </div>
             </div>
         </div>

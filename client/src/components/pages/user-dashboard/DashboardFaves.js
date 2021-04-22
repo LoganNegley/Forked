@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import FavoriteCard from './FavoriteCard';
 import Carousel from './Carousel';
 import axios from 'axios';
 

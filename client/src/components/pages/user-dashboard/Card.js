@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 
-function FavoriteCard({data}){
+function Card({data}){
 
     return (
         <>
-      {      data.map(item =>(
+      {      data.map((item, index) =>(
 
-        <div key={item.favorite_id} className='favorite-card'>
-        <div className='favorite-card-info'>
+        <div key={index} className='dash-card-container'>
+        <div className='dash-card-info'>
           {item.image !== '' ? <img src='/images/utensils.png' alt='recipe holder'/> : <img src={item.image} alt='recipe'/> }
                 <p>{item.recipeName}</p>
                 <p>Prep Time: {item.prep_time}</p>
@@ -20,4 +20,4 @@ function FavoriteCard({data}){
     )
 };
 
-export default FavoriteCard;
+export default Card;

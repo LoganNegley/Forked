@@ -46,7 +46,7 @@
     margin-top:1.5rem;
     overflow:hidden;
 }
-.card-slider-wrapper .favorite-card{
+.card-slider-wrapper .dash-card-container{
     flex:1;
     width:25rem;
     border-radius: 25px;
@@ -57,21 +57,21 @@
     display:flex;
     flex-flow:column;
 }
-.favorite-card-info{
+.dash-card-info{
     color:var(--gray);
     text-align: center;
 }
-.favorite-card-info p{
+.dash-card-info p{
     font-size: 1.25rem;
     margin-top:1.25rem;
 }
-.favorite-card-info p:first-of-type{
+.dash-card-info p:first-of-type{
     font-size: 1.95rem;
     font-weight: bold;
     letter-spacing: .25rem;
     margin-top:2rem;
 }
-.favorite-card img{
+.dash-card-container img{
     margin-top:2rem;
     width:85%;
     height:100px;
