@@ -4,54 +4,33 @@ import  FavoriteCard from './FavoriteCard';
 
 function Carousel({userRecipeData}){
     const [data, setData] = useState(userRecipeData);
-    // const [sliderData, setSlider]
-    // const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(0);
     // const [activeRecipe, setActiveRecipe] = useState('');
     const [offset, setOffset] = useState(0)
 
-console.log(data)
+    useEffect(() => {
+        const interval = setInterval(() => {
+        if(index < data.length - 1){
+            setIndex(index + 1)
+        }else{
+            setIndex(0)
+        }
 
-const sliderData = [...data]
+    }, 3000);
+        setOffset(index * 330)
 
+    return () => clearInterval(interval);
+    }, [index]);
 
-const infiniteSlide =() =>{
-    sliderData.push(sliderData[0])
-    sliderData.shift()
-    console.log(sliderData)
-};
-
-
-
-
-    // useEffect(()=>{
-    //     setActiveRecipe(data[index])
-    // },[index])
-
-    // setInterval(()=>{
-    //     setOffset(offset - 330)
-    //     infiniteSlide()
-    // },3000)
-
-
-    // const handleNext = ()=>{
-    //     setIndex(index + 1)
-    //     setOffset(-Math.abs(index*(100/data.length)))
-    // };
-
-
-    // const handlePrev = ()=>{
-    //     setIndex(index - 1)
-    //     setOffset(index*(100/data.length))
-    // };
+console.log(offset)
 
     return (
         <div className='carousel-container'>
             <div className='card-slider'>
-                <div className='card-slider-wrapper' style={{'transform':`translateX(${offset}px)`, 'transition': '2s'}}>
-                    <FavoriteCard data={sliderData}/>
+                <div className='card-slider-wrapper' style={{'transform':`translateX(-${offset}px)`, 'transition': '2s linear'}}>
+                    <FavoriteCard data={data} />
                 </div>
             </div>
-            <button onClick={infiniteSlide}></button>
         </div>
     )
 };
