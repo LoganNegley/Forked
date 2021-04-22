@@ -77,3 +77,10 @@
     height:100px;
     flex-grow: 3;
 }
+
+/* Public section */
+.public-section-wrapper{
+    background-color:white;
+    width:100%;
+    height:300px;
+}
