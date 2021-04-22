@@ -15,7 +15,6 @@ function DashboardFaves({loggedUser}){
         })
     },[])
 
-console.log(userFavorite)
     if(!userFavorite){
         return (<h1>....Loading Favorite</h1>)
     }else if(userFavorite.length === 0){

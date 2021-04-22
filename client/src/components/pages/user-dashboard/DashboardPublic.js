@@ -3,12 +3,12 @@ import Carousel from './Carousel';
 import axios from 'axios';
 
 function DashboardPublic(){
-    const [publicRecipe, setPublicRecipes] = useState('');
+    const [publicRecipe, setPublicRecipe] = useState('');
 
     useEffect(() =>{
         axios.get('http://localhost:5000/public/recipes/')
         .then(res =>{
-            console.log(res.data)
+            setPublicRecipe(res.data);
         })
         .catch(error =>{
             console.log(error)
@@ -22,7 +22,7 @@ function DashboardPublic(){
                 <h3>Get Inspired</h3>
             </div>
             <div className='public-section-wrapper'>
-                {/* <Carousel/> */}
+                {/* <Carousel recipeData={publicRecipe}/> */}
             </div>
         </div>
     )
