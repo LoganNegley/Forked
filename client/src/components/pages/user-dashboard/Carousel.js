@@ -5,7 +5,6 @@ import  FavoriteCard from './FavoriteCard';
 function Carousel({userRecipeData}){
     const [data, setData] = useState(userRecipeData);
     const [index, setIndex] = useState(0);
-    // const [activeRecipe, setActiveRecipe] = useState('');
     const [offset, setOffset] = useState(0)
 
     // useEffect(() => {
@@ -22,12 +21,11 @@ function Carousel({userRecipeData}){
     // return () => clearInterval(interval);
     // }, [index]);
 
-console.log(offset)
 
     return (
         <div className='carousel-container'>
             <div className='card-slider'>
-                <div className='card-slider-wrapper' style={{'transform':`translateX(-${offset}px)`, 'transition': '2s linear'}}>
+                <div className='card-slider-wrapper' style={{'transform':`translateX(-${offset}px)`, 'transition': '1s linear'}}>
                     <FavoriteCard data={data} />
                 </div>
             </div>

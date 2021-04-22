@@ -1,6 +1,6 @@
 .dashboard-faves-container{
     margin-top:5rem;
-    background-color:purple;
+    /* background-color:purple; */
 }
 .dashboard-faves-container .dashboard-section-heading{
     margin-left:1.75rem;
@@ -30,18 +30,18 @@
 .carousel-container{
     height:100%;
     width:100%;
-    background-color:aqua;
+    /* background-color:aqua; */
 }
 .card-slider{
     position:relative;
-    border:3px solid blue;
+    /* border:3px solid blue; */
     height:100%;
     margin: auto 0;
 }
 .card-slider-wrapper{
     display:flex;
     position:absolute;
-    background-color:red;
+    /* background-color:red; */
     height:90%;
     margin-top:1.5rem;
     overflow:hidden;
@@ -53,7 +53,7 @@
     background-color:var(--eerieBlack);
     margin: 1rem 4.5rem;
     height:95%;
-    box-shadow: 3px 10px 15px #707070;
+    box-shadow: 0 0 8px 3px #707070;
     display:flex;
     flex-flow:column;
 }
