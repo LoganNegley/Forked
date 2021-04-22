@@ -22,6 +22,7 @@ function UserDashboard(props){
             </div>
             <div className='main-sections'>
                 <DashboardFaves loggedUser={loggedUser}/>
+                <DashboardPublic/>
             </div>
         </div>
     )

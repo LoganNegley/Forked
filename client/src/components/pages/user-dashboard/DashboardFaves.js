@@ -25,7 +25,7 @@ console.log(userFavorite)
 
 
     return(
-        <div className='dashboard-faves-container'>
+        <div className='dashboard-section-container'>
             <div className='dashboard-section-heading'>
                 <div className='circle-div'></div>
                 <h3>My Favorites</h3>
