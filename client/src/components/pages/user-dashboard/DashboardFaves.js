@@ -31,7 +31,7 @@ console.log(userFavorite)
                 <h3>My Favorites</h3>
             </div>
             <div className='faves-wrapper'>
-                <Carousel userRecipeData={userFavorite}/>
+                <Carousel recipeData={userFavorite}/>
             </div>
         </div>
     )

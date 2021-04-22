@@ -2,10 +2,11 @@ import React,{useState, useEffect} from 'react';
 import './user-dashboard.css';
 import  FavoriteCard from './FavoriteCard';
 
-function Carousel({userRecipeData}){
-    const [data, setData] = useState(userRecipeData);
+function Carousel({recipeData}){
+    const [data, setData] = useState(recipeData);
     const [index, setIndex] = useState(0);
     const [offset, setOffset] = useState(0)
+
 
     // useEffect(() => {
     //     const interval = setInterval(() => {
