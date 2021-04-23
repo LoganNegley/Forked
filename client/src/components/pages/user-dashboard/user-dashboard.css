@@ -26,7 +26,7 @@
     height:300px;
 }
 
-/* Carousel */
+/* Carousel top*/
 .carousel-container{
     height:100%;
     width:100%;
@@ -79,10 +79,59 @@
 }
 
 /* Public section */
-.public-section-wrapper{
-    background-color:white;
-    width:100%;
-    height:300px;
+.carousel{
+    height:250px;
 }
+.carousel__slider{
+    height:100%;
+}
+.carousel__inner-slide{
+    height:100%;
+}
+.carousel img{
+    width:100%;
+    height:100%;
+}
+
+/* My recipes */
+.my-recipe-card{
+    border-radius: 25px;
+    background-color:var(--eerieBlack);
+    margin: 1rem 4.5rem;
+    height:85%;
+    box-shadow: 0 0 8px 3px #707070;
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+}
+.my-recipe-card img{
+    width:100%;
+    height:125px;
+}
+.my-recipe-card-info{
+    margin-top:2rem;
+    width:75%;
+    text-align: center;
+}
+.my-recipe-card-info .detail-info{
+    margin-top:1.5rem;
+}
+.my-recipe-card-info p{
+    margin-top:.75rem;
+    font-size: 1.25rem;
+}
+.my-recipe-card-info p:first-of-type{
+    font-weight: bold;
+    font-size: 2.5rem;
+    letter-spacing: .25rem;;
+}
+.my-recipe-dash-section{
+    background-color:white;
+    height:275px;
+}
+.my-recipe-card .detail-info{
+    color:var(--gray);
+}
+
 
 
