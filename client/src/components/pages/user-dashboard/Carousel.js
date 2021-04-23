@@ -7,7 +7,6 @@ function Carousel({recipeData}){
     const [index, setIndex] = useState(0);
     const [offset, setOffset] = useState(0)
 
-    console.log(data)
 
 
     // useEffect(() => {
