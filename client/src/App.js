@@ -10,6 +10,7 @@ import LoginForm from '../src/components/pages/user-login/LoginForm';
 import PublicRecipeContainer from '../src/components/pages/public-recipes/PublicRecipeContainer';
 import UsersRecipes from '../src/components/pages/users-recipes/UsersRecipes';
 import UserDashboard from '../src/components/pages/user-dashboard/UserDashboard';
+import AddForm from '../src/components/pages/add-recipe/AddForm';
 
 function App() {
   const [user, setUser] = useState('');
@@ -18,7 +19,7 @@ function App() {
   return (
     <div className="App">
 
-      <Navbar/>
+      <Navbar user={user}/>
 
       {/* Routes */}
       <Switch>
@@ -45,6 +46,10 @@ function App() {
 
         <Route path='/dashboard/:username'>
           <UserDashboard user={user}/>
+        </Route>
+
+        <Route path='/username/recipe/add'>
+          <AddForm/>
         </Route>
       </Switch>
 

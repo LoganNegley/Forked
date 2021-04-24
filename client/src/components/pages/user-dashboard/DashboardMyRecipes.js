@@ -27,8 +27,6 @@ function DashboardMyRecipes(props){
         })
     },[])
 
-    console.log(recipes)
-
     if(!recipes){
         return(<h1>...Loading Your Recipes</h1>)
     }
@@ -44,7 +42,7 @@ function DashboardMyRecipes(props){
                     <Slider>
                          
                         {recipes.map((item, index) =>(
-                            <Slide index={index + 1}>
+                            <Slide key={index} index={index + 1}>
                                 <div className='my-recipe-card'>
                                     <div className='my-recipe-card-info'>
                                         <img src={'/images/utensils.png'} alt='recipe'/>
