@@ -1,0 +1,55 @@
+.user-menu-container{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0px;
+    z-index:100;
+    background-color:rgba(0, 0, 0, .75);
+
+}
+.menu-wrapper .close-menu{
+    margin-top:.5rem;
+    margin-bottom:1rem;
+    color:white;
+    font-size: 2.5rem;;
+}
+.menu-heading{
+    background-color:var(--orange);
+    color:white;
+    width:40%;
+    height:75px;
+    display:flex;
+    flex-flow:column;
+    justify-content: space-evenly;
+}
+.menu-heading p{
+margin-left:1rem;
+}
+.menu-heading p:first-of-type{
+    font-size: 1.5rem;
+    font-weight:bold;
+    letter-spacing: .15rem;
+    margin-bottom:-1.5rem;
+}
+.menu-heading p:last-of-type{
+    font-size:2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left:3rem;
+}
+.menu-card{
+    color:var(--orange);
+    border:white solid 2px;
+    width:30%;
+    height:100px;
+    border-left: none;
+    border-top: none;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.menu-card p{
+    position:relative;
+    top:5rem;
+}
