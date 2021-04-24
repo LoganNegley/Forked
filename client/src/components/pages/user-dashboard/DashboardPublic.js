@@ -13,7 +13,7 @@ function DashboardPublic(){
         naturalSlideHeight:100, 
         totalSlides:7, 
         isPlaying:true,
-        interval:3000, 
+        interval:5000, 
         infinite:true,
         visibleSlides:2
     }

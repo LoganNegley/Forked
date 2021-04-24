@@ -17,7 +17,7 @@ function UserDashboard(props){
                 <p>Dashboard</p>
             </div>
             <div className='dashboard-heading-btn'>
-                <button>Shopping Cart</button>
+                {/* <button>Shopping Cart</button> */} 
                 <button>Add A Recipe</button>
             </div>
             <div className='main-sections'>

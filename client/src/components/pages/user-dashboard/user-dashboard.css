@@ -1,3 +1,34 @@
+/* Dashboard heading */
+.dashboard-heading{
+    margin-top:5rem;
+    width:95%;
+    margin-left:3rem;
+}
+.dashboard-heading h1{
+    color:var(--orange)
+}
+.dashboard-heading p{
+color:white;
+font-size: 3rem;
+display:block;
+text-align: center;
+margin-bottom:3rem;
+letter-spacing: .5rem;
+font-weight: bold;
+}
+.dashboard-container .dashboard-heading-btn{
+    display:flex;
+    flex-direction: row no-wrap;
+    justify-content: space-around;
+}
+.dashboard-heading-btn button{
+    border:none;
+    padding:.75rem;
+    background-color:var(--orange);
+    color:white
+}
+
+
 .dashboard-section-container{
     margin-top:5rem;
     /* background-color:purple; */
@@ -131,6 +162,9 @@
 }
 .my-recipe-card .detail-info{
     color:var(--gray);
+}
+.dashboard-container .main-sections .dashboard-section-container:last-of-type{
+    margin-top:-1rem;
 }
 
 
