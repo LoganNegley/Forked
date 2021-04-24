@@ -1,0 +1,171 @@
+/* Dashboard heading */
+.dashboard-heading{
+    margin-top:5rem;
+    width:95%;
+    margin-left:3rem;
+}
+.dashboard-heading h1{
+    color:var(--orange)
+}
+.dashboard-heading p{
+color:white;
+font-size: 3rem;
+display:block;
+text-align: center;
+margin-bottom:3rem;
+letter-spacing: .5rem;
+font-weight: bold;
+}
+.dashboard-container .dashboard-heading-btn{
+    display:flex;
+    flex-direction: row no-wrap;
+    justify-content: space-around;
+}
+.dashboard-heading-btn button{
+    border:none;
+    padding:.75rem;
+    background-color:var(--orange);
+    color:white
+}
+
+
+.dashboard-section-container{
+    margin-top:5rem;
+    /* background-color:purple; */
+}
+.dashboard-section-container .dashboard-section-heading{
+    margin-left:1.75rem;
+}
+.dashboard-section-container .circle-div{
+    background-color: var(--orange);
+    border-radius: 100%;
+    width:40px;
+    height:40px;
+}
+.dashboard-section-container h3{
+    color:white;
+    font-size: 2.5rem;
+    position: relative;
+    bottom:3.25rem;
+    left:1.25rem;
+    font-weight: bold;
+    letter-spacing: .25rem;;
+}
+.dashboard-section-container .faves-wrapper{
+    background:white;
+    width:100%;
+    height:300px;
+}
+
+/* Carousel top*/
+.carousel-container{
+    height:100%;
+    width:100%;
+    /* background-color:aqua; */
+}
+.card-slider{
+    position:relative;
+    /* border:3px solid blue; */
+    height:100%;
+    margin: auto 0;
+}
+.card-slider-wrapper{
+    display:flex;
+    position:absolute;
+    /* background-color:red; */
+    height:90%;
+    margin-top:1.5rem;
+    overflow:hidden;
+}
+.card-slider-wrapper .dash-card-container{
+    flex:1;
+    width:25rem;
+    border-radius: 25px;
+    background-color:var(--eerieBlack);
+    margin: 1rem 4.5rem;
+    height:95%;
+    box-shadow: 0 0 8px 3px #707070;
+    display:flex;
+    flex-flow:column;
+}
+.dash-card-info{
+    color:var(--gray);
+    text-align: center;
+}
+.dash-card-info p{
+    font-size: 1.25rem;
+    margin-top:1.25rem;
+}
+.dash-card-info p:first-of-type{
+    font-size: 1.95rem;
+    font-weight: bold;
+    letter-spacing: .25rem;
+    margin-top:2rem;
+}
+.dash-card-container img{
+    margin-top:2rem;
+    width:85%;
+    height:100px;
+    flex-grow: 3;
+}
+
+/* Public section */
+.carousel{
+    height:250px;
+}
+.carousel__slider{
+    height:100%;
+}
+.carousel__inner-slide{
+    height:100%;
+}
+.carousel img{
+    width:100%;
+    height:100%;
+}
+
+/* My recipes */
+.my-recipe-card{
+    border-radius: 25px;
+    background-color:var(--eerieBlack);
+    margin: 1rem 4.5rem;
+    height:85%;
+    box-shadow: 0 0 8px 3px #707070;
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+}
+.my-recipe-card img{
+    width:100%;
+    height:125px;
+}
+.my-recipe-card-info{
+    margin-top:2rem;
+    width:75%;
+    text-align: center;
+}
+.my-recipe-card-info .detail-info{
+    margin-top:1.5rem;
+}
+.my-recipe-card-info p{
+    margin-top:.75rem;
+    font-size: 1.25rem;
+}
+.my-recipe-card-info p:first-of-type{
+    font-weight: bold;
+    font-size: 2.5rem;
+    letter-spacing: .25rem;;
+}
+.my-recipe-dash-section{
+    background-color:white;
+    height:275px;
+}
+.my-recipe-card .detail-info{
+    color:var(--gray);
+}
+.dashboard-container .main-sections .dashboard-section-container:last-of-type{
+    margin-top:-1rem;
+}
+
+
+

@@ -5,6 +5,7 @@
 }
 body{
 	background-color:var(--eerieBlack);
+	overflow-x:hidden;
 }
 
 html, body, div, span, applet, object, iframe,

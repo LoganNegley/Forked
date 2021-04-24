@@ -1,24 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './user-login.css';
-import {Link} from 'react-router-dom';
+import {Link, Route, useHistory,useParams} from 'react-router-dom';
 import axios from 'axios';
 import UserDashboard from '../user-dashboard/UserDashboard';
 
-function LoginForm(){
+
+function LoginForm({user, setUser}){
     const [userCreds, setUserCreds] =useState({
         username:'',
         password:''
     });
-    const [loggedUser, setLoggedUser] = useState();
+    const [loggedUser, setLoggedUser] = useState('')
     const [failed, setFailed] = useState("false");
+    const history = useHistory();
+    const {username} = useParams();
+
+
+
 
     // Form functions
     const handleSubmit = (event)=>{
         event.preventDefault();
         axios.post('http://localhost:5000/auth/login', userCreds)
         .then(res =>{
-            setLoggedUser(res.data.user)
-            console.log(loggedUser)
+            setUser(res.data.user)
+            setLoggedUser(res.data.user.user.username);
+            history.push('/');
         })
         .catch(error =>{
             console.log(error)
@@ -32,9 +39,9 @@ function LoginForm(){
         setUserCreds({...userCreds, [event.target.name]:event.target.value})
     };
 
-    if(loggedUser){
-        return(<UserDashboard user={loggedUser}/>)
-    }
+    // if(props.user){
+    //     return( <UserDashboard user={props.user}/> )
+    // }
 
     return(
         <div className='outer-form-container'>

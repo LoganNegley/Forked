@@ -56,7 +56,7 @@ router.get('/user/:id', validateUserId, (req,res) =>{
 router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,res) =>{
     const {id} = req.params;
     const {recipeId} = req.params;
-    const newFavorite = {userId:id, dateAdded:Date.now(), recipeId:recipeId};
+    const newFavorite = {userId:id, recipeId:recipeId};
 
     db.addFavorite(newFavorite)
     .then(added =>{
