@@ -3,10 +3,12 @@ import './navbar.css';
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import LoggedOutMenu from './home-menu/LoggedOutMenu';
+import UserNavMenu from './user-menu/UserNavMenu';
 
 
-function Navbar(){
+function Navbar(props){
     const [toggled, setToggled] = useState(false)
+    const user = props.user;
 
     const toggleMenu = ()=>{
         if(toggled === false){
@@ -16,16 +18,32 @@ function Navbar(){
         }
     };
 
+            //     {toggled
+            //     ? if(user){
+            //         return(<UserNavMenu/>)
+            //     }else{
+            //         return(<LoggedOutMenu setToggled={setToggled}/>)
+            //         }
+            //     :
+            // <button onClick={toggleMenu}>
+            // <FontAwesomeIcon className='burger-icon' icon={faBars}/>
+            // </button>
+            // }
+
+
+
 
     return (
         <div className='navbar-container'>
-            {toggled
-                ? <LoggedOutMenu setToggled={setToggled}/>
-                :
+        {toggled ?
+            !user ?
+            <LoggedOutMenu setToggled={setToggled}/>
+            : <UserNavMenu/>
+            :
             <button onClick={toggleMenu}>
             <FontAwesomeIcon className='burger-icon' icon={faBars}/>
             </button>
-            }
+        }
             <h1 className='logo'>FORKED</h1>
 
             <div className='nav-links'>
