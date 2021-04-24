@@ -18,7 +18,9 @@ function UserDashboard(props){
             </div>
             <div className='dashboard-heading-btn'>
                 {/* <button>Shopping Cart</button> */} 
-                <button>Add A Recipe</button>
+                <Link to='/username/recipe/add'>
+                    <button>Add A Recipe</button>
+                </Link>
             </div>
             <div className='main-sections'>
                 <DashboardFaves loggedUser={loggedUser}/>
