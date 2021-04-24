@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import './user-login.css';
 import {Link, Route, useHistory,useParams} from 'react-router-dom';
 import axios from 'axios';
@@ -16,7 +16,9 @@ function LoginForm({user, setUser}){
     const {username} = useParams();
 
 
-
+    useEffect(() =>{
+        setUser('')
+    },[])
 
     // Form functions
     const handleSubmit = (event)=>{

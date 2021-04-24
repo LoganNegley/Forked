@@ -1,14 +1,31 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import './user-nav.css';
+import axios from 'axios';
 
 function UserNavMenu(props){
     const user = props.user;
     const setToggled = props.setToggled;
+    const history = useHistory();
 
     const handleClose = ()=>{
         setToggled(false)
     };
+
+    const closeMenu = ()=>{
+        props.setToggled(false);
+    };
+
+    const handleLogout =()=>{
+        axios.get('http://localhost:5000/auth/logout')
+        .then(res =>{
+            history.push('/login')
+            setToggled(false)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
     
 
     return(
@@ -30,13 +47,13 @@ function UserNavMenu(props){
                         <img src=''/>
                         <p>Favorites</p>
                     </div>
-                    <Link to='/public-recipes'>
+                    <Link to='/public-recipes' onClick={closeMenu}>
                         <div className='menu-card'>
                             <img src=''/>
                             <p>Public Recipes</p>
                         </div>
                     </Link>
-                    <div className='menu-card'>
+                    <div className='menu-card' onClick={handleLogout}>
                         <img src=''/>
                         <p>Logout</p>
                     </div>
