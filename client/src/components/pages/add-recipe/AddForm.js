@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './addRecipe.css';
+import axios from 'axios';
+import Recipe from './Recipe';
+import Ingredients from './Ingredients';
 
 function AddForm(){
+    const [recipeId, setRecipeId] = useState('')
+
     return(
         <div className='add-recipe-container'>
             <div className='add-triangle-box'>
@@ -9,24 +14,9 @@ function AddForm(){
                 <h1>C<span>reate Your Recipe</span></h1>
             </div>
             <div className='add-form-wrapper'>
-                <form>
-                    <lable>
-                        Recipe Name
-                        <input
-                            required
-                            type='text'
-                            name='recipe_name'
-                        />
-                    </lable>
-                    <lable>
-                        Recipe Name
-                        <input
-                            required
-                            type='text'
-                            name='recipe_name'
-                        />
-                    </lable>
-                </form>
+            {recipeId ? <Ingredients recipeId={recipeId}/> :
+                <Recipe recipeId={recipeId} setRecipeId={setRecipeId}/>
+            }
             </div>
         </div>
     )
