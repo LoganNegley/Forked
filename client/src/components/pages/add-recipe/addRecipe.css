@@ -1,3 +1,7 @@
+.add-recipe-container{
+    width:85%;
+    margin:0 auto;
+}
 #add-triangle{
     width: 0;
     height: 0;
@@ -19,4 +23,12 @@
     text-decoration-thickness: 3px;
     position: relative;
     bottom:.75rem;
+}
+
+.add-form-wrapper{
+    background-color:rgba(0,0,0,.2);
+    box-shadow: 0px 0px 7px #ACACAC;
+    border-radius: 10px;
+    height:75vh;
+    margin-bottom:6rem;
 }

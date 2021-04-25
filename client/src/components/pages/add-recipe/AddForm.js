@@ -10,7 +10,22 @@ function AddForm(){
             </div>
             <div className='add-form-wrapper'>
                 <form>
-
+                    <lable>
+                        Recipe Name
+                        <input
+                            required
+                            type='text'
+                            name='recipe_name'
+                        />
+                    </lable>
+                    <lable>
+                        Recipe Name
+                        <input
+                            required
+                            type='text'
+                            name='recipe_name'
+                        />
+                    </lable>
                 </form>
             </div>
         </div>
