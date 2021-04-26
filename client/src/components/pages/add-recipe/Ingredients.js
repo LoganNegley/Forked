@@ -4,9 +4,9 @@ import axios from 'axios';
 function Ingredients(props){
     const recipeId = props.recipeId;
     const [recipe, setRecipe] = useState('')
-    const [fieldInputs, setFieldInputs] = useState([{
-        ingredient_name:'This is one',
-        quantity:'this is one'
+    const [inputs, setInputs] = useState([{
+        ingredient_name:'',
+        quantity:''
     }])
 
 
@@ -22,17 +22,15 @@ function Ingredients(props){
     },[])
 
 
-    const handleChange=(i,event)=>{
-        const inputs = [...fieldInputs];
-        inputs[i].value = event.target.value;
-        setFieldInputs(inputs)
-
+    const handleChange=(event, index)=>{
+        const {name, value} = event.target;
+        const newList = [...inputs];
+        newList[index][name] = value
+        setInputs(newList);
     };
 
     const handleAdd=()=>{
-        const inputs = [...fieldInputs]
-        inputs.push({ingredien_name:'', quantity:''})
-        setFieldInputs(inputs)
+        setInputs([...inputs, {ingredient_name:'', quantity:''}])
     };
 
     return(
@@ -40,23 +38,26 @@ function Ingredients(props){
             <h1 style={{'color':'white'}}>Ingredients for {recipe.recipeName}</h1>
             <div className='ingredient-form-container'>
                 <form>
-                    {fieldInputs.map((item, index) =>(
+                    {inputs.map((item, index) =>(
                         <div>
                             <label>
                                 Ingredient
                             <input
                                 type='text'
-                                placeholder='Ingredient'
-                                value={fieldInputs.ingredient_name}
-                                onChange={(e) => handleChange(index, e)}
+                                name='ingredient_name'
+                                value={item.ingredient_name}
+                                onChange={(e) => handleChange(e, index)}
                             />
                             </label>
+                            <label>
+                                Quantity
                             <input
                                 type='text'
-                                placeholder='Quantity'
-                                value={fieldInputs.quantity}
-                                onChange={(e) => handleChange(index,e)}
+                                name='quantity'
+                                value={item.quantity}
+                                onChange={ (e) => handleChange(e, index)}
                             />
+                            </label>
                         </div>
                     ))}
                     
