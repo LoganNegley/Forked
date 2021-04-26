@@ -38,28 +38,28 @@ function Recipe({recipeId, setRecipeId}){
                     />
                 </label>
                 <div className='recipe-time-container'>
-                <label>
-                    Prep Time
-                    <input
-                        placeholder='In Mins'
-                        required
-                        type='text'
-                        name='prep_time'
-                        value={newRecipe.prep_time}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Cook Time
-                    <input
-                        placeholder='In Mins'
-                        required
-                        type='text'
-                        name='cook_time'
-                        value={newRecipe.cook_time}
-                        onChange={handleChange}
-                    />
-                </label>
+                    <label>
+                        Prep Time
+                        <input
+                            placeholder='In Mins'
+                            required
+                            type='text'
+                            name='prep_time'
+                            value={newRecipe.prep_time}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>
+                        Cook Time
+                        <input
+                            placeholder='In Mins'
+                            required
+                            type='text'
+                            name='cook_time'
+                            value={newRecipe.cook_time}
+                            onChange={handleChange}
+                        />
+                    </label>
                 </div>
                     <button>Create Recipe</button>
             </form>

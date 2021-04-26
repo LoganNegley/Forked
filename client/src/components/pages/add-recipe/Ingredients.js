@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
+import InstructionForm from './InsructionForm';
 
 function Ingredients(props){
     const recipeId = props.recipeId;
@@ -8,6 +9,7 @@ function Ingredients(props){
         ingredient_name:'',
         quantity:''
     }])
+    const [submitted, setSubmitted] = useState(false)
 
 
 
@@ -33,13 +35,36 @@ function Ingredients(props){
         setInputs([...inputs, {ingredient_name:'', quantity:''}])
     };
 
+    const handleSubmit=(event) =>{
+        event.preventDefault();
+        inputs.map(item =>{
+            axios.post(`http://localhost:5000/ingredient/recipe/${recipeId}`, item)
+            .then(res =>{
+                setInputs([{
+                    ingredient_name:'',
+                    quantity:''
+                    }])
+                setSubmitted(true)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+        })
+
+ 
+    };
+    if(submitted){
+        return (
+            <InstructionForm recipeId={recipeId} recipe={recipe}/>
+        )
+    }
     return(
         <div className='add-ingredients-form'>
-            <h1 style={{'color':'white'}}>Ingredients for {recipe.recipeName}</h1>
+            <p>Add Ingredients for {recipe.recipeName}</p>
             <div className='ingredient-form-container'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     {inputs.map((item, index) =>(
-                        <div>
+                        <div key={index} className='ingredient-input'>
                             <label>
                                 Ingredient
                             <input
@@ -60,9 +85,11 @@ function Ingredients(props){
                             </label>
                         </div>
                     ))}
-                    
+                        <button className='submit-btn'>Submit</button>
                 </form>
-                <button onClick={handleAdd}>Add Another</button>
+                <div className='ingredient-btn-container'>
+                    <button onClick={handleAdd}>+</button>
+                </div>
             </div>
         </div>
     )
