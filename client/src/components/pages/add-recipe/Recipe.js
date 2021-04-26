@@ -37,9 +37,11 @@ function Recipe({recipeId, setRecipeId}){
                         onChange={handleChange}
                     />
                 </label>
+                <div className='recipe-time-container'>
                 <label>
                     Prep Time
                     <input
+                        placeholder='In Mins'
                         required
                         type='text'
                         name='prep_time'
@@ -50,6 +52,7 @@ function Recipe({recipeId, setRecipeId}){
                 <label>
                     Cook Time
                     <input
+                        placeholder='In Mins'
                         required
                         type='text'
                         name='cook_time'
@@ -57,6 +60,7 @@ function Recipe({recipeId, setRecipeId}){
                         onChange={handleChange}
                     />
                 </label>
+                </div>
                     <button>Create Recipe</button>
             </form>
         </div>
