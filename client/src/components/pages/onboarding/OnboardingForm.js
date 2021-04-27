@@ -16,7 +16,7 @@ function OnboardingForm(){
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.post('https:localhost:5000/auth/register', newUser)
+        axios.post('http://localhost:5000/auth/register', newUser)
         .then(res =>{
             console.log(res)
         })

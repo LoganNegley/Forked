@@ -89,7 +89,7 @@ exports.up = function(knex) {
         .references('recipe_id')
         .inTable('recipes')
         .onUpdate('CASCADE')
-        .onUpdate('CASCADE');
+        .onDelete('CASCADE');
       tbl.integer('ingredientId')
         .notNullable()
         .unsigned()

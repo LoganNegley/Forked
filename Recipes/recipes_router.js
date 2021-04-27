@@ -93,9 +93,9 @@ router.put('/:id', (req, res) =>{
 router.delete('/:recipeId', validateRecipeId, (req,res) =>{
     const {recipeId} = req.params;
 
-    db.findRecipeById(id)
+    db.findRecipeById(recipeId)
         .then(recipe =>{
-            db.deleteRecipeById(id)
+            db.deleteRecipeById(recipe[0].recipe_id)
             .then(removed =>{
                 res.status(200).json({removed: removed})
             })

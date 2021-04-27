@@ -11,10 +11,11 @@ import PublicRecipeContainer from '../src/components/pages/public-recipes/Public
 import UsersRecipes from '../src/components/pages/users-recipes/UsersRecipes';
 import UserDashboard from '../src/components/pages/user-dashboard/UserDashboard';
 import AddForm from '../src/components/pages/add-recipe/AddForm';
+import Ingredients from '../src/components/pages/add-recipe/Ingredients';
 
 function App() {
   const [user, setUser] = useState('');
-  const {username} = useParams();
+  const {username,recipeId} = useParams();
 
   return (
     <div className="App">
@@ -51,6 +52,7 @@ function App() {
         <Route path='/username/recipe/add'>
           <AddForm/>
         </Route>
+
       </Switch>
 
 
