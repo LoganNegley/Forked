@@ -16,7 +16,7 @@ function DashboardFaves({loggedUser}){
     },[])
 
     if(!userFavorite){
-        return (<h1>....Loading Favorite</h1>)
+        return (<div></div>)
     }else if(userFavorite.length === 0){
         return (<img src='/images/utensils.png'/>)
     }

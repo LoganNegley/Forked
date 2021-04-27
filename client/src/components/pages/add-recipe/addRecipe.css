@@ -129,3 +129,24 @@
 .ingredient-form-container .submit-btn{
     font-size: 1.85rem;
 }
+
+/* Instructions component */
+.instruction-container h3{
+    color:white;
+    font-size: 3rem;
+    text-align: center;
+}
+.instruction-container .step-input{
+    display:flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top:3rem;
+}
+.instruction-container p{
+    font-size: 1.5rem;
+    color:white;
+    margin:0 2rem;
+}
+.instruction-container input{
+
+}
