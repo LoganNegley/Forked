@@ -1,8 +1,65 @@
 .view-recipe-container{
     width:90%;
-    margin:0 auto;
+    margin:4rem auto;
 }
 .view-recipe-container img{
-    width:200px;
-    height:200px;
+    width:100%;
+    height:225px;
+}
+.view-recipe-container .view-details h3{
+    margin-top:2.5rem;
+    color:white;
+    font-size: 3rem;
+    letter-spacing: .25rem;
+    font-weight: bold;
+}
+.view-recipe-container .view-details p{
+    color:var(--gray);
+    font-size: 1.25rem;
+    letter-spacing: .25rem;
+    margin:.75rem 0;
+}
+.view-details .details-btn button{
+    margin:1rem 3rem 0 0;
+}
+.view-recipe-container .recipe-details-btn{
+    margin-top:3.75rem;
+    font-size: 1.75rem;
+    color:var(--gray);
+    letter-spacing: .25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.view-recipe-container .recipe-details-btn .true, .view-recipe-container .recipe-details-btn .false{
+    text-decoration: underline;
+    text-decoration-color: var(--orange);
+}
+
+.recipe-details-section{
+    color:white;
+}
+.view-ingredients-container{
+    margin-top:2.5rem;
+}
+.view-ingredients-container p:first-of-type{
+    margin-bottom:1.5rem;
+    float:right;
+    color:var(--gray);
+    font-size: 1.5rem;
+}
+.view-ingredients-container .column p{
+    color:white;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.view-ingredients-container .row{
+    margin-top:.75rem;
+    clear:both;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }

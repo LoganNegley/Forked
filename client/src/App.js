@@ -60,14 +60,6 @@ function App() {
           <ViewRecipe/>
         </Route>
 
-        <Route path='view/recipe/ingredients/:id'>
-          <ViewIngredients/>
-        </Route>
-
-        <Route path='view/recipe/steps/:id'>
-          <ViewSteps/>
-        </Route>
-
       </Switch>
 
 

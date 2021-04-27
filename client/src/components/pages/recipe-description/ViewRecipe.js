@@ -2,20 +2,32 @@ import React, {useState, useEffect} from 'react';
 import './view-recipe.css';
 import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
+import ViewIngredients from './ViewIngredients';
+import ViewSteps from './ViewSteps';
 
 function ViewRecipe(){
     const [recipe, setRecipe] = useState('')
     const {id} = useParams();
+    const [toggle, setToggle] = useState(true);
+
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/recipes/${id}`)
+        axios.get(`http://localhost:5000/recipes/${id}`)  //get recipe by ID
         .then(res =>{
-            setRecipe(res.data)
+            setRecipe(res.data[0])
         })
         .catch(error =>{
             console.log(error)
         })
     },[])
+
+    const handleToggle =() =>{
+        if(toggle){
+            setToggle(false)
+        }else{
+            setToggle(true)
+        }
+    };
 
     console.log(recipe )
     return(
@@ -29,15 +41,16 @@ function ViewRecipe(){
                     <button>Edit</button>
                     <button>Share</button>
                 </div>
+            </div>
                 <div className='recipe-details-btn'>
-                    <Link to={`/view/recipe/ingredients/${recipe.recipe_id}`}><p>Ingredients</p></Link>
-                    <Link to={`/view/recipe/steps/${recipe.recipe_id}`}><p>Instructions</p></Link>
+                    <p className={toggle ? `${toggle}` : 'none'} onClick={handleToggle}>Ingredients</p>
+                    <p className={!toggle ? `${toggle}` : 'none'} onClick={handleToggle}>Instructions</p>
                 </div>
                 <div className='recipe-details-section'>
-                    {/* UL goes here */}
+                    {toggle ? <ViewIngredients/> :
+                        <ViewSteps/>
+                    }
                 </div>
-                {/* Bring in component */}
-            </div>
         </div>
     )
 };
