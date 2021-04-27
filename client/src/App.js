@@ -12,6 +12,9 @@ import UsersRecipes from '../src/components/pages/users-recipes/UsersRecipes';
 import UserDashboard from '../src/components/pages/user-dashboard/UserDashboard';
 import AddForm from '../src/components/pages/add-recipe/AddForm';
 import Ingredients from '../src/components/pages/add-recipe/Ingredients';
+import ViewRecipe from '../src/components/pages/recipe-description/ViewRecipe';
+import ViewIngredients from '../src/components/pages/recipe-description/ViewIngredients';
+import ViewSteps from '../src/components/pages/recipe-description/ViewSteps';
 
 function App() {
   const [user, setUser] = useState('');
@@ -51,6 +54,18 @@ function App() {
 
         <Route path='/username/recipe/add'>
           <AddForm/>
+        </Route>
+
+        <Route path='/view/recipe/:id'>
+          <ViewRecipe/>
+        </Route>
+
+        <Route path='view/recipe/ingredients/:id'>
+          <ViewIngredients/>
+        </Route>
+
+        <Route path='view/recipe/steps/:id'>
+          <ViewSteps/>
         </Route>
 
       </Switch>

@@ -1,0 +1,8 @@
+.view-recipe-container{
+    width:90%;
+    margin:0 auto;
+}
+.view-recipe-container img{
+    width:200px;
+    height:200px;
+}

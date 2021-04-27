@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import Carousel from './Carousel';
 import axios from 'axios';
 
@@ -18,9 +19,12 @@ function DashboardFaves({loggedUser}){
     if(!userFavorite){
         return (<div></div>)
     }else if(userFavorite.length === 0){
-        return (<img src='/images/utensils.png'/>)
-    }
+        return (
+            <img src='/images/utensils.png'/>
 
+        )
+    }
+console.log(userFavorite)
 
     return(
         <div className='dashboard-section-container'>
