@@ -21,6 +21,13 @@
 }
 .view-details .details-btn button{
     margin:1rem 3rem 0 0;
+    background-color:var(--orange);
+    border:none;
+    color:white;
+    padding:.25rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width:6rem;
 }
 .view-recipe-container .recipe-details-btn{
     margin-top:3.75rem;
@@ -72,10 +79,10 @@
 }
 .view-steps-container .step-detail{
     margin-top:4.5rem;
+        text-align: center;
 }
 .view-steps-container .step-detail p{
     line-height: 2.75rem;
-    text-align: center;
     word-break: break-all;
     font-size:2rem;
 }

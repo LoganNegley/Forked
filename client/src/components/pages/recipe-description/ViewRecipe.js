@@ -29,6 +29,16 @@ function ViewRecipe(){
         }
     };
 
+    const shareToPublic=() =>{
+        axios.put(`http://localhost:5000/public/recipes/${id}`)
+        .then(res =>{
+            console.log(res)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    };
+
     console.log(recipe )
     return(
         <div className='view-recipe-container'>
@@ -39,7 +49,7 @@ function ViewRecipe(){
                 <p>Cook Time: {recipe.cook_time}</p>
                 <div className='details-btn'>
                     <button>Edit</button>
-                    <button>Share</button>
+                    <button onClick={shareToPublic}>Share</button>
                 </div>
             </div>
                 <div className='recipe-details-btn'>
