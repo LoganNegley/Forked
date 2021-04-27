@@ -41,6 +41,7 @@
 .recipe-details-section{
     color:white;
 }
+/* Ingredients section */
 .view-ingredients-container{
     margin-top:2.5rem;
 }
@@ -62,4 +63,19 @@
     display:flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+}
+
+/* Steps section */
+.view-steps-container {
+    width:90%;
+    margin:3rem auto;
+}
+.view-steps-container .step-detail{
+    margin-top:4.5rem;
+}
+.view-steps-container .step-detail p{
+    line-height: 2.75rem;
+    text-align: center;
+    word-break: break-all;
+    font-size:2rem;
 }
