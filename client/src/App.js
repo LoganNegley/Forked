@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Route, Switch,Redirect, useParams} from 'react-router-dom';
+import {Route, Switch,Redirect} from 'react-router-dom';
 
 // Components
 import Navbar from '../src/components/common/navigation/Navbar';
@@ -18,7 +18,6 @@ import ViewSteps from '../src/components/pages/recipe-description/ViewSteps';
 
 function App() {
   const [user, setUser] = useState('');
-  const {username,recipeId} = useParams();
 
   return (
     <div className="App">
@@ -44,7 +43,7 @@ function App() {
           <PublicRecipeContainer/>
         </Route>
 
-        <Route path='/recipes/'>
+        <Route path='/recipes/user/:id'>
           <UsersRecipes/>
         </Route>
 

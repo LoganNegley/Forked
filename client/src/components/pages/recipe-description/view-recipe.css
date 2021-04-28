@@ -75,10 +75,10 @@
 /* Steps section */
 .view-steps-container {
     width:90%;
-    margin:3rem auto;
+    margin:2rem auto;
 }
 .view-steps-container .step-detail{
-    margin-top:4.5rem;
+    margin-top:3rem;
         text-align: center;
 }
 .view-steps-container .step-detail p{

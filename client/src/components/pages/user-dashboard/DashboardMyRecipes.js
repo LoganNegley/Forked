@@ -27,10 +27,6 @@ function DashboardMyRecipes(props){
         })
     },[])
 
-    if(!recipes){
-        return(<h1>...Loading Your Recipes</h1>)
-    }
-
     return(
         <div className='dashboard-section-container'>
             <div className='dashboard-section-heading'>
@@ -38,9 +34,9 @@ function DashboardMyRecipes(props){
                 <h3>My Recipes</h3>
             </div>
             <div className='my-recipe-dash-section'>
+                {recipes.length === 0 ? <div className='no-recipe-container'><p>You do not have any saved recipes yet!</p></div> :
                 <CarouselProvider {...settings}>
                     <Slider>
-                         
                         {recipes.map((item, index) =>(
                             <Slide key={index} index={index + 1}>
                                 <div className='my-recipe-card'>
@@ -53,11 +49,12 @@ function DashboardMyRecipes(props){
                                         </div>
                                     </div>
                                 </div>
+                        
                             </Slide>
                         ))}
-                        
                     </Slider>
                 </CarouselProvider>
+                }
             </div>
         </div>
     )

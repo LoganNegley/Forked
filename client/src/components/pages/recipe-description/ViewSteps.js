@@ -28,7 +28,7 @@ function ViewSteps(){
         <div className='view-steps-container'>
             {steps.map(item =>(
                 <div key={item.stepId} className='step-detail'>
-                    <p>{item.step_number}- {item.instruction}</p>
+                    <p>{item.step_number}: {item.instruction}</p>
                 </div>
             ))}
         </div>
