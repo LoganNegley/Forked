@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {Link, useHistory, useParams} from 'react-router-dom';
 import './user-nav.css';
 import axios from 'axios';
 
@@ -7,6 +7,9 @@ function UserNavMenu(props){
     const user = props.user;
     const setToggled = props.setToggled;
     const history = useHistory();
+    const user_id = user.user.user_id;
+
+    console.log(user)
 
     const handleClose = ()=>{
         setToggled(false)
@@ -39,10 +42,12 @@ function UserNavMenu(props){
                     <p>{user.user.username}</p>
                 </div>
                 <div className='menu-items'>
-                    <div className='menu-card'>
-                        <img src=''/>
-                        <p>My Recipes</p>
-                    </div>
+                    <Link to={`/recipes/user/${user_id}`} onClick={closeMenu}>
+                        <div className='menu-card'>
+                            <img src=''/>
+                            <p>My Recipes</p>
+                        </div>
+                    </Link>
                     <div className='menu-card'>
                         <img src=''/>
                         <p>Favorites</p>

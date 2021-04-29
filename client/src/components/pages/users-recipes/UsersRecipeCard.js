@@ -1,18 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
-function UsersRecipeCard(){
+function UsersRecipeCard({item}){
+    const {id} = useParams()
+    console.log(item)
     return(
         <div className='recipe-card-container'>
             <div className='recipe-card'>
                 <div className='recipe-card-wrapper'>
                     <img src='/images/utensils.png'/>
                     <div className='recipe-card-info'>
-                        <h3>Recipe Name</h3>
-                        <p>Prep Time:</p>
-                        <p>Cook Time:</p>
+                        <h3>{item.recipeName}</h3>
+                        <p>Prep Time:  {item.prep_time}</p>
+                        <p>Cook Time: {item.cook_time}</p>
                         <div className='recipe-card-btn'>
-                            <button>View</button>
+                            <Link to={`/view/recipe/${item.recipe_id}`}><button>View</button></Link>
                             <button>Update</button>
                             <button>Delete</button>
                         </div>

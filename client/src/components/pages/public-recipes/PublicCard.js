@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link, useParams} from 'react-router-dom';
 import './public.css';
 
 
@@ -16,7 +17,7 @@ function PublicCard(props){
                         <p>Prep Time: {recipe.prep_time}</p>
                         <p>Cook Time: {recipe.cook_time}</p>
                     </div>
-                        <button>View</button>
+                        <Link to={`/view/recipe/${recipe.recipe_id}`}><button>View</button></Link>
                     </div>
                 </div>
             ))}

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import { CarouselProvider, Slider, Slide} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -43,7 +44,9 @@ function DashboardPublic(){
                     <Slider>
                         {publicRecipe.map((item, index) =>(
                         <Slide index={index +1} key={index}> 
-                            <img src='/images/utensils.png'/>
+                            <Link to={`/view/recipe/${item.recipe_id}`}>
+                                <img src='/images/utensils.png'/>
+                            </Link>
                         </Slide>
                     ))}
                     </Slider>

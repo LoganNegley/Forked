@@ -70,7 +70,7 @@ function LoginForm({user, setUser}){
                             Password
                             <input
                                 required
-                                type='text'
+                                type='password'
                                 name='password'
                                 value={userCreds.password}
                                 onChange={handleChange}
