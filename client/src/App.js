@@ -40,7 +40,7 @@ function App() {
         </Route>
 
         <Route path='/public-recipes'>
-          <PublicRecipeContainer/>
+          <PublicRecipeContainer user={user}/>
         </Route>
 
         <Route path='/recipes/user/:id'>

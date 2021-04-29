@@ -22,8 +22,6 @@ function ViewSteps(){
         return(<p>...loading steps for you</p>)
     }
 
-    console.log(steps)
-
     return (
         <div className='view-steps-container'>
             {steps.map((item, index) =>(

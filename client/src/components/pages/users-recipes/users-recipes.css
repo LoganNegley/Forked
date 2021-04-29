@@ -1,6 +1,6 @@
 /* Heading */
 .users-recipe-container{
-    width:85%;
+    width:90%;
     margin:0 auto;
 }
 .heading-triangle{
@@ -91,7 +91,7 @@
 }
 .recipe-card-wrapper{
     display:flex;
-    flex-flow:row wrap;
+    flex-flow:row nowrap;
     align-content: center;
 }
 .recipe-card img{
@@ -100,7 +100,7 @@
     margin:1.2rem;
 }
 .recipe-card-info{
-    margin:.75rem;
+    margin:.75rem 0rem .5rem .5rem;
 }
 .recipe-card-info h3{
     font-size: 1.5rem;
@@ -109,21 +109,23 @@
 }
 .recipe-card-info p{
     display:inline;
-    margin-right:3rem;
-    font-size:1.25rem;
+    margin-right:1.15rem;
+    font-size:1.15rem;
     color:var(--gray);
 }
 .recipe-card-info .recipe-card-btn{
-    margin-top:1rem;
-    display:flex;
+    margin-top:1.5rem;
+    /* display:flex;
     flex-flow:wrap row;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 .recipe-card-info button{
     background-color:transparent;
     color:white;
     border:solid var(--orange) 1px;
     border-radius: 15px;
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
 }
 .recipe-card-info button:hover{
     color:black;

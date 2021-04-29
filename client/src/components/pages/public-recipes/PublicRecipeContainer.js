@@ -4,8 +4,9 @@ import './public.css';
 import axios from 'axios';
 import PublicCard from './PublicCard';
 
-function PublicRecipeContainer(){
+function PublicRecipeContainer(props){
     const [publicRecipes, setPublicRecipes] = useState()
+    const {user} = props.user;
 
     useEffect(()=>{
         axios.get('http://localhost:5000/public/recipes')
@@ -29,7 +30,7 @@ function PublicRecipeContainer(){
             <h1>P<span>ublic Recipes</span></h1>
         </div>
         <div className='public-card-container'>
-            <PublicCard publicRecipes={publicRecipes}/>
+            <PublicCard publicRecipes={publicRecipes} user={user}/>
         </div>
         </div>
     )

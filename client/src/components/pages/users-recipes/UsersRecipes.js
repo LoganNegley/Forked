@@ -26,7 +26,7 @@ function UsersRecipes(){
                 <h1>Y<span>our Recipes</span></h1>
             </div>
             <div className='search-wrapper'>
-                <form>
+                {/* <form>
                     <label htmlFor='search'>
                         Find A Recipe
                     </label>
@@ -35,7 +35,7 @@ function UsersRecipes(){
                         name='search'
                     />
                     <button><img src='/images/search-iconV2.png'/></button>
-                </form>
+                </form> */}
                 <Link to='/username/recipe/add'><button className='add-recipe-btn'>Add Recipe</button></Link>
             </div>
 

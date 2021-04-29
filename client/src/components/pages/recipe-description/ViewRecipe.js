@@ -6,6 +6,7 @@ import ViewIngredients from './ViewIngredients';
 import ViewSteps from './ViewSteps';
 
 function ViewRecipe(props){
+    console.log(props) 
     const [recipe, setRecipe] = useState('')
     const {id} = useParams();
     const [toggle, setToggle] = useState(true);
@@ -40,6 +41,8 @@ function ViewRecipe(props){
         })
     };
 
+    console.log(recipe)
+
     return(
         <div className='view-recipe-container'>
             <img src='/images/utensils.png'/>
@@ -48,10 +51,13 @@ function ViewRecipe(props){
                 <p>Prep Time: {recipe.prep_time}</p>
                 <p>Cook Time: {recipe.cook_time}</p>
                 {recipe.userId === userId ?
-                <div className='details-btn'>
-                    {/* <button>Edit</button> */}
-                    <button onClick={shareToPublic}>Share</button>
-                </div>
+                    <div className='details-btn'>
+                        {recipe.isPublic != 1 ?
+                            <button onClick={shareToPublic}>Share</button>
+                            : <div></div>
+                        }
+                        <button>Delete</button>
+                    </div>
                 : <div></div>
                 }
             </div>

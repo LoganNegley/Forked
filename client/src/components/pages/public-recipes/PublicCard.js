@@ -5,6 +5,7 @@ import './public.css';
 
 function PublicCard(props){
     const publicRecipesData = props.publicRecipes;
+    console.log(publicRecipesData)
 
     return(
         <div className='public-card-wrapper'>
