@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { CarouselProvider, Slider, Slide} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import {Link} from 'react-router-dom';
 
 function DashboardMyRecipes(props){
     const [recipes,  setRecipes] = useState('');
@@ -42,11 +43,13 @@ function DashboardMyRecipes(props){
                                 <div className='my-recipe-card'>
                                     <div className='my-recipe-card-info'>
                                         <img src={'/images/utensils.png'} alt='recipe'/>
-                                        <div className='detail-info'>
-                                            <p>{item.recipeName}</p>
-                                            <p>Prep Time: {item.prep_time}</p>
-                                            <p>Cook Time: {item.cook_time}</p>
-                                        </div>
+                                        <Link to={`/view/recipe/${item.recipe_id}`}>
+                                            <div className='detail-info'>
+                                                <p>{item.recipeName}</p>
+                                                <p>Prep Time: {item.prep_time}</p>
+                                                <p>Cook Time: {item.cook_time}</p>
+                                            </div>
+                                        </Link>
                                     </div>
                                 </div>
                         
