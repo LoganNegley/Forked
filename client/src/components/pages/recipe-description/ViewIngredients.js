@@ -17,7 +17,7 @@ function ViewIngredients(){
         })
     },[])
 
-    console.log(ingredients)
+
     if(!ingredients){
         return(<p>...Loading Ingredients</p>)
     }

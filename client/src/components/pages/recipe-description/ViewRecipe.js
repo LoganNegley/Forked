@@ -10,8 +10,6 @@ function ViewRecipe(props){
     const {id} = useParams();
     const [toggle, setToggle] = useState(true);
     const userId = props.user.user.user_id;
-    console.log(recipe)
-    console.log(userId)
 
 
     useEffect(() =>{
@@ -42,7 +40,6 @@ function ViewRecipe(props){
         })
     };
 
-    console.log(recipe )
     return(
         <div className='view-recipe-container'>
             <img src='/images/utensils.png'/>
@@ -52,7 +49,7 @@ function ViewRecipe(props){
                 <p>Cook Time: {recipe.cook_time}</p>
                 {recipe.userId === userId ?
                 <div className='details-btn'>
-                    <button>Edit</button>
+                    {/* <button>Edit</button> */}
                     <button onClick={shareToPublic}>Share</button>
                 </div>
                 : <div></div>
