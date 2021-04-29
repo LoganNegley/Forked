@@ -36,13 +36,13 @@ function UsersRecipes(){
                     />
                     <button><img src='/images/search-iconV2.png'/></button>
                 </form>
-                <button className='add-recipe-btn'>Add Recipe</button>
+                <Link to='/username/recipe/add'><button className='add-recipe-btn'>Add Recipe</button></Link>
             </div>
 
             {userRecipes.length === 0 ? <h3>Make sure to add some recipes to view!</h3> :
-
-            <UsersRecipeCard userRecipe={userRecipes}/>
-
+                userRecipes.map((item, index) =>(
+                    <UsersRecipeCard key={index} item={item}/>
+                ))
             }
         </div>
     )

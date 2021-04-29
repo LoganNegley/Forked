@@ -26,7 +26,7 @@ function ViewSteps(){
 
     return (
         <div className='view-steps-container'>
-            {steps.map(item =>(
+            {steps.map((item, index) =>(
                 <div key={item.stepId} className='step-detail'>
                     <p>{item.step_number}: {item.instruction}</p>
                 </div>

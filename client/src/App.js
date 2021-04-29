@@ -56,7 +56,7 @@ function App() {
         </Route>
 
         <Route path='/view/recipe/:id'>
-          <ViewRecipe/>
+          <ViewRecipe user={user}/>
         </Route>
 
       </Switch>

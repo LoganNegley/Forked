@@ -5,10 +5,13 @@ import axios from 'axios';
 import ViewIngredients from './ViewIngredients';
 import ViewSteps from './ViewSteps';
 
-function ViewRecipe(){
+function ViewRecipe(props){
     const [recipe, setRecipe] = useState('')
     const {id} = useParams();
     const [toggle, setToggle] = useState(true);
+    const userId = props.user.user.user_id;
+    console.log(recipe)
+    console.log(userId)
 
 
     useEffect(() =>{
@@ -47,10 +50,13 @@ function ViewRecipe(){
                 <h3>{recipe.recipeName}</h3>
                 <p>Prep Time: {recipe.prep_time}</p>
                 <p>Cook Time: {recipe.cook_time}</p>
+                {recipe.userId === userId ?
                 <div className='details-btn'>
                     <button>Edit</button>
                     <button onClick={shareToPublic}>Share</button>
                 </div>
+                : <div></div>
+                }
             </div>
                 <div className='recipe-details-btn'>
                     <p className={toggle ? `${toggle}` : 'none'} onClick={handleToggle}>Ingredients</p>

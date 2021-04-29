@@ -4,20 +4,29 @@ import axios from 'axios';
 function InstructionForm(props){
     const recipeId = props.recipeId;
     const recipe = props.recipe;
-    const [stepNum, setStepNum] = useState(1)
+    const [stepNum, setStepNum] = useState(0)
     const [steps, setSteps] = useState([{
-        step_number:stepNum,
+        step_number:1,
         instruction:''
     }])
 
-    useEffect(() =>{
-        setStepNum(stepNum + 1)
-    },[steps])
+    // useEffect(() =>{
+    //     setStepNum(stepNum + 1)
+    // },[steps])
+
+    const addOne=(arr)=>{
+        const lastIndex = arr.length - 1
+        const num = arr[lastIndex].step_number
+        return num + 1
+    }
+
 
     const addStep=()=>{
-        setSteps([...steps, {step_number:stepNum, instruction:''}])
+        const newNum = addOne(steps)
+        setSteps([...steps, {step_number:newNum, instruction:''}])
     };
 
+console.log(steps)
     const handleSubmit =(event)=>{
         event.preventDefault();
         steps.map(item =>{
@@ -49,7 +58,7 @@ function InstructionForm(props){
                             <p>{index + 1}</p>
                                 <input
                                     placeholder='Next Step'
-                                    type='text'
+                                    type='textfield'
                                     name='instruction'
                                     value={item.instruction}
                                     onChange={(e) => handleChange(e,index)}
