@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './view-recipe.css';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import ViewIngredients from './ViewIngredients';
 import ViewSteps from './ViewSteps';
@@ -11,6 +11,7 @@ function ViewRecipe(props){
     const {id} = useParams();
     const [toggle, setToggle] = useState(true);
     const userId = props.user.user.user_id;
+    const history = useHistory();
 
 
     useEffect(() =>{
@@ -22,6 +23,17 @@ function ViewRecipe(props){
             console.log(error)
         })
     },[])
+
+    const handleDelete=() =>{
+        axios.delete(`http://localhost:5000/recipes/${id}`)
+        .then(res =>{
+            console.log(res)
+            history.push(`/recipes/user/${userId}`)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    };
 
     const handleToggle =() =>{
         if(toggle){
@@ -56,7 +68,7 @@ function ViewRecipe(props){
                             <button onClick={shareToPublic}>Share</button>
                             : <div></div>
                         }
-                        <button>Delete</button>
+                        <button onClick={handleDelete}>Delete</button>
                     </div>
                 : <div></div>
                 }
