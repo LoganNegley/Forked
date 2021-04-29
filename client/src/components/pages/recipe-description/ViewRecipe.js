@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import './view-recipe.css';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import ViewIngredients from './ViewIngredients';
 import ViewSteps from './ViewSteps';
 
 function ViewRecipe(props){
+    console.log(props) 
     const [recipe, setRecipe] = useState('')
     const {id} = useParams();
     const [toggle, setToggle] = useState(true);
     const userId = props.user.user.user_id;
+    const history = useHistory();
 
 
     useEffect(() =>{
@@ -21,6 +23,17 @@ function ViewRecipe(props){
             console.log(error)
         })
     },[])
+
+    const handleDelete=() =>{
+        axios.delete(`http://localhost:5000/recipes/${id}`)
+        .then(res =>{
+            console.log(res)
+            history.push(`/recipes/user/${userId}`)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    };
 
     const handleToggle =() =>{
         if(toggle){
@@ -40,6 +53,8 @@ function ViewRecipe(props){
         })
     };
 
+    console.log(recipe)
+
     return(
         <div className='view-recipe-container'>
             <img src='/images/utensils.png'/>
@@ -48,10 +63,13 @@ function ViewRecipe(props){
                 <p>Prep Time: {recipe.prep_time}</p>
                 <p>Cook Time: {recipe.cook_time}</p>
                 {recipe.userId === userId ?
-                <div className='details-btn'>
-                    {/* <button>Edit</button> */}
-                    <button onClick={shareToPublic}>Share</button>
-                </div>
+                    <div className='details-btn'>
+                        {recipe.isPublic != 1 ?
+                            <button onClick={shareToPublic}>Share</button>
+                            : <div></div>
+                        }
+                        <button onClick={handleDelete}>Delete</button>
+                    </div>
                 : <div></div>
                 }
             </div>

@@ -27,7 +27,7 @@ function ViewIngredients(){
             <p>Quantity</p>
             {ingredients.map(item =>(
 
-                <div key={item.ingredeint_id} className="row">
+                <div key={item.ingredient_id} className="row">
                     <div className="column">
                         <p>{item.ingredient_name}</p>
                     </div>
