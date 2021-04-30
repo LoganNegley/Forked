@@ -8,7 +8,6 @@ import './user-dashboard.css';
 
 function UserDashboard(props){
     const loggedUser = props.user.user;
-    console.log(loggedUser)
 
     return(
         <div className='dashboard-container'>

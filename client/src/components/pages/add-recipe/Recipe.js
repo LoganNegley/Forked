@@ -5,7 +5,8 @@ function Recipe({recipeId, setRecipeId}){
     const [newRecipe, setNewRecipe] = useState({
         recipeName:'',
         prep_time:'',
-        cook_time:''
+        cook_time:'',
+        image:''
     })
 
     const handleSubmit= (event)=>{
@@ -27,6 +28,9 @@ function Recipe({recipeId, setRecipeId}){
     return(
         <div className='recipe-form-container'>
             <form onSubmit={handleSubmit}>
+                <div className='drop-image-container'>
+                
+                </div>
                 <label>
                     Recipe Name
                     <input

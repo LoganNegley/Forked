@@ -24,7 +24,7 @@ function DashboardFaves({loggedUser}){
 
         )
     }
-console.log(userFavorite)
+
 
     return(
         <div className='dashboard-section-container'>
