@@ -1,5 +1,6 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import axios from 'axios';
+import ImageUploader from './ImageUploader';
 
 function Recipe({recipeId, setRecipeId}){
     const [newRecipe, setNewRecipe] = useState({
@@ -8,6 +9,7 @@ function Recipe({recipeId, setRecipeId}){
         cook_time:'',
         image:''
     })
+    const [storedImage, setStoredImage] = useState('')
 
     const handleSubmit= (event)=>{
         event.preventDefault();
@@ -27,10 +29,10 @@ function Recipe({recipeId, setRecipeId}){
 
     return(
         <div className='recipe-form-container'>
+            <div className='drop-image-container'>
+                <ImageUploader setStoredImage={setStoredImage}/>
+            </div>
             <form onSubmit={handleSubmit}>
-                <div className='drop-image-container'>
-                
-                </div>
                 <label>
                     Recipe Name
                     <input
