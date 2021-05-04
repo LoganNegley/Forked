@@ -12,13 +12,16 @@ function PublicCard(props){
             {publicRecipesData.map((recipe)=>(
                 <div className='public-card' key={recipe.recipe_id}>
                     <div className='recipe-info'>
-                    {recipe.image === '' ? <img src='/images/utensils.png' alt='recipe'/> : <img src='/images/heart_icon_V3.png' alt='not available logo'/>}
-                    <div className='recipe-details'>
+                    {recipe.image === '' ? <img src='/images/utensils.png' alt='recipe'/> : <img src={recipe.image} alt='not available logo'/>}
                         <h3>{recipe.recipeName}</h3>
-                        <p>Prep Time: {recipe.prep_time}</p>
-                        <p>Cook Time: {recipe.cook_time}</p>
-                    </div>
-                        <Link to={`/view/recipe/${recipe.recipe_id}`}><button>View</button></Link>
+                        <div className='recipe-details'>
+                            
+                            <p>Prep Time: {recipe.prep_time}</p>
+                            <p>Cook Time: {recipe.cook_time}</p>
+                            <Link to={`/view/recipe/${recipe.recipe_id}`}>
+                                <button>View</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             ))}

@@ -10,6 +10,13 @@ function Recipe({recipeId, setRecipeId}){
         image:''
     })
     const [storedImage, setStoredImage] = useState('')
+    console.log(newRecipe)
+    console.log(storedImage)
+
+    useEffect(() =>{
+        setNewRecipe({...newRecipe, image:storedImage})
+    }, [storedImage])
+
 
     const handleSubmit= (event)=>{
         event.preventDefault();
@@ -30,7 +37,7 @@ function Recipe({recipeId, setRecipeId}){
     return(
         <div className='recipe-form-container'>
             <div className='drop-image-container'>
-                <ImageUploader setStoredImage={setStoredImage}/>
+                <ImageUploader storedImage={storedImage} setStoredImage={setStoredImage}/>
             </div>
             <form onSubmit={handleSubmit}>
                 <label>

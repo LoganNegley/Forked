@@ -3,11 +3,9 @@ import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import sha1 from 'sha1';
 
-function ImageUploader(){
-    const [storedImage, setStoredImage] = useState('')
+function ImageUploader({storedImage,setStoredImage}){
 
     const handleDrop =(files) =>{
-        console.log(files)
         const image = files[0]
 
         const url = 'https://api.cloudinary.com/v1_1/dluh5sm7o/image/upload'
@@ -31,15 +29,13 @@ function ImageUploader(){
         axios.post(url, formData)
         .then(res =>{
             console.log(res)
-            setStoredImage({
-                'image_url': res.data.url
-            })
+            setStoredImage(res.data.url)
         })
         .catch(error =>{
             console.log(error)
         })
     };
-
+    
 
 
     return(
@@ -48,9 +44,17 @@ function ImageUploader(){
               {({getRootProps, getInputProps}) => (
                 <section>
                   <div {...getRootProps()}>
-                    <div className='x-in-drop'>
+                  
+                    <div className='in-drop'>
                         <input {...getInputProps()} />
+                    {!storedImage ?
                         <p>Drag 'n' drop an image here, or click to select files</p>
+                    : 
+                        <div className='uploaded-complete'>
+                            <img src='/images/thumbUp.png' alt='thumbs-up'/>
+                            <p className='uploaded'>Image Uploaded</p>
+                        </div>
+                        }
                     </div>
                   </div>
                 </section>

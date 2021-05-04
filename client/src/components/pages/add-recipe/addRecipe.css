@@ -47,6 +47,7 @@
 }
 
 /* Image Uploader */
+
 .recipe-form-container .drop-image-container{
     background-color:var(--errieBlack);
     height:175px;
@@ -64,6 +65,23 @@
     margin:0 auto;
     font-size: 2rem;
     line-height: 3rem;
+}
+.drop-image-container .uploaded-complete{
+    width:100%;
+    text-align: center;
+}
+.drop-image-container img{
+    width:85%;
+    height:200px;
+
+}
+.drop-image-container .uploaded-complete .uploaded{
+    color:var(--gray);
+    display: inline;
+    position:relative;
+    bottom:3rem;
+    z-index:1;
+    text-align: center;
 }
 
 .recipe-form-container label{
