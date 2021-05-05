@@ -1,0 +1,18 @@
+.favorite-container{
+    width:85%;
+    margin:0 auto;
+}
+.triangle-box h1{
+    position:relative;
+    bottom:5.75rem;
+    left:4.25rem;
+    font-size: 5.5rem;
+}
+.triangle-box span{
+    font-size:2.5rem;
+    text-decoration: underline;
+    text-decoration-color: var(--gray);
+    text-decoration-thickness: 3px;
+    position: relative;
+    right:.75rem;
+}

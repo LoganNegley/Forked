@@ -15,6 +15,7 @@ import Ingredients from '../src/components/pages/add-recipe/Ingredients';
 import ViewRecipe from '../src/components/pages/recipe-description/ViewRecipe';
 import ViewIngredients from '../src/components/pages/recipe-description/ViewIngredients';
 import ViewSteps from '../src/components/pages/recipe-description/ViewSteps';
+import UserFavorite from '../src/components/pages/favorites/UserFavorite';
 
 function App() {
   const [user, setUser] = useState('');
@@ -37,6 +38,10 @@ function App() {
 
         <Route path='/login'>
           <LoginForm user={user} setUser={setUser}/>
+        </Route>
+        
+        <Route path='/favorites/:userId'>
+          <UserFavorite/>
         </Route>
 
         <Route path='/public-recipes'>
