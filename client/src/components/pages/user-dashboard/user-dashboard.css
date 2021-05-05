@@ -137,10 +137,10 @@ font-weight: bold;
 }
 .my-recipe-card img{
     width:100%;
-    height:125px;
+    height:100px;
 }
 .my-recipe-card-info{
-    margin-top:2rem;
+    margin:2rem auto;
     width:75%;
     text-align: center;
 }

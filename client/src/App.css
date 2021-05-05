@@ -12,5 +12,10 @@
     font-size: 62.5%;
 }
 
+body a, button{
+text-decoration: none;
+cursor:pointer;
+}
+
 
 

@@ -27,6 +27,7 @@ function DashboardMyRecipes(props){
             console.log(error)
         })
     },[])
+    console.log(recipes)
 
     return(
         <div className='dashboard-section-container'>
@@ -41,16 +42,17 @@ function DashboardMyRecipes(props){
                         {recipes.map((item, index) =>(
                             <Slide key={index} index={index + 1}>
                                 <div className='my-recipe-card'>
-                                    <div className='my-recipe-card-info'>
-                                        <img src={'/images/utensils.png'} alt='recipe'/>
-                                        <Link to={`/view/recipe/${item.recipe_id}`}>
-                                            <div className='detail-info'>
-                                                <p>{item.recipeName}</p>
-                                                <p>Prep Time: {item.prep_time}</p>
-                                                <p>Cook Time: {item.cook_time}</p>
-                                            </div>
-                                        </Link>
-                                    </div>
+                                    <Link to={`/view/recipe/${item.recipe_id}`}>
+                                        <div className='my-recipe-card-info'>
+                                        {item.image ? <img src={item.image} alt='recipe'/> :
+                                            <img src={'/images/utensils.png'} alt='recipe'/>}
+                                                <div className='detail-info'>
+                                                    <p>{item.recipeName}</p>
+                                                    <p>Prep Time: {item.prep_time}</p>
+                                                    <p>Cook Time: {item.cook_time}</p>
+                                                </div>
+                                        </div>
+                                    </Link>
                                 </div>
                         
                             </Slide>

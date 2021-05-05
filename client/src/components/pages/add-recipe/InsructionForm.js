@@ -10,10 +10,6 @@ function InstructionForm(props){
         instruction:''
     }])
 
-    // useEffect(() =>{
-    //     setStepNum(stepNum + 1)
-    // },[steps])
-
     const addOne=(arr)=>{
         const lastIndex = arr.length - 1
         const num = arr[lastIndex].step_number
@@ -26,7 +22,7 @@ function InstructionForm(props){
         setSteps([...steps, {step_number:newNum, instruction:''}])
     };
 
-console.log(steps)
+
     const handleSubmit =(event)=>{
         event.preventDefault();
         steps.map(item =>{

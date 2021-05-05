@@ -9,8 +9,6 @@ function UserNavMenu(props){
     const history = useHistory();
     const user_id = user.user.user_id;
 
-    console.log(user)
-
     const handleClose = ()=>{
         setToggled(false)
     };
@@ -35,12 +33,14 @@ function UserNavMenu(props){
         <div className='user-menu-container'>
             <div className='menu-wrapper'>
                 <div className='close-menu'>
-                    <p onClick={handleClose}>X</p>
+                    <p onClick={handleClose} style={{'cursor': 'pointer'}}>X</p>
                 </div>
+                <Link to={`/dashboard/${user.user.username}`} onClick={handleClose}>
                 <div className='menu-heading'>
                     <p>Welcome</p>
                     <p>{user.user.username}</p>
                 </div>
+                </Link>
                 <div className='menu-items'>
                     <Link to={`/recipes/user/${user_id}`} onClick={closeMenu}>
                         <div className='menu-card'>
@@ -48,10 +48,12 @@ function UserNavMenu(props){
                             <p>My Recipes</p>
                         </div>
                     </Link>
+
                     <div className='menu-card'>
                         <img src=''/>
                         <p>Favorites</p>
                     </div>
+
                     <Link to='/public-recipes' onClick={closeMenu}>
                         <div className='menu-card'>
                             <img src=''/>

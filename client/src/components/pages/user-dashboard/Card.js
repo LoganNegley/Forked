@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 function Card({data}){
-  console.log(data)
 
     return (
         <>

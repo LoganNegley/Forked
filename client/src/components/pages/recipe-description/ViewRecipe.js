@@ -57,7 +57,9 @@ function ViewRecipe(props){
 
     return(
         <div className='view-recipe-container'>
-            <img src='/images/utensils.png'/>
+        {recipe.image === null ? <img src='/images/utensils.png'/> : 
+            <img src={recipe.image}/>}
+            
             <div className='view-details'>
                 <h3>{recipe.recipeName}</h3>
                 <p>Prep Time: {recipe.prep_time}</p>
