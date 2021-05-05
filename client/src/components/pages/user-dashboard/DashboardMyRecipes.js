@@ -27,7 +27,7 @@ function DashboardMyRecipes(props){
             console.log(error)
         })
     },[])
-    console.log(recipes)
+
 
     return(
         <div className='dashboard-section-container'>
