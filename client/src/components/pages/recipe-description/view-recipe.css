@@ -83,6 +83,6 @@
 }
 .view-steps-container .step-detail p{
     line-height: 2.75rem;
-    word-break: break-all;
+    /* word-break: break-all; */
     font-size:2rem;
 }

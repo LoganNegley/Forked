@@ -9,8 +9,6 @@ function UserNavMenu(props){
     const history = useHistory();
     const user_id = user.user.user_id;
 
-    console.log(user)
-
     const handleClose = ()=>{
         setToggled(false)
     };
