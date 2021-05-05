@@ -34,10 +34,6 @@
     align-items:center;
 }
 
-.public-card-wrapper .public-card .col-1{
-    /* display:flex;
-    flex-flow: row wrap; */
-}
 .public-card-wrapper .public-card img{
     width:55px;
     height:55px;
