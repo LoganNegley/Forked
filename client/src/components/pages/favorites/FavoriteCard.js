@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 function FavoriteCard(props){
@@ -18,7 +19,7 @@ function FavoriteCard(props){
                 <p>Cook Time: {recipe.cook_time}</p>
             </div>
             <div id='fav-col-3'>
-                <button>View</button>
+                <Link to={`/view/recipe/${recipe.recipeId}`}><button>View</button></Link>
                 <button onClick={() => handleDelete(recipe.recipeId)}>Remove</button>
             </div>
         </div>
