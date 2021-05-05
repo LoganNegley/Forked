@@ -7,6 +7,7 @@ import FavoriteCard from './FavoriteCard';
 function UserFavorite(){
     const {userId} = useParams();
     const [recipes, setRecipes] = useState('')
+    const [deletedRecipe, setDeletedRecipe] = useState('')
 
 
     useEffect(() =>{
@@ -17,9 +18,24 @@ function UserFavorite(){
         .catch(error =>{
             console.log(error)
         })
-    },[])
+    },[deletedRecipe])
 
     console.log(recipes)
+
+
+    const handleDelete =(recipeId) =>{
+        axios.delete(`http://localhost:5000/favorites/recipe/${recipeId}`)
+        .then(res =>{
+            console.log(res)
+            setDeletedRecipe(recipeId)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+
+        
+
+    };
 
     if(!recipes){
         return(
@@ -32,10 +48,10 @@ function UserFavorite(){
         <div className='favorite-container'>
             <div className='triangle-box'>
                 <div className='heading-triangle'></div>
-                <h1>P<span>ublic Recipes</span></h1>
+                <h1>F<span>avorite Recipes</span></h1>
             </div>
             {recipes.map((item, index) =>(
-                <FavoriteCard key={index} item={item}/>
+                <FavoriteCard key={index} item={item} index={index} handleDelete={handleDelete}/>
             ))}
             
         </div>

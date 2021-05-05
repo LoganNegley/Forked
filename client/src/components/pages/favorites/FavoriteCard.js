@@ -3,6 +3,8 @@ import React from 'react';
 
 function FavoriteCard(props){
     const recipe = props.item;
+    const handleDelete = props.handleDelete;
+    const index = props.index;
 
     return(
         <div className='favorite-card-container'>
@@ -17,7 +19,7 @@ function FavoriteCard(props){
             </div>
             <div id='fav-col-3'>
                 <button>View</button>
-                <button>Remove</button>
+                <button onClick={() => handleDelete(recipe.recipeId)}>Remove</button>
             </div>
         </div>
     )
