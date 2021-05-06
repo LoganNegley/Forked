@@ -44,6 +44,9 @@ exports.up = function(knex) {
       tbl.boolean('isPublic')
         .defaultTo('false')
         .notNullable();
+        tbl.boolean('isFavorite')
+        .defaultTo('false')
+        .notNullable();
       tbl.integer('userId')
         .notNullable()
         .unsigned()
