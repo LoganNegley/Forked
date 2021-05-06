@@ -56,7 +56,7 @@ function App() {
           <UserDashboard user={user}/>
         </Route>
 
-        <Route path='/username/recipe/add'>
+        <Route path='/user/:id/recipe/add'>
           <AddForm/>
         </Route>
 

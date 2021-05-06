@@ -6,7 +6,7 @@ import ViewIngredients from './ViewIngredients';
 import ViewSteps from './ViewSteps';
 
 function ViewRecipe(props){
-    console.log(props) 
+ 
     const [recipe, setRecipe] = useState('')
     const {id} = useParams();
     const [toggle, setToggle] = useState(true);
@@ -27,7 +27,7 @@ function ViewRecipe(props){
     const handleDelete=() =>{
         axios.delete(`http://localhost:5000/recipes/${id}`)
         .then(res =>{
-            console.log(res)
+
             history.push(`/recipes/user/${userId}`)
         })
         .catch(error =>{
@@ -53,7 +53,7 @@ function ViewRecipe(props){
         })
     };
 
-    console.log(recipe)
+
 
     return(
         <div className='view-recipe-container'>

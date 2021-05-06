@@ -5,7 +5,6 @@ import axios from 'axios';
 function UsersRecipeCard({item}){
     console.log(item)
     const {id} = useParams();
-    console.log(item)
 
 
     const handleAddFave =()=>{

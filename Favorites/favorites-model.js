@@ -23,14 +23,29 @@ function getFavoritesByUserId(id){
     .where('fr.userId', id)
 };
 
+// // add favorite 
+// function addFavorite(recipe){
+//     return db('favoriteRecipes')
+//     .insert(recipe)
+//     .returning('favorite_id')
+// };
 // add favorite 
 function addFavorite(recipe){
     return db('favoriteRecipes')
-    .insert(recipe)
+    .insert({
+        userId:recipe.userId,
+        recipeId:recipe.recipe_id
+    })
     .returning('favorite_id')
 };
 
 // Update favorite by ID
+function updateIsFavorite(id, favorite){
+    return db('recipes')
+    .where('recipe_id', '=', id)
+    .update({isFavorite: favorite})
+    .returning('id')
+}
 
 // delete favorite by recipe ID
 function deleteFavoriteByRecipeId(id){
@@ -44,6 +59,7 @@ getAllFavorites,
 getFavoritesByUserId,
 getFavoriteById,
 addFavorite,
+updateIsFavorite,
 deleteFavoriteByRecipeId
 };
 
