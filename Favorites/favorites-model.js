@@ -23,12 +23,6 @@ function getFavoritesByUserId(id){
     .where('fr.userId', id)
 };
 
-// // add favorite 
-// function addFavorite(recipe){
-//     return db('favoriteRecipes')
-//     .insert(recipe)
-//     .returning('favorite_id')
-// };
 // add favorite 
 function addFavorite(recipe){
     return db('favoriteRecipes')

@@ -60,7 +60,7 @@ function Ingredients(props){
     }
     return(
         <div className='add-ingredients-form'>
-            <p>Add Ingredients for {recipe.recipeName}</p>
+            <p>Add Ingredients for <span>{recipe.recipeName}</span></p>
             <div className='ingredient-form-container'>
                 <form onSubmit={handleSubmit}>
                     {inputs.map((item, index) =>(

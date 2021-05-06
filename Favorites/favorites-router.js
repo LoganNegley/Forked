@@ -53,36 +53,12 @@ router.get('/user/:id', validateUserId, (req,res) =>{
     })
 });
 
-// Add favorite recipe
-// router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,res) =>{
-//     const {id} = req.params;
-//     const {recipeId} = req.params;
-//     const newFavorite = {userId:id, recipeId:recipeId};
-
-//     db.addFavorite(newFavorite)
-//     .then(added =>{
-//         res.status(201).json(added)
-//     })
-//     .catch(error =>{
-//         console.log(error)
-//         res.status(500).json({errorMessage:'Failed to add favorite recipe'})
-//     })
-// });
 
 // Add favorite recipe
 router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,res) =>{
     const {id} = req.params;
     const {recipeId} = req.params;
     const newFavorite = {userId:id, recipeId:recipeId};
-
-    // db.addFavorite(newFavorite)
-    // .then(added =>{
-    //     res.status(201).json(added)
-    // })
-    // .catch(error =>{
-    //     console.log(error)
-    //     res.status(500).json({errorMessage:'Failed to add favorite recipe'})
-    // })
 
     recipeModel.findRecipeById(recipeId) //find the recipe with ID 
     .then(item =>{
