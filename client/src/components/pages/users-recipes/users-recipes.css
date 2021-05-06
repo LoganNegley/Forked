@@ -115,9 +115,9 @@
 }
 .recipe-card-info .recipe-card-btn{
     margin-top:1.5rem;
-    /* display:flex;
+    display:flex;
     flex-flow:wrap row;
-    justify-content: space-between; */
+    justify-content: space-between;
 }
 .recipe-card-info button{
     background-color:transparent;
@@ -125,10 +125,15 @@
     border:solid var(--orange) 1px;
     border-radius: 15px;
     font-size: 1.5rem;
-    padding: 0 1.5rem;
-    margin-left:1.5rem;
+    padding: 0 1rem;
+    /* margin-left:1rem; */
 }
 .recipe-card-info button:hover{
     color:black;
     background-color: var(--orange);
+}
+.recipe-card-btn .fave-icon{
+    margin:0;
+    height:25px;
+    width:25px;
 }

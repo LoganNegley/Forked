@@ -3,8 +3,8 @@ import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
 
 function UsersRecipeCard({item}){
-    console.log(item)
     const {id} = useParams();
+    const [faveToggle, setFaveToggle] = useState('')
 
 
     const handleAddFave =()=>{
@@ -16,6 +16,8 @@ function UsersRecipeCard({item}){
             console.log(error)
         })
     };
+
+    console.log(item)
 
     return(
         <div className='recipe-card-container'>
@@ -30,7 +32,9 @@ function UsersRecipeCard({item}){
                         <p>Cook Time: {item.cook_time} mins</p>
                         <div className='recipe-card-btn'>
                             <Link to={`/view/recipe/${item.recipe_id}`}><button>View</button></Link>
-                            <button onClick={handleAddFave}>Add Favorite</button>
+                            {item.isFavorite ? <img className='fave-icon' src='/images/solid-heart.png' alt='favorite recipe'/> :
+                            <img src='/images/outlined-heart.png' className='fave-icon' onClick={handleAddFave} alt='add to favorites' />}
+                            {/* <button onClick={handleAddFave}>Add Favorite</button> */}
                         </div>
                     </div>
                 </div>

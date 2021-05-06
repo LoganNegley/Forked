@@ -14,11 +14,12 @@ function UserFavorite(){
         axios.get(`http://localhost:5000/favorites/user/${userId}`)
         .then(res =>{
             setRecipes(res.data)
+            console.log(res)
         })
         .catch(error =>{
             console.log(error)
         })
-    },[deletedRecipe])
+    },[])
 
     console.log(recipes)
 
@@ -27,7 +28,7 @@ function UserFavorite(){
         axios.delete(`http://localhost:5000/favorites/recipe/${recipeId}`)
         .then(res =>{
             console.log(res)
-            setDeletedRecipe(recipeId)
+            // setDeletedRecipe(recipeId)
         })
         .catch(error =>{
             console.log(error)
@@ -37,12 +38,6 @@ function UserFavorite(){
 
     };
 
-    if(!recipes){
-        return(
-            <div>You don't have any favorite recipes saved YET!!!</div>
-        )
-    }
-
 
     return (
         <div className='favorite-container'>
@@ -50,10 +45,11 @@ function UserFavorite(){
                 <div className='heading-triangle'></div>
                 <h1>F<span>avorite Recipes</span></h1>
             </div>
-            {recipes.map((item, index) =>(
-                <FavoriteCard key={index} item={item} index={index} handleDelete={handleDelete}/>
-            ))}
-            
+            {!recipes ? <div>You don't have any favorite recipes saved YET!!!</div> :
+                recipes.map((item, index) =>(
+                    <FavoriteCard key={index} item={item} index={index} handleDelete={handleDelete}/>
+                ))
+            }
         </div>
     )
 };
