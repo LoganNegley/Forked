@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import './onboarding.css';
 
 
@@ -12,6 +12,7 @@ function OnboardingForm(){
         username:'',
         password:''
     });
+    const history = useHistory();
 
 
     const handleSubmit = (event) =>{
@@ -19,6 +20,7 @@ function OnboardingForm(){
         axios.post('http://localhost:5000/auth/register', newUser)
         .then(res =>{
             console.log(res)
+            history.push(`/login`)
         })
         .catch(error =>{
             console.log(error)

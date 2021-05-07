@@ -15,6 +15,8 @@ function ViewRecipe(props){
     const [shared, setShared] = useState(false);
     const [favorited, setFavorited] = useState(false);
 
+    console.log(props)
+
 
     useEffect(() =>{
         axios.get(`http://localhost:5000/recipes/${id}`)  //get recipe by ID
