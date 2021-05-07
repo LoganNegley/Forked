@@ -46,13 +46,13 @@ function InstructionForm(props){
 
     return (
         <div className='instruction-container'>
-            <h3>Steps for {recipe.recipeName}</h3>
+            <h3>Steps for <span>{recipe.recipeName}</span></h3>
             <div className='instruction-form-container'>
                 <form onSubmit={handleSubmit}>
                     {steps.map((item,index) =>(
                         <div key={index} className='step-input'>
                             <p>{index + 1}</p>
-                                <input
+                                <textarea
                                     placeholder='Next Step'
                                     type='textfield'
                                     name='instruction'
@@ -61,9 +61,9 @@ function InstructionForm(props){
                                 />
                         </div>
                     ))}
-                    <button>Submit</button>
+                    <div onClick={addStep} className='ingredient-btn-container'>+</div>
+                    <button className='submit-btn'>Submit</button>
                 </form>
-                <button onClick={addStep}>+</button>
             </div>
         </div>
     )

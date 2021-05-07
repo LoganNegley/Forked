@@ -85,11 +85,9 @@ function Ingredients(props){
                             </label>
                         </div>
                     ))}
+                        <div onClick={handleAdd} className='ingredient-btn-container'>+</div>
                         <button className='submit-btn'>Submit</button>
                 </form>
-                <div className='ingredient-btn-container'>
-                    <button onClick={handleAdd}>+</button>
-                </div>
             </div>
         </div>
     )

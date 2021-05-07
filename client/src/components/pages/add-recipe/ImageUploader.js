@@ -28,7 +28,6 @@ function ImageUploader({storedImage,setStoredImage}){
 
         axios.post(url, formData)
         .then(res =>{
-            console.log(res)
             setStoredImage(res.data.url)
         })
         .catch(error =>{
