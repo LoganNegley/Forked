@@ -9,19 +9,19 @@ function Carousel({recipeData}){
 
 
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //     if(index < data.length - 1){
-    //         setIndex(index + 1)
-    //     }else{
-    //         setIndex(0)
-    //     }
+    useEffect(() => {
+        const interval = setInterval(() => {
+        if(index < data.length - 1){
+            setIndex(index + 1)
+        }else{
+            setIndex(0)
+        }
 
-    // }, 3000);
-    //     setOffset(index * 330)
+    }, 3000);
+        setOffset(index * 330)
 
-    // return () => clearInterval(interval);
-    // }, [index]);
+    return () => clearInterval(interval);
+    }, [index]);
 
 
     return (

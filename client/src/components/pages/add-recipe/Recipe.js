@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import ImageUploader from './ImageUploader';
 
@@ -7,11 +8,10 @@ function Recipe({recipeId, setRecipeId}){
         recipeName:'',
         prep_time:'',
         cook_time:'',
-        image:''
+        image:null
     })
     const [storedImage, setStoredImage] = useState('')
-    console.log(newRecipe)
-    console.log(storedImage)
+    const {id} = useParams();
 
     useEffect(() =>{
         setNewRecipe({...newRecipe, image:storedImage})
@@ -20,7 +20,7 @@ function Recipe({recipeId, setRecipeId}){
 
     const handleSubmit= (event)=>{
         event.preventDefault();
-        axios.post('http://localhost:5000/recipes/user/5', newRecipe)
+        axios.post(`http://localhost:5000/recipes/user/${id}`, newRecipe)
         .then(res =>{
             setRecipeId(res.data[0])
         })

@@ -8,6 +8,7 @@ function UserNavMenu(props){
     const setToggled = props.setToggled;
     const history = useHistory();
     const user_id = user.user.user_id;
+    
 
     const handleClose = ()=>{
         setToggled(false)
@@ -49,10 +50,12 @@ function UserNavMenu(props){
                         </div>
                     </Link>
 
-                    <div className='menu-card'>
-                        <img src=''/>
-                        <p>Favorites</p>
-                    </div>
+                    <Link to={`/favorites/${user_id}`} onClick={closeMenu}>
+                        <div className='menu-card'>
+                            <img src=''/>
+                            <p>Favorites</p>
+                        </div>
+                    </Link>
 
                     <Link to='/public-recipes' onClick={closeMenu}>
                         <div className='menu-card'>

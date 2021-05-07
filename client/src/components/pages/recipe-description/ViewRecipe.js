@@ -6,12 +6,14 @@ import ViewIngredients from './ViewIngredients';
 import ViewSteps from './ViewSteps';
 
 function ViewRecipe(props){
-    console.log(props) 
+ 
     const [recipe, setRecipe] = useState('')
     const {id} = useParams();
     const [toggle, setToggle] = useState(true);
     const userId = props.user.user.user_id;
     const history = useHistory();
+    const [shared, setShared] = useState(false);
+    const [favorited, setFavorited] = useState(false);
 
 
     useEffect(() =>{
@@ -22,12 +24,12 @@ function ViewRecipe(props){
         .catch(error =>{
             console.log(error)
         })
-    },[])
+    },[shared, favorited])
 
     const handleDelete=() =>{
         axios.delete(`http://localhost:5000/recipes/${id}`)
         .then(res =>{
-            console.log(res)
+
             history.push(`/recipes/user/${userId}`)
         })
         .catch(error =>{
@@ -46,14 +48,23 @@ function ViewRecipe(props){
     const shareToPublic=() =>{
         axios.put(`http://localhost:5000/public/recipes/${id}`)
         .then(res =>{
-            console.log(res)
+            setShared(true)
         })
         .catch(error =>{
             console.log(error)
         })
     };
 
-    console.log(recipe)
+    const handleAddFavorite =() =>{
+        axios.post(`http://localhost:5000/favorites/user/${userId}/recipe/${id}`)
+        .then(res =>{
+            setFavorited(true)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    };
+
 
     return(
         <div className='view-recipe-container'>
@@ -68,8 +79,9 @@ function ViewRecipe(props){
                     <div className='details-btn'>
                         {recipe.isPublic != 1 ?
                             <button onClick={shareToPublic}>Share</button>
-                            : <div></div>
+                            : <div style={{display:'none'}}></div>
                         }
+                        {recipe.isFavorite != 1 ? <button onClick={handleAddFavorite} className='fave-btn'>Add Favorite</button> : <div style={{display: 'none'}}></div>}
                         <button onClick={handleDelete}>Delete</button>
                     </div>
                 : <div></div>

@@ -60,7 +60,7 @@ function Ingredients(props){
     }
     return(
         <div className='add-ingredients-form'>
-            <p>Add Ingredients for {recipe.recipeName}</p>
+            <p>Add Ingredients for <span>{recipe.recipeName}</span></p>
             <div className='ingredient-form-container'>
                 <form onSubmit={handleSubmit}>
                     {inputs.map((item, index) =>(
@@ -85,11 +85,9 @@ function Ingredients(props){
                             </label>
                         </div>
                     ))}
+                        <div onClick={handleAdd} className='ingredient-btn-container'>+</div>
                         <button className='submit-btn'>Submit</button>
                 </form>
-                <div className='ingredient-btn-container'>
-                    <button onClick={handleAdd}>+</button>
-                </div>
             </div>
         </div>
     )

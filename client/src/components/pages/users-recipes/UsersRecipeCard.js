@@ -1,9 +1,22 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-
+import React, {useState} from 'react';
+import {Link, useParams} from 'react-router-dom';
+import axios from 'axios';
 
 function UsersRecipeCard({item}){
-    console.log(item)
+    const {id} = useParams();
+    const [faveToggle, setFaveToggle] = useState('')
+
+
+    const handleAddFave =()=>{
+        axios.post(`http://localhost:5000/favorites/user/${id}/recipe/${item.recipe_id}`)
+        .then(res =>{
+            console.log(res)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    };
+
 
     return(
         <div className='recipe-card-container'>
@@ -18,7 +31,7 @@ function UsersRecipeCard({item}){
                         <p>Cook Time: {item.cook_time} mins</p>
                         <div className='recipe-card-btn'>
                             <Link to={`/view/recipe/${item.recipe_id}`}><button>View</button></Link>
-                            {/* <button>Update</button> */}
+                            {/* <button onClick={handleAddFave}>Add Favorite</button> */}
                         </div>
                     </div>
                 </div>

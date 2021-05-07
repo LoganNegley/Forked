@@ -1,5 +1,4 @@
-/* Heading styles----some coming from onboarding form css */
-.public-recipes-container{
+.favorite-container{
     width:85%;
     margin:0 auto;
 }
@@ -18,54 +17,57 @@
     right:.75rem;
 }
 
-
-/* cards */
-.public-card-container .public-card-wrapper .public-card{
+/* Favorite cards */
+.favorite-card-container{
+    width:100%;
+    height:15vh;
     background-color:rgba(0,0,0,.2);
     box-shadow: 0px 0px 7px #ACACAC;
     border-radius: 10px;
-    width:100%;
-    height:15vh;
-    margin-bottom:3rem;
     color:white;
     display:flex;
     flex-flow: row nowrap;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
+    margin-top:3rem;
 }
-
-.public-card-wrapper .public-card img{
-    width:55px;
-    height:55px;
+.favorite-container .no-recipes{
+    color:var(--orange);
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 5rem;
+}
+.favorite-card-container img{
+    width:50px;
+    height:60px;
     margin-left:2rem;
+    margin-right:1.5rem;
 }
-
-.public-card-wrapper .public-card .recipe-details{
-    margin-left:1.5rem;
-} 
-
-.public-card-wrapper .recipe-details h3{
+.favorite-card-container h3{
     font-size:1.25rem;
     font-weight:bolder;
     line-height: 1.75rem;
     letter-spacing: .25rem;
 }
-.public-card-wrapper .recipe-details p{
+.favorite-card-container p{
     letter-spacing: .25rem;
     margin:1rem 0px;
+    color:var(--gray);
+    font-weight: bold;
 }
-.public-card-wrapper button{
+#fav-col-3{
+    display:flex;
+    flex-flow: row wrap;
+    width:25%;
+    margin-right:1.5rem;
+}
+
+#fav-col-3 button{
     border:var(--orange) 1px solid;
     border-radius: 15px;
     background-color: transparent;
     color:white;
     font-weight: bold;
-    letter-spacing: .15rem;
-    margin-right:1rem;
+    letter-spacing: .09rem;
+    margin: .5rem 0px;
 }
-.public-card-wrapper button:hover{
-    background-color: var(--orange);
-    color:black;
-    cursor:pointer;
-}
-
