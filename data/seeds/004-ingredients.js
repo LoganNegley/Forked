@@ -2,124 +2,79 @@
 exports.seed = function(knex, Promise) {
       return knex('ingredients').insert([
         {
-          ingredient_name: 'ground meat',
+          ingredient_name: 'ground beef',
           quantity:'1 pound'},
-
+        {
+          ingredient_name: 'chili powder',
+          quantity:'1 tbs'},
+        {
+          ingredient_name: 'ground cumin',
+          quantity:'1 tps'},
+        {
+          ingredient_name: 'salt',
+          quantity:'3/4 tps'},
+        {
+          ingredient_name: 'dried oregano',
+          quantity:'1/2 tps'},
+        {
+          ingredient_name: 'garlic powder',
+          quantity:'1/2 tps'},
+        {
+          ingredient_name: 'ground black pepper',
+          quantity:'1/4 tps'},
+        {
+          ingredient_name: 'tomato sauce',
+          quantity:'1/2 cup'},
+        {
+          ingredient_name: 'water',
+          quantity:'1/4 cup'},
         {
           ingredient_name: 'taco shells',
-          quantity:'5'},
-
+          quantity:'12'},
         {
-          ingredient_name: 'cake mix',
-          quantity:'1 box'},
-
+          ingredient_name: 'all-purpose flour',
+          quantity:'2 1/4'},
+        {
+          ingredient_name: 'baking soda',
+          quantity:'1 tsp'},
+        {
+          ingredient_name: 'salt',
+          quantity:'1/2 tsp'},
+        {
+          ingredient_name: 'butter, softened',
+          quantity:'1 cup'},
+        {
+          ingredient_name: ' granulated sugar',
+          quantity:'3/4 cup'},
+        {
+          ingredient_name: 'packed brown sugar',
+          quantity:'3/4 cup'},
         {
           ingredient_name: 'egg',
-          quantity:'2'},
-
+          quantity:'1'},
         {
-          ingredient_name: 'water',
-          quantity:'3/4 cup'},
-
-        {
-          ingredient_name: 'chicken breast',
-          quantity:'2'},
-
-        {
-          ingredient_name: 'garlic',
-          quantity:'2tbs'},
-
-        { 
-          ingredient_name: 'pepper',
+          ingredient_name: 'vanilla',
           quantity:'1 tsp'},
-
         {
-          ingredient_name: 'salmon',
-          quantity:'1'},
-
-        {
-          ingredient_name: 'lemon',
-          quantity:'1'},
-
-        {
-          ingredient_name: 'cerial of chose',
-          quantity:'1 cup'},
-
-        {
-          ingredient_name: 'milk',
-          quantity:'1 cup'},
-
-        {
-          ingredient_name: 'frozon potatoes',
-          quantity:'1 bag'},
-
-        {
-          ingredient_name: 'cheese',
+          ingredient_name: ' semisweet chocolate chips',
           quantity:'2 cups'},
-
         {
-          ingredient_name: 'sour cream',
+          ingredient_name: 'coarsely chopped nuts, if desired',
           quantity:'1 cup'},
 
-        {
-          ingredient_name: 'ballpark franks',
-          quantity:'1 pack'},
+
 
         {
-          ingredient_name: 'hotdog buns',
-          quantity:'1 pack'},
-
+          ingredient_name: 'frozen strawberries',
+          quantity:'2 cup'},
         {
-          ingredient_name: 'cabbage',
-          quantity:'1/2 head'},
-
+          ingredient_name: 'cups milk',
+          quantity:'1 1/2 cup'},
         {
-          ingredient_name: 'ground sausage',
-          quantity:'1 pound'},
-
-        {
-          ingredient_name: 'potatoes',
-          quantity:'5'},
-
-        {
-          ingredient_name: 'beans',
-          quantity:'1 can'},
-
-        {
-          ingredient_name: 'carrots',
-          quantity:'2 sticks'},
-
-        {
-          ingredient_name: 'vegi meat',
-          quantity:'1 pound'},
-
-        {
-          ingredient_name: 'taco shells',
-          quantity:'5'},
-
-        {
-          ingredient_name: 'ramen noodles',
-          quantity:'1 pack'},
-
-        {
-          ingredient_name: 'water',
+          ingredient_name: 'strawberry ice cream',
           quantity:'1 cup'},
-
         {
-          ingredient_name: 'philly meat',
-          quantity:'1/2 pound'},
-
-        {
-          ingredient_name: 'green pepper',
-          quantity:'1'},
-
-        {
-          ingredient_name: 'onion',
-          quantity:'1/2'},
-          
-        {
-          ingredient_name: 'cheese',
-          quantity:'2 slices'},
-
+          ingredient_name: 'Freshly whipped cream, for serving',
+          quantity:'1/2 cup'},
       ]);
 };
