@@ -53,6 +53,16 @@ function ViewRecipe(props){
         })
     };
 
+    const handleAddFavorite =() =>{
+        axios.post(`http://localhost:5000/favorites/user/${userId}/recipe/${id}`)
+        .then(res =>{
+            console.log(res)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    };
+
 
 
     return(
@@ -68,8 +78,9 @@ function ViewRecipe(props){
                     <div className='details-btn'>
                         {recipe.isPublic != 1 ?
                             <button onClick={shareToPublic}>Share</button>
-                            : <div></div>
+                            : <div style={{display: 'none'}}></div>
                         }
+                        {recipe.isFavorite != 1 ? <button onClick={handleAddFavorite} className='fave-btn'>Add Favorite</button> : <div style={{display: 'none'}}></div>}
                         <button onClick={handleDelete}>Delete</button>
                     </div>
                 : <div></div>

@@ -32,8 +32,6 @@ function UsersRecipeCard({item}){
                         <p>Cook Time: {item.cook_time} mins</p>
                         <div className='recipe-card-btn'>
                             <Link to={`/view/recipe/${item.recipe_id}`}><button>View</button></Link>
-                            {item.isFavorite ? <img className='fave-icon' src='/images/solid-heart.png' alt='favorite recipe'/> :
-                            <img src='/images/outlined-heart.png' className='fave-icon' onClick={handleAddFave} alt='add to favorites' />}
                             {/* <button onClick={handleAddFave}>Add Favorite</button> */}
                         </div>
                     </div>

@@ -34,9 +34,11 @@ function UserFavorite(){
             console.log(error)
         })
 
-        
-
     };
+
+    if(!recipes){
+       return( <div>You don't have any favorite recipes saved YET!!!</div>)
+    }
 
 
     return (
@@ -45,7 +47,7 @@ function UserFavorite(){
                 <div className='heading-triangle'></div>
                 <h1>F<span>avorite Recipes</span></h1>
             </div>
-            {!recipes ? <div>You don't have any favorite recipes saved YET!!!</div> :
+            {
                 recipes.map((item, index) =>(
                     <FavoriteCard key={index} item={item} index={index} handleDelete={handleDelete}/>
                 ))
