@@ -29,6 +29,13 @@
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
+    margin-top:3rem;
+}
+.favorite-container .no-recipes{
+    color:var(--orange);
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 5rem;
 }
 .favorite-card-container img{
     width:50px;
@@ -40,8 +47,7 @@
     font-size:1.25rem;
     font-weight:bolder;
     line-height: 1.75rem;
-    letter-spacing: .35rem;
-    text-decoration: underline;
+    letter-spacing: .25rem;
 }
 .favorite-card-container p{
     letter-spacing: .25rem;
@@ -64,8 +70,4 @@
     font-weight: bold;
     letter-spacing: .09rem;
     margin: .5rem 0px;
-}
-#fav-col-3 button:hover{
-    background-color: var(--orange);
-    color:black;
 }

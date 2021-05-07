@@ -17,7 +17,6 @@ function UsersRecipeCard({item}){
         })
     };
 
-    console.log(item)
 
     return(
         <div className='recipe-card-container'>

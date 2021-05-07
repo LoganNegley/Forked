@@ -83,7 +83,7 @@ function OnboardingForm(){
                             Password
                             <input
                                 required
-                                type='text'
+                                type='password'
                                 name='password'
                                 value={newUser.password}
                                 onChange={handleInputChange}

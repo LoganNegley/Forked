@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import RecipeSubmit from './RecipeSubmit';
 
 function InstructionForm(props){
     const recipeId = props.recipeId;
     const recipe = props.recipe;
-    const [stepNum, setStepNum] = useState(0)
+    const [stepNum, setStepNum] = useState(0);
+    const [submit, setSubmit] = useState(false);
     const [steps, setSteps] = useState([{
         step_number:1,
         instruction:''
-    }])
+    }]);
 
     const addOne=(arr)=>{
         const lastIndex = arr.length - 1
@@ -29,6 +31,7 @@ function InstructionForm(props){
             axios.post(`http://localhost:5000/steps/recipe/${recipeId}`, item)
             .then(res =>{
                 console.log(res)
+                setSubmit(true)
             })
             .catch(error =>{
                 console.log(error)
@@ -43,6 +46,12 @@ function InstructionForm(props){
         steps[index][name]= value;
         setSteps(newSteps)
     };
+
+    if(submit){
+        return(
+            <RecipeSubmit recipe={recipe}/>
+        )
+    }
 
     return (
         <div className='instruction-container'>

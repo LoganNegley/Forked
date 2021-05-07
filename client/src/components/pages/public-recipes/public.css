@@ -48,8 +48,7 @@
     font-size:1.25rem;
     font-weight:bolder;
     line-height: 1.75rem;
-    letter-spacing: .35rem;
-    text-decoration: underline;
+    letter-spacing: .25rem;
 }
 .public-card-wrapper .recipe-details p{
     letter-spacing: .25rem;

@@ -6,29 +6,29 @@ import FavoriteCard from './FavoriteCard';
 
 function UserFavorite(){
     const {userId} = useParams();
-    const [recipes, setRecipes] = useState('')
-    const [deletedRecipe, setDeletedRecipe] = useState('')
+    const [recipes, setRecipes] = useState('');
+    const [deleted, setDeleted] = useState(false);
 
 
     useEffect(() =>{
         axios.get(`http://localhost:5000/favorites/user/${userId}`)
         .then(res =>{
             setRecipes(res.data)
-            console.log(res)
+            setDeleted(false)
         })
         .catch(error =>{
             console.log(error)
         })
-    },[])
+    },[deleted])
 
-    console.log(recipes)
 
 
     const handleDelete =(recipeId) =>{
         axios.delete(`http://localhost:5000/favorites/recipe/${recipeId}`)
         .then(res =>{
+            setDeleted(true);
             console.log(res)
-            // setDeletedRecipe(recipeId)
+
         })
         .catch(error =>{
             console.log(error)
@@ -36,9 +36,7 @@ function UserFavorite(){
 
     };
 
-    if(!recipes){
-       return( <div>You don't have any favorite recipes saved YET!!!</div>)
-    }
+
 
 
     return (
@@ -47,11 +45,14 @@ function UserFavorite(){
                 <div className='heading-triangle'></div>
                 <h1>F<span>avorite Recipes</span></h1>
             </div>
-            {
+                {!recipes ?
+                    <div className='no-recipes'>You don't have any favorite recipes saved YET!!!</div> :
+    
+            
                 recipes.map((item, index) =>(
-                    <FavoriteCard key={index} item={item} index={index} handleDelete={handleDelete}/>
+                    <FavoriteCard key={index} setDeleted={setDeleted} item={item} index={index} handleDelete={handleDelete}/>
                 ))
-            }
+                }
         </div>
     )
 };

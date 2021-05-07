@@ -8,7 +8,7 @@ function Recipe({recipeId, setRecipeId}){
         recipeName:'',
         prep_time:'',
         cook_time:'',
-        image:''
+        image:null
     })
     const [storedImage, setStoredImage] = useState('')
     const {id} = useParams();

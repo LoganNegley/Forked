@@ -12,6 +12,8 @@ function ViewRecipe(props){
     const [toggle, setToggle] = useState(true);
     const userId = props.user.user.user_id;
     const history = useHistory();
+    const [shared, setShared] = useState(false);
+    const [favorited, setFavorited] = useState(false);
 
 
     useEffect(() =>{
@@ -22,7 +24,7 @@ function ViewRecipe(props){
         .catch(error =>{
             console.log(error)
         })
-    },[])
+    },[shared, favorited])
 
     const handleDelete=() =>{
         axios.delete(`http://localhost:5000/recipes/${id}`)
@@ -46,7 +48,7 @@ function ViewRecipe(props){
     const shareToPublic=() =>{
         axios.put(`http://localhost:5000/public/recipes/${id}`)
         .then(res =>{
-            console.log(res)
+            setShared(true)
         })
         .catch(error =>{
             console.log(error)
@@ -56,13 +58,12 @@ function ViewRecipe(props){
     const handleAddFavorite =() =>{
         axios.post(`http://localhost:5000/favorites/user/${userId}/recipe/${id}`)
         .then(res =>{
-            console.log(res)
+            setFavorited(true)
         })
         .catch(error =>{
             console.log(error)
         })
     };
-
 
 
     return(
@@ -78,7 +79,7 @@ function ViewRecipe(props){
                     <div className='details-btn'>
                         {recipe.isPublic != 1 ?
                             <button onClick={shareToPublic}>Share</button>
-                            : <div style={{display: 'none'}}></div>
+                            : <div style={{display:'none'}}></div>
                         }
                         {recipe.isFavorite != 1 ? <button onClick={handleAddFavorite} className='fave-btn'>Add Favorite</button> : <div style={{display: 'none'}}></div>}
                         <button onClick={handleDelete}>Delete</button>
