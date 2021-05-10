@@ -8,7 +8,7 @@ function UsersRecipeCard({item}){
 
 
     const handleAddFave =()=>{
-        axios.post(`http://localhost:5000/favorites/user/${id}/recipe/${item.recipe_id}`)
+        axios.post(`https://forked-recipe.vercel.app/favorites/user/${id}/recipe/${item.recipe_id}`)
         .then(res =>{
             console.log(res)
         })
