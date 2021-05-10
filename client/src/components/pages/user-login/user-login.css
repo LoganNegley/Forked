@@ -22,8 +22,8 @@
     flex-flow: row nowrap;
     justify-content: space-around;
 }
-.form-wrapper .login-buttons .create-account{
-    width:10em;
+#login-form-wrapper .login-buttons .create-account{
+    width:100%;
 }
 
 #failed-login-attempt .false{
