@@ -7,7 +7,7 @@ function DashboardFaves({loggedUser}){
     const [userFavorite, setUserFavorite] = useState('')
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/favorites/user/${loggedUser.user_id}`)
+        axios.get(`https://forked-application.herokuapp.com/favorites/user/${loggedUser.user_id}`)
         .then(res =>{
             setUserFavorite(res.data);
         })

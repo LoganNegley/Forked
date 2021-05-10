@@ -17,7 +17,7 @@ function OnboardingForm(){
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.post('http://localhost:5000/auth/register', newUser)
+        axios.post('https://forked-application.herokuapp.com/auth/register', newUser)
         .then(res =>{
             console.log(res)
             history.push(`/login`)

@@ -9,7 +9,7 @@ function PublicRecipeContainer(props){
     const {user} = props.user;
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/public/recipes')
+        axios.get('https://forked-application.herokuapp.com/public/recipes')
         .then(res =>{
             setPublicRecipes(res.data)
         })

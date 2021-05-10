@@ -5,7 +5,10 @@ function InfoCards() {
     <div className="cards-container">
         <h3>Why Forked</h3>
         <div className='card'>
-          <div className='contents'>
+          <div style={{color:'white', margin:'0 auto', fontSize:'2rem', textAlign:'center'}}>
+            <p>Coming Soon!!</p>
+          </div>
+          <div className='contents' style={{height:'75%'}}>
               <img src='images/checklist_icon.png' alt='checklist icon'/>
               <p>Create shopping lists with ingredients from your favorite recipes</p>
           </div>

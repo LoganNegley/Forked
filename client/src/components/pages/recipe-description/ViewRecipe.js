@@ -19,7 +19,7 @@ function ViewRecipe(props){
 
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/recipes/${id}`)  //get recipe by ID
+        axios.get(`https://forked-application.herokuapp.com/recipes/${id}`)  //get recipe by ID
         .then(res =>{
             setRecipe(res.data[0])
         })
@@ -29,7 +29,7 @@ function ViewRecipe(props){
     },[shared, favorited])
 
     const handleDelete=() =>{
-        axios.delete(`http://localhost:5000/recipes/${id}`)
+        axios.delete(`https://forked-application.herokuapp.com/recipes/${id}`)
         .then(res =>{
 
             history.push(`/recipes/user/${userId}`)
@@ -48,7 +48,7 @@ function ViewRecipe(props){
     };
 
     const shareToPublic=() =>{
-        axios.put(`http://localhost:5000/public/recipes/${id}`)
+        axios.put(`https://forked-application.herokuapp.com/public/recipes/${id}`)
         .then(res =>{
             setShared(true)
         })
@@ -58,7 +58,7 @@ function ViewRecipe(props){
     };
 
     const handleAddFavorite =() =>{
-        axios.post(`http://localhost:5000/favorites/user/${userId}/recipe/${id}`)
+        axios.post(`https://forked-application.herokuapp.com/favorites/user/${userId}/recipe/${id}`)
         .then(res =>{
             setFavorited(true)
         })

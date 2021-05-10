@@ -20,7 +20,7 @@ function DashboardPublic(){
     }
 
     useEffect(() =>{
-        axios.get('http://localhost:5000/public/recipes/')
+        axios.get('https://forked-application.herokuapp.com/public/recipes/')
         .then(res =>{
             setPublicRecipe(res.data);
         })

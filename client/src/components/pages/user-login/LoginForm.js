@@ -23,7 +23,7 @@ function LoginForm({user, setUser}){
     // Form functions
     const handleSubmit = (event)=>{
         event.preventDefault();
-        axios.post('http://localhost:5000/auth/login', userCreds)
+        axios.post('https://forked-application.herokuapp.com/auth/login', userCreds)
         .then(res =>{
             setUser(res.data.user)
             setLoggedUser(res.data.user.user.username);

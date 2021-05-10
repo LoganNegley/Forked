@@ -19,7 +19,7 @@ function DashboardMyRecipes(props){
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/recipes/user/${user.user_id}`)
+        axios.get(`https://forked-application.herokuapp.com/recipes/user/${user.user_id}`)
         .then(res =>{
             setRecipes(res.data)
         })

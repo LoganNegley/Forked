@@ -7,7 +7,7 @@ function ViewIngredients(){
     const [ingredients, setIngredients] = useState('')
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/ingredient/recipe/${id}`)
+        axios.get(`https://forked-application.herokuapp.com/ingredient/recipe/${id}`)
         .then(res =>{
             setIngredients(res.data)
 
