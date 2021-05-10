@@ -22,7 +22,7 @@ function UsersRecipeCard({item}){
         <div className='recipe-card-container'>
             <div className='recipe-card'>
                 <div className='recipe-card-wrapper'>
-                {item.image === null ? <img src='/images/utensils.png'/> :
+                {item.image === "" ? <img src='/images/utensils.png'/> :
                 <img src={item.image}/>}
                     
                     <div className='recipe-card-info'>
