@@ -28,7 +28,7 @@ function InstructionForm(props){
     const handleSubmit =(event)=>{
         event.preventDefault();
         steps.map(item =>{
-            axios.post(`http://localhost:5000/steps/recipe/${recipeId}`, item)
+            axios.post(`https://forked-application.herokuapp.com/steps/recipe/${recipeId}`, item)
             .then(res =>{
                 console.log(res)
                 setSubmit(true)

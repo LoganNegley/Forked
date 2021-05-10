@@ -14,7 +14,7 @@ function Ingredients(props){
 
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/recipes/${recipeId}`)
+        axios.get(`https://forked-application.herokuapp.com/recipes/${recipeId}`)
         .then(res =>{
             setRecipe(res.data[0])
         })
@@ -38,7 +38,7 @@ function Ingredients(props){
     const handleSubmit=(event) =>{
         event.preventDefault();
         inputs.map(item =>{
-            axios.post(`http://localhost:5000/ingredient/recipe/${recipeId}`, item)
+            axios.post(`https://forked-application.herokuapp.com/ingredient/recipe/${recipeId}`, item)
             .then(res =>{
                 setInputs([{
                     ingredient_name:'',

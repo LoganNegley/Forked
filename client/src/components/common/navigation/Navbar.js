@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import './navbar.css';
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-// import LoggedOutMenu from './home-menu/LoggedOutMenu';
-// import UserNavMenu from './user-menu/UserNavMenu';
 import Menus from '../navigation/Menus';
 
 

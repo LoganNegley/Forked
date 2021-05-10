@@ -9,7 +9,7 @@ function ViewSteps(){
 
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/steps/recipe/${id}`)
+        axios.get(`https://forked-application.herokuapp.com/steps/recipe/${id}`)
         .then(res =>{
             setSteps(res.data)
         })

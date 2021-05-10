@@ -11,7 +11,7 @@ function UserFavorite(){
 
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/favorites/user/${userId}`)
+        axios.get(`https://forked-application.herokuapp.com/favorites/user/${userId}`)
         .then(res =>{
             setRecipes(res.data)
             setDeleted(false)
@@ -24,7 +24,7 @@ function UserFavorite(){
 
 
     const handleDelete =(recipeId) =>{
-        axios.delete(`http://localhost:5000/favorites/recipe/${recipeId}`)
+        axios.delete(`https://forked-application.herokuapp.com/favorites/recipe/${recipeId}`)
         .then(res =>{
             setDeleted(true);
             console.log(res)

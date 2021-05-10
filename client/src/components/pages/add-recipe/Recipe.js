@@ -20,7 +20,7 @@ function Recipe({recipeId, setRecipeId}){
 
     const handleSubmit= (event)=>{
         event.preventDefault();
-        axios.post(`http://localhost:5000/recipes/user/${id}`, newRecipe)
+        axios.post(`https://forked-application.herokuapp.com/recipes/user/${id}`, newRecipe)
         .then(res =>{
             setRecipeId(res.data[0])
         })
