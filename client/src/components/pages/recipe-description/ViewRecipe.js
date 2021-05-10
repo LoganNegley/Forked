@@ -15,8 +15,6 @@ function ViewRecipe(props){
     const [shared, setShared] = useState(false);
     const [favorited, setFavorited] = useState(false);
 
-    console.log(props)
-
 
     useEffect(() =>{
         axios.get(`https://forked-application.herokuapp.com/recipes/${id}`)  //get recipe by ID
@@ -70,7 +68,7 @@ function ViewRecipe(props){
 
     return(
         <div className='view-recipe-container'>
-        {recipe.image === null ? <img src='/images/utensils.png'/> : 
+        {recipe.image === "" ? <img src='/images/utensils.png'/> : 
             <img src={recipe.image}/>}
             
             <div className='view-details'>
