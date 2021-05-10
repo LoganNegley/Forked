@@ -19,7 +19,7 @@ function UserNavMenu(props){
     };
 
     const handleLogout =()=>{
-        axios.get('http://localhost:5000/auth/logout')
+        axios.get('https://forked-application.herokuapp.com/auth/logout')
         .then(res =>{
             history.push('/login')
             setToggled(false)
