@@ -10,7 +10,7 @@ function UsersRecipes(){
     const {id} = useParams();
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/recipes/user/${id}`)
+        axios.get(`https://forked-recipe.vercel.app/recipes/user/${id}`)
         .then(res =>{
             setUserRecipe(res.data)
         })

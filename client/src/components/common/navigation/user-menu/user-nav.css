@@ -17,7 +17,7 @@
 .menu-heading{
     background-color:var(--orange);
     color:white;
-    width:40%;
+    width:20em;
     height:75px;
     display:flex;
     flex-flow:column;
@@ -33,10 +33,10 @@ margin-left:1rem;
     margin-bottom:-1.5rem;
 }
 .menu-heading p:last-of-type{
-    font-size:2rem;
+    font-size:1.75rem;
     font-weight: bold;
     text-transform: uppercase;
-    margin-left:3rem;
+    margin-left:2.25rem;
 }
 .menu-card{
     color:var(--orange);
