@@ -65,7 +65,8 @@ router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,
         if(item.length > 0){
             const recipe = item[0] //If recipe set it to recipe
             
-            if(recipe.isFavorite === 0){ //if recipe is not a favorite then update isFavorite Key of recipe
+            if(recipe.isFavorite === false){
+                console.log(recipe) //if recipe is not a favorite then update isFavorite Key of recipe
                 db.updateIsFavorite(recipe.recipe_id, true)
                 .then(update =>{
 

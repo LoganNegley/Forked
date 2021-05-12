@@ -40,7 +40,7 @@ router.put('/:id', (req,res) =>{
         if(item.length > 0){
             const recipe = item[0]
 
-            if(recipe.isPublic === 0){ //if recipe is not public run update func
+            if(recipe.isPublic === false){ //if recipe is not public run update func
                 db.updateIsPublicRecipe(recipe.recipe_id, true)
                 .then(update =>{ //Run func to add recipe to public table
                     db.addToPublicRecipe(recipe)
