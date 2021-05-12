@@ -3,13 +3,13 @@
     width:90%;
     margin:0 auto;
 }
-.users-recipe-container h3{
+/* .users-recipe-container h3{
     font-size: 3rem;
     margin-top:3rem;
     text-align: center;
     color:var(--orange);
     line-height: 5rem;
-}
+} */
 .heading-triangle{
     width: 0;
     height: 0;
@@ -103,14 +103,16 @@
 }
 .recipe-card img{
     width:50px;
-    height:50px;
+    height:65px;
     margin:1.2rem;
 }
 .recipe-card-info{
     margin:.75rem 0rem .5rem .5rem;
+    width:75%;
 }
-.recipe-card-info h3{
-    font-size: 1.5rem;
+.recipe-card-wrapper .recipe-card-info h3{
+    color:var(--orange);
+    font-size: 1.85rem;
     margin-bottom:1rem;
 }
 .recipe-card-info p{
