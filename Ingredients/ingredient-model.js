@@ -18,9 +18,9 @@ function addIngredient(ingredient){
     .returning('ingredient_id')
     };
 
-function addIngredientToRecipe(ingredientId, recipeId){
+function addIngredientToRecipe(iId, rId){
     return db('recipe_ingredient')
-    .insert({recipeId:recipeId, ingredientId:ingredientId})  //**********here
+    .insert({ingredientId:iId, recipeId:rId})
 };
 
 function deleteIngredientById(id){
