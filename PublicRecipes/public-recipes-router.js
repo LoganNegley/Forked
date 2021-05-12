@@ -48,10 +48,12 @@ router.put('/:id', (req,res) =>{
                         res.status(200).json(record)
                     })
                     .catch(error =>{
+                        console.log(error)
                         res.status(500).json({errorMessage:'Failed to add info to public recipe '})
                     })
                 })
                 .catch(error =>{
+                    console.log(error)
                     res.status(500).json({errorMessge:'Failed to update recipe as public'})
                 })
             }else{ //response if recipe is public
@@ -62,6 +64,7 @@ router.put('/:id', (req,res) =>{
         }
     })
     .catch(error =>{
+        console.log(error)
         res.status(500).json({errorMessage:'Failed to get recipe by ID'})
     })
 

@@ -75,10 +75,12 @@ router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,
                         res.status(200).json(record)
                     })
                     .catch(error =>{
+                        console.log(error)
                         res.status(500).json({errorMessage:'Failed to add info to favorites'})
                     })
                 })
                 .catch(error =>{
+                    console.log(error)
                     res.status(500).json({errorMessage: 'Failed to update recipe to favorits'})
                 })
             } else{
@@ -89,6 +91,7 @@ router.post('/user/:id/recipe/:recipeId',validateUserId, validateRecipeId, (req,
         }
     })
     .catch(error =>{
+        console.log(error)
         res.status(500).json({errorMessage:'Failed to get recipe with ID'})
     })
 
