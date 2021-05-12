@@ -88,8 +88,8 @@ function ViewRecipe(props){
                 }
             </div>
                 <div className='recipe-details-btn'>
-                    <p className={toggle ? `${toggle}` : 'none'} onClick={handleToggle}>Ingredients</p>
-                    <p className={!toggle ? `${toggle}` : 'none'} onClick={handleToggle}>Instructions</p>
+                    <p className={toggle ? `${toggle}` : 'none'} style={{cursor:'pointer'}} onClick={handleToggle}>Ingredients</p>
+                    <p className={!toggle ? `${toggle}` : 'none'} style={{cursor:'pointer'}} onClick={handleToggle}>Instructions</p>
                 </div>
                 <div className='recipe-details-section'>
                     {toggle ? <ViewIngredients/> :
