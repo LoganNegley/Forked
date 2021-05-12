@@ -63,7 +63,7 @@ router.post('/recipe/:id', (req,res) =>{
         } else{
             db.addIngredient(newIng) //add ingredient to database
             .then(ing =>{
-                db.addIngredientToRecipe(ing, recipeId) // adding data to reference table
+                db.addIngredientToRecipe(ing[0], recipeId) // adding data to reference table
                 .then(item =>{
                     res.status(201).json({created:item})
                 })

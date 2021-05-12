@@ -16,6 +16,7 @@ function addIngredient(ingredient){
     return db('ingredients')
     .insert(ingredient)
     .returning('ingredient_id')
+
     };
 
 function addIngredientToRecipe(iId, rId){
