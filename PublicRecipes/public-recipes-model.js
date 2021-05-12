@@ -26,7 +26,7 @@ function updateIsPublicRecipe(id, isPublic){
     return db('recipes')
     .where('recipe_id', '=', id)
     .update({isPublic:isPublic})
-    .returning('id')
+    .returning('recipe_id')
 };
 
 function deletePublicRecipeById(id){

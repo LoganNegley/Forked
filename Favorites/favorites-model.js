@@ -38,7 +38,7 @@ function updateIsFavorite(id, favorite){
     return db('recipes')
     .where('recipe_id', '=', id)
     .update({isFavorite: favorite})
-    .returning('id')
+    .returning('recipe_id')
 }
 
 // delete favorite by recipe ID
