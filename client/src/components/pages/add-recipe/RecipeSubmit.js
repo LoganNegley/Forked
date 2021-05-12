@@ -5,8 +5,8 @@ function RecipeSubmit({recipe}){
     // console.log(props)
     return(
         <div className='add-recipe-success-message'>
-            Your {recipe.recipeName} Recipe was successfully uploaded!
-            <Link to={`/view/recipe/${recipe.recipe_id}`}><button>Check it out!</button></Link>
+            <p>Your <span>{recipe.recipeName}</span> Recipe was successfully uploaded!</p>
+            <Link to={`/view/recipe/${recipe.recipe_id}`}><button>Check it out here!</button></Link>
         </div>
     )
 };

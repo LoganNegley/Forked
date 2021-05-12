@@ -213,3 +213,30 @@
     left:200px;
 
 }
+
+/* Added recipe success */
+.add-recipe-success-message{
+    color: var(--orange);
+    display:flex;
+    flex-flow:column nowrap;
+    align-items: center;
+    text-align: center;
+}
+.add-recipe-success-message p{
+    margin-top:3rem;
+    font-size: 3rem;
+    line-height: 5.25rem;
+}
+.add-recipe-success-message span{
+    color:white;
+}
+.add-recipe-success-message button{
+    color:white;
+    background:none;
+    border:solid 1px var(--orange);
+    border-radius:5px;
+    margin-top:2rem;
+    font-size: 1.55rem;
+    padding:.85rem;
+
+}
