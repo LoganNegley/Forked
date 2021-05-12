@@ -51,6 +51,7 @@ router.get('/:id', (req,res) =>{
 // add ingredient to recipe by Id
 router.post('/recipe/:id', (req,res) =>{
     const {id} = req.params;
+    const recipeId = parseInt(id)
     const newIng = req.body;
 
     recipeModel.findRecipeById(id) //validate recipe exists
@@ -62,7 +63,7 @@ router.post('/recipe/:id', (req,res) =>{
         } else{
             db.addIngredient(newIng) //add ingredient to database
             .then(ing =>{
-                db.addIngredientToRecipe(ing, id) // adding data to reference table
+                db.addIngredientToRecipe(ing, recipeId) // adding data to reference table
                 .then(item =>{
                     res.status(201).json({created:item})
                 })

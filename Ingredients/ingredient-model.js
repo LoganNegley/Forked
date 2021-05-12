@@ -20,7 +20,7 @@ function addIngredient(ingredient){
 
 function addIngredientToRecipe(ingredientId, recipeId){
     return db('recipe_ingredient')
-    .insert({recipeId:recipeId, ingredientId:ingredientId})
+    .insert({recipeId:recipeId, ingredientId:ingredientId})  //**********here
 };
 
 function deleteIngredientById(id){
