@@ -10,7 +10,7 @@ function FavoriteCard(props){
     return(
         <div className='favorite-card-container'>
             <div id='fav-col-1'>
-                {recipe.image === null ? <img src='/images/utensils.png' alt='not available' /> :
+                {recipe.image === "" ? <img src='/images/utensils.png' alt='not available' /> :
                 <img src={recipe.image} alt='recipe'/>}
             </div>
             <div id='fav-col-2'>

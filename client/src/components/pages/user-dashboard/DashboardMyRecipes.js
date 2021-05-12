@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 function DashboardMyRecipes(props){
     const [recipes,  setRecipes] = useState('');
     const user = props.user;
+    const [slide, setSlide] = useState(1);
 
     const settings={
         naturalSlideWidth:100, 
