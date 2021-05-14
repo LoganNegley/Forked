@@ -45,7 +45,7 @@ function DashboardPublic(){
                         {publicRecipe.map((item, index) =>(
                         <Slide index={index +1} key={index}> 
                             <Link to={`/view/recipe/${item.recipe_id}`}>
-                               {item.image === null ? <img src='/images/utensils.png' alt='recipe not added'/> :
+                               {item.image === "" ? <img src='/images/utensils.png' alt='recipe not added'/> :
                                <img src={item.image} alt='recipe'/>} 
                             </Link>
                         </Slide>

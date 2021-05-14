@@ -19,14 +19,14 @@ function DashboardMyRecipes(props){
         visibleSlides:1
     }
 
-    const setSlide =()=>{
+    // const setSlide =()=>{
 
-    };
+    // };
 
     useEffect(()=>{
         axios.get(`https://forked-application.herokuapp.com/recipes/user/${user.user_id}`)
         .then(res =>{
-            
+
             setRecipes(res.data)
         })
         .catch(error =>{
