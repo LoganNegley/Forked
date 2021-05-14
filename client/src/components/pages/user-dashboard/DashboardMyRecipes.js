@@ -6,32 +6,30 @@ import {Link} from 'react-router-dom';
 
 function DashboardMyRecipes(props){
     const [recipes,  setRecipes] = useState('');
+    const [randomRecipes, setRandomRecipes] = useState('');
     const user = props.user;
-    const [slide, setSlide] = useState(1);
 
     const settings={
         naturalSlideWidth:100, 
         naturalSlideHeight:75, 
-        totalSlides:3, 
+        totalSlides:recipes.length >= 7 ? 7 : recipes.length, 
         isPlaying:true,
         interval:4000, 
         infinite:true,
         visibleSlides:1
     }
 
-    // const setSlide =()=>{
 
-    // };
 
     useEffect(()=>{
         axios.get(`https://forked-application.herokuapp.com/recipes/user/${user.user_id}`)
         .then(res =>{
-
             setRecipes(res.data)
         })
         .catch(error =>{
             console.log(error)
         })
+
     },[])
 
 
