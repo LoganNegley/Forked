@@ -9,11 +9,6 @@ function DashboardFaves({loggedUser}){
     useEffect(()=>{
         axios.get(`https://forked-application.herokuapp.com/favorites/user/${loggedUser.user_id}`)
         .then(res =>{
-            // if(res.data >= 5){
-            //     setUserFavorite(shuffle(res.data));
-            // }else{
-            //     setUserFavorite(res.data)
-            // }
             setUserFavorite(shuffle(res.data))
             
         })
@@ -28,7 +23,9 @@ function DashboardFaves({loggedUser}){
     const shuffle = (recipes) =>{
         const used = [];
         const random =[];
-        // if(recipes.length === 0)
+        if(recipes.length < 7){
+            return recipes
+        }
         let i = 0;
         for(; i < 7; i++){
             const index = Math.floor(Math.random() * recipes.length)

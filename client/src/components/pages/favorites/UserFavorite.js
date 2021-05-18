@@ -27,7 +27,6 @@ function UserFavorite(){
         axios.delete(`https://forked-application.herokuapp.com/favorites/recipe/${recipeId}`)
         .then(res =>{
             setDeleted(true);
-            console.log(res)
 
         })
         .catch(error =>{
