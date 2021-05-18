@@ -30,7 +30,6 @@ function InstructionForm(props){
         steps.map(item =>{
             axios.post(`https://forked-application.herokuapp.com/steps/recipe/${recipeId}`, item)
             .then(res =>{
-                console.log(res)
                 setSubmit(true)
             })
             .catch(error =>{

@@ -9,12 +9,39 @@ function DashboardFaves({loggedUser}){
     useEffect(()=>{
         axios.get(`https://forked-application.herokuapp.com/favorites/user/${loggedUser.user_id}`)
         .then(res =>{
-            setUserFavorite(res.data);
+            // if(res.data >= 5){
+            //     setUserFavorite(shuffle(res.data));
+            // }else{
+            //     setUserFavorite(res.data)
+            // }
+            setUserFavorite(shuffle(res.data))
+            
         })
         .catch(error =>{
             console.log(error)
         })
     },[])
+
+    console.log(userFavorite)
+
+
+    const shuffle = (recipes) =>{
+        const used = [];
+        const random =[];
+        // if(recipes.length === 0)
+        let i = 0;
+        for(; i < 7; i++){
+            const index = Math.floor(Math.random() * recipes.length)
+            if(used.includes(index) === false){
+                used.push(index)
+                const item = recipes[index]
+                random.push(item)
+            }else{
+                i--
+            }
+        }
+        return random;
+    }
 
     if(!userFavorite){
         return (<div></div>)

@@ -30,8 +30,6 @@ function DashboardMyRecipes(props){
 
     },[])
 
-    console.log(recipes)
-
     const shuffle = (recipes) =>{
         const used = [];
         const random =[];
