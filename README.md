@@ -1,9 +1,10 @@
 # Forked
-An application to store recipes
+A React application on the front end that allows users to store recipes in one location while having the option to share their saved recipes with other users.
 
-Use all endpoints after main route: https://<span>forked-application.herokuapp.com/</span>
 
 # Back-end endpoints
+
+Use all endpoints after main route: https://<span>forked-application.herokuapp.com/</span>
 ************************************
 **Login/Logout/Register Users**
   - Register user - HTTP request POST----('/auth/register')
