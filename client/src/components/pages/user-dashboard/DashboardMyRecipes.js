@@ -34,6 +34,9 @@ function DashboardMyRecipes(props){
         const used = [];
         const random =[];
         let i = 0;
+        if(recipes.length < 7){
+            return recipes
+        }
         for(; i < 7; i++){
             const index = Math.floor(Math.random() * recipes.length)
             if(used.includes(index) === false){

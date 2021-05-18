@@ -39,7 +39,7 @@ function UsersRecipes(){
                 <Link to={`/user/${id}/recipe/add`}><button className='add-recipe-btn'>Add Recipe</button></Link>
             </div>
 
-            {userRecipes.length === 0 ? <h3>Make sure to add some recipes!</h3> :
+            {userRecipes.length === 0 ? <h3>Add some recipes!</h3> :
                 userRecipes.map((item, index) =>(
                     <UsersRecipeCard key={index} item={item}/>
                 ))
