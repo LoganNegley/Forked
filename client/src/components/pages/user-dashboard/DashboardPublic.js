@@ -12,7 +12,7 @@ function DashboardPublic(){
     const settings={
         naturalSlideWidth:100, 
         naturalSlideHeight:100, 
-        totalSlides:7, 
+        totalSlides:publicRecipe.length >= 7 ? 7 : publicRecipe.length, 
         isPlaying:true,
         interval:5000, 
         infinite:true,
@@ -22,12 +22,33 @@ function DashboardPublic(){
     useEffect(() =>{
         axios.get('https://forked-application.herokuapp.com/public/recipes/')
         .then(res =>{
-            setPublicRecipe(res.data);
+            setPublicRecipe(shuffle(res.data));
+            // setPublicRecipe(res.data)
         })
         .catch(error =>{
             console.log(error)
         })
     },[]);
+
+        const shuffle = (recipes) =>{
+        const used = [];
+        const random =[];
+        if(recipes.length < 7){
+            return recipes
+        }
+        let i = 0;
+        for(; i < 7; i++){
+            const index = Math.floor(Math.random() * recipes.length)
+            if(used.includes(index) === false){
+                used.push(index)
+                const item = recipes[index]
+                random.push(item)
+            }else{
+                i--
+            }
+        }
+        return random;
+    };
 
 
     if(!publicRecipe){

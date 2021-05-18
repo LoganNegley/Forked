@@ -165,7 +165,7 @@ font-weight: bold;
     color:var(--gray);
 }
 .dashboard-container .main-sections .dashboard-section-container:last-of-type{
-    /* margin-top:-.25rem; */
+    margin-top:-.40rem;
 }
 .my-recipe-dash-section .no-recipe-container{
     color:var(--orange);
