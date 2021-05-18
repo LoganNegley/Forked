@@ -11,7 +11,7 @@ function PublicCard(props){
             {publicRecipesData.map((recipe)=>(
                 <div className='public-card' key={recipe.recipe_id}>
                     <div className='col-1 recipe-image'>
-                        {recipe.image === null ? <img src='/images/utensils.png' alt='recipe'/> : <img src={recipe.image} alt='not available logo'/>}
+                        {recipe.image === "" ? <img src='/images/utensils.png' alt='recipe'/> : <img src={recipe.image} alt='not available logo'/>}
                     </div>
                         
                     <div className='recipe-details col-2'>
