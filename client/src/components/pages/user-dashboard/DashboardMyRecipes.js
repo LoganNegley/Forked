@@ -19,18 +19,35 @@ function DashboardMyRecipes(props){
         visibleSlides:1
     }
 
-
-
     useEffect(()=>{
         axios.get(`https://forked-application.herokuapp.com/recipes/user/${user.user_id}`)
         .then(res =>{
-            setRecipes(res.data)
+            setRecipes(shuffle(res.data))
         })
         .catch(error =>{
             console.log(error)
         })
 
     },[])
+
+    console.log(recipes)
+
+    const shuffle = (recipes) =>{
+        const used = [];
+        const random =[];
+        let i = 0;
+        for(; i < 7; i++){
+            const index = Math.floor(Math.random() * recipes.length)
+            if(used.includes(index) === false){
+                used.push(index)
+                const item = recipes[index]
+                random.push(item)
+            }else{
+                i--
+            }
+        }
+        return random;
+    };
 
 
     return(
