@@ -1,6 +1,12 @@
 # Forked
 A React application on the front end that allows users to store recipes in one location while having the option to share their saved recipes with other users.
 
+You can test out the applications with logging in with:
+usernaem = test
+password = test
+
+Or feel free to make your own account with signing up!
+
 
 # Back-end endpoints
 
